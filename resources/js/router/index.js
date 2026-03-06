@@ -20,6 +20,8 @@ import VirtualTryOn from '../pages/VirtualTryOn.vue';
 import PersonalStylist from '../pages/PersonalStylist.vue';
 import StyleProfile from '../pages/StyleProfile.vue';
 import OutfitBuilder from '../pages/OutfitBuilder.vue';
+import Login from '../pages/Login.vue';
+import Register from '../pages/Register.vue';
 
 // Admin Pages
 import AdminDashboard from '../pages/admin/Dashboard.vue';
@@ -42,6 +44,16 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home,
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login,
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register,
     },
     {
         path: '/shop',

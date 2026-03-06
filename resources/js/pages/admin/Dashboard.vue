@@ -54,6 +54,10 @@
                     <span class="material-symbols-outlined">settings</span>
                     Settings
                 </router-link>
+                <button @click="logout" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted hover:bg-oax-panel hover:text-white">
+                    <span class="material-symbols-outlined">logout</span>
+                    Logout
+                </button>
             </nav>
             <div class="p-4 border-t border-oax-border">
                 <router-link to="/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted hover:bg-oax-panel hover:text-white">
@@ -220,6 +224,11 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+import axios from 'axios'
+
+const router = useRouter()
+
 const revenueData = [
     { month: 'Jul', value: 65 },
     { month: 'Aug', value: 78 },
@@ -254,4 +263,22 @@ const inventoryAlerts = [
     { product: 'Velvet Midnight Blazer - M', stock: 5 },
     { product: 'Silk Draped Tunic - S', stock: 2 }
 ]
+
+const logout = async () => {
+    try {
+        const token = localStorage.getItem('token')
+        if (token) {
+            await axios.post('/api/v1/auth/logout', {}, {
+                headers: { Authorization: `Bearer ${token}` }
+            })
+        }
+    } catch (error) {
+        console.error('Logout error:', error)
+    }
+    
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    delete axios.defaults.headers.common['Authorization']
+    router.push('/login')
+}
 </script>

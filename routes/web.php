@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Serve the Vue SPA - all routes return the built Vue app
+// Serve the Vue SPA through Vite/Laravel
 Route::get('/{any}', function () {
-    return file_get_contents(public_path('index.html'));
+    return view('welcome');
 })->where('any', '.*');

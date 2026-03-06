@@ -13,6 +13,24 @@ export default defineConfig({
         vue(),
     ],
     server: {
+        port: 5174,
+        host: '0.0.0.0',
+        strictPort: true,
+        hmr: {
+            host: 'localhost',
+        },
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8000',
+                changeOrigin: true,
+                secure: false,
+            },
+            '/sanctum': {
+                target: 'http://localhost:8000',
+                changeOrigin: true,
+                secure: false,
+            },
+        },
         watch: {
             ignored: ['**/storage/framework/views/**'],
         },
