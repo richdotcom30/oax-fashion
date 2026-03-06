@@ -26,6 +26,15 @@ import AdminDashboard from '../pages/admin/Dashboard.vue';
 import AdminProducts from '../pages/admin/Products.vue';
 import AdminOrders from '../pages/admin/Orders.vue';
 import AdminCustomers from '../pages/admin/Customers.vue';
+import AdminAnalytics from '../pages/admin/Analytics.vue';
+import AdminInventory from '../pages/admin/Inventory.vue';
+import AdminCollections from '../pages/admin/Collections.vue';
+import AdminMarketing from '../pages/admin/Marketing.vue';
+import AdminReports from '../pages/admin/Reports.vue';
+import AdminSettings from '../pages/admin/Settings.vue';
+import AdminFulfillment from '../pages/admin/Fulfillment.vue';
+import AdminReturnsExchanges from '../pages/admin/ReturnsExchanges.vue';
+import AdminAddProduct from '../pages/admin/AddProduct.vue';
 
 const routes = [
     // Customer Routes
@@ -145,6 +154,51 @@ const routes = [
         path: '/admin/customers',
         name: 'admin-customers',
         component: AdminCustomers,
+    },
+    {
+        path: '/admin/analytics',
+        name: 'admin-analytics',
+        component: AdminAnalytics,
+    },
+    {
+        path: '/admin/inventory',
+        name: 'admin-inventory',
+        component: AdminInventory,
+    },
+    {
+        path: '/admin/collections',
+        name: 'admin-collections',
+        component: AdminCollections,
+    },
+    {
+        path: '/admin/marketing',
+        name: 'admin-marketing',
+        component: AdminMarketing,
+    },
+    {
+        path: '/admin/reports',
+        name: 'admin-reports',
+        component: AdminReports,
+    },
+    {
+        path: '/admin/settings',
+        name: 'admin-settings',
+        component: AdminSettings,
+    },
+    {
+        path: '/admin/fulfillment',
+        name: 'admin-fulfillment',
+        component: AdminFulfillment,
+    },
+    {
+        path: '/admin/returns',
+        name: 'admin-returns',
+        component: AdminReturnsExchanges,
+    },
+    {
+        path: '/admin/products/add',
+        name: 'admin-product-add',
+        component: AdminAddProduct,
     },
 ];
 
