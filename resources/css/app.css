@@ -1,0 +1,248 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* Material Symbols */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* OAX FASHION Design System Theme */
+@theme {
+    /* Primary Colors */
+    --color-primary: #8B0000;
+    --color-primary-light: #d41111;
+    --color-primary-dark: #6B0000;
+    
+    /* Background Colors */
+    --color-background-dark: #181111;
+    --color-background-light: #f8f6f6;
+    
+    /* Surface Colors */
+    --color-surface-dark: #221010;
+    --color-surface-darker: #1a0d0d;
+    --color-oax-dark: #181111;
+    --color-oax-panel: #271c1c;
+    --color-oax-border: #392828;
+    --color-input-dark: #271c1c;
+    --color-border-dark: #543b3b;
+    
+    /* Text Colors */
+    --color-text-muted: #b99d9d;
+    --color-text-subtle: #b99d9d;
+    --color-text-secondary: #b89d9f;
+    
+    /* Accent Colors */
+    --color-gold: #D4AF37;
+    --color-accent-gold: #D4AF37;
+    
+    /* Typography */
+    --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-display: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-full: 9999px;
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #181111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #392828;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8B0000;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Custom Range Slider Styling */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #8B0000;
+    cursor: pointer;
+    margin-top: -6px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #392828;
+    border-radius: 2px;
+}
+
+/* Selection Colors */
+::selection {
+    background-color: #8B0000;
+    color: white;
+}
+
+/* Focus Styles */
+*:focus-visible {
+    outline: 2px solid #8B0000;
+    outline-offset: 2px;
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(139, 0, 0, 0.5);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Luxury Button Styles */
+.btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg;
+}
+
+.btn-secondary {
+    @apply bg-transparent border border-white/20 text-white hover:bg-white hover:text-black font-medium px-6 py-3 rounded-lg transition-all duration-300;
+}
+
+.btn-ghost {
+    @apply bg-transparent text-gray-400 hover:text-white transition-colors;
+}
+
+/* Card Styles */
+.card-luxury {
+    @apply bg-surface-dark border border-oax-border rounded-xl overflow-hidden;
+}
+
+.card-luxury-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/50;
+}
+
+/* Input Styles */
+.input-luxury {
+    @apply w-full bg-input-dark border border-oax-border text-white rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all placeholder:text-text-muted/50;
+}
+
+/* Badge Styles */
+.badge-new {
+    @apply bg-white text-black text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide;
+}
+
+.badge-sale {
+    @apply bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide;
+}
+
+.badge-limited {
+    @apply bg-gold text-black text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide;
+}
+
+/* Grid Patterns */
+.grid-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Aspect Ratio Utilities */
+.aspect-portrait {
+    aspect-ratio: 3 / 4;
+}
+
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+/* Gradient Overlays */
+.gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent;
+}
+
+.gradient-radial {
+    @apply absolute inset-0;
+    background: radial-gradient(circle at center, rgba(139, 0, 0, 0.1) 0%, transparent 70%);
+}
+
+/* Text Gradient */
+.text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold to-yellow-200;
+}
+
+/* Glass Effect */
+.glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+/* Section Backgrounds */
+.section-dark {
+    @apply bg-background-dark;
+}
+
+.section-surface {
+    @apply bg-surface-dark;
+}

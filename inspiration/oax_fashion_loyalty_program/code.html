@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION Loyalty Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9bc06",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#231e0f",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#181611] dark:text-white font-display overflow-x-hidden transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- Top Navigation -->
+<div class="w-full border-b border-solid border-[#3a3527] bg-background-dark">
+<header class="flex items-center justify-between whitespace-nowrap px-10 py-4 max-w-[1440px] mx-auto w-full">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3 text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined" style="font-size: 32px;">diamond</span>
+</div>
+<h2 class="text-white text-xl font-black tracking-widest">OAX FASHION</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-medium" href="#">New Arrivals</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-medium" href="#">Designers</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-medium" href="#">Clothing</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-medium" href="#">Shoes</a>
+<a class="text-white/80 hover:text-primary transition-colors text-sm font-medium" href="#">Bags</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-white/50 material-symbols-outlined">search</span>
+<input class="bg-[#3a3527] text-white pl-10 pr-4 py-2 rounded-lg text-sm border-none focus:ring-1 focus:ring-primary w-64 placeholder:text-white/30" placeholder="Search collection..."/>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 px-6 bg-primary text-background-dark text-sm font-bold hover:bg-white transition-colors">
+                            Sign In
+                        </button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#3a3527] text-white hover:text-primary transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+</div>
+<!-- Main Content -->
+<main class="flex flex-col items-center w-full grow">
+<!-- Hero Section -->
+<div class="w-full bg-[#181611] py-16 px-6 lg:px-20 relative overflow-hidden">
+<!-- Abstract Background Pattern -->
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[url('https://placeholder.pics/svg/300/181611/D4AF37-D4AF37')] bg-cover bg-center" data-alt="Abstract gold geometric lines pattern on dark background"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent z-0"></div>
+<div class="relative z-10 max-w-[1200px] mx-auto flex flex-col md:flex-row items-end justify-between gap-12">
+<div class="flex flex-col gap-4 max-w-2xl">
+<div class="flex items-center gap-2 text-primary font-bold tracking-wider text-sm uppercase mb-2">
+<span class="material-symbols-outlined text-sm">stars</span>
+                            Loyalty Program
+                        </div>
+<h1 class="text-5xl md:text-7xl font-black text-white tracking-tight leading-[0.9]">
+                            THE OAX <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#fff5d6]">ELITE CLUB</span>
+</h1>
+<p class="text-[#bbb39b] text-lg max-w-lg mt-4 leading-relaxed">
+                            Unlock a world of exclusive rewards, personalized services, and early access to our finest collections. Elevate your shopping experience today.
+                        </p>
+</div>
+<!-- Status Card -->
+<div class="w-full md:w-auto min-w-[380px]">
+<div class="bg-gradient-to-br from-[#3a3527] to-[#181611] border border-[#554e3a] p-6 rounded-xl shadow-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+<div class="relative z-10 flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-[#bbb39b] text-sm font-medium uppercase tracking-wider mb-1">Current Status</p>
+<h3 class="text-3xl font-bold text-white flex items-center gap-2">
+                                            Gold Tier
+                                            <span class="material-symbols-outlined text-primary fill-1">verified</span>
+</h3>
+</div>
+<div class="bg-primary/20 text-primary p-2 rounded-lg">
+<span class="material-symbols-outlined" style="font-size: 32px;">diamond</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-sm">
+<span class="text-white font-medium">Progress to Platinum</span>
+<span class="text-primary font-bold">1,250 / 2,000 Pts</span>
+</div>
+<div class="h-2 w-full bg-[#181611] rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[62%] rounded-full shadow-[0_0_10px_rgba(249,188,6,0.5)]"></div>
+</div>
+<p class="text-xs text-[#bbb39b] text-right mt-1">750 points needed for upgrade</p>
+</div>
+<div class="pt-4 border-t border-white/10 flex justify-between items-center">
+<span class="text-xs text-[#bbb39b]">Member ID: 8829-3011</span>
+<button class="text-white text-sm font-bold hover:text-primary transition-colors flex items-center gap-1">
+                                        View History <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Body Container -->
+<div class="w-full max-w-[1200px] px-6 lg:px-10 py-16 flex flex-col gap-20">
+<!-- How It Works -->
+<section>
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-white mb-4">HOW IT WORKS</h2>
+<p class="text-[#bbb39b]">Simple steps to unlock your exclusive benefits.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="bg-[#2a261c] p-8 rounded-xl border border-white/5 flex flex-col items-center text-center gap-4 hover:border-primary/30 transition-colors group">
+<div class="size-16 rounded-full bg-[#181611] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-3xl">shopping_bag</span>
+</div>
+<h3 class="text-xl font-bold text-white">Shop &amp; Collect</h3>
+<p class="text-[#bbb39b] text-sm leading-relaxed">Purchase your favorite items and earn points for every dollar spent. Higher tiers earn points faster.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-[#2a261c] p-8 rounded-xl border border-white/5 flex flex-col items-center text-center gap-4 hover:border-primary/30 transition-colors group">
+<div class="size-16 rounded-full bg-[#181611] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-3xl">hotel_class</span>
+</div>
+<h3 class="text-xl font-bold text-white">Level Up</h3>
+<p class="text-[#bbb39b] text-sm leading-relaxed">Reach new tiers to unlock exclusive benefits like early access, birthday gifts, and personal styling.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-[#2a261c] p-8 rounded-xl border border-white/5 flex flex-col items-center text-center gap-4 hover:border-primary/30 transition-colors group">
+<div class="size-16 rounded-full bg-[#181611] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-3xl">redeem</span>
+</div>
+<h3 class="text-xl font-bold text-white">Redeem Rewards</h3>
+<p class="text-[#bbb39b] text-sm leading-relaxed">Use your accumulated points to redeem vouchers, exclusive products, or donate to charity.</p>
+</div>
+</div>
+</section>
+<!-- Benefits & Tiers -->
+<section>
+<div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+<div>
+<h2 class="text-3xl font-bold text-white mb-2">TIER BENEFITS</h2>
+<p class="text-[#bbb39b]">Comparing your privileges across membership levels.</p>
+</div>
+<div class="flex bg-[#2a261c] p-1 rounded-lg">
+<button class="px-4 py-2 text-sm text-[#bbb39b] hover:text-white transition-colors">Silver</button>
+<button class="px-4 py-2 text-sm bg-primary text-[#181611] font-bold rounded shadow-lg">Gold</button>
+<button class="px-4 py-2 text-sm text-[#bbb39b] hover:text-white transition-colors">Platinum</button>
+</div>
+</div>
+<div class="overflow-x-auto pb-4">
+<table class="w-full text-left border-collapse min-w-[700px]">
+<thead>
+<tr class="border-b border-white/10">
+<th class="py-6 px-4 text-white font-bold text-lg w-1/4">BENEFITS</th>
+<th class="py-6 px-4 text-center w-1/4 text-[#bbb39b]">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">filter_vintage</span>
+<span>SILVER</span>
+<span class="text-xs font-normal opacity-60">0 - 999 pts</span>
+</div>
+</th>
+<th class="py-6 px-4 text-center w-1/4 bg-[#2a261c]/50 border-t-4 border-t-primary rounded-t-xl relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-[#181611] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Current</div>
+<div class="flex flex-col items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl fill-1">military_tech</span>
+<span class="font-bold">GOLD</span>
+<span class="text-xs font-normal text-white/60">1,000 - 1,999 pts</span>
+</div>
+</th>
+<th class="py-6 px-4 text-center w-1/4 text-[#bbb39b]">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">diamond</span>
+<span>PLATINUM</span>
+<span class="text-xs font-normal opacity-60">2,000+ pts</span>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<!-- Row 1 -->
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-4 text-white font-medium">Points per $1 Spent</td>
+<td class="py-5 px-4 text-center text-[#bbb39b]">1 Point</td>
+<td class="py-5 px-4 text-center text-white font-bold bg-[#2a261c]/30">1.5 Points</td>
+<td class="py-5 px-4 text-center text-[#bbb39b]">2 Points</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-4 text-white font-medium">Welcome Gift</td>
+<td class="py-5 px-4 text-center text-[#bbb39b]">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+<td class="py-5 px-4 text-center text-white bg-[#2a261c]/30">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+<td class="py-5 px-4 text-center text-[#bbb39b]">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-4 text-white font-medium">Early Access to Sales</td>
+<td class="py-5 px-4 text-center text-white/20">-</td>
+<td class="py-5 px-4 text-center text-white bg-[#2a261c]/30">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+<td class="py-5 px-4 text-center text-[#bbb39b]">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-4 text-white font-medium">Birthday Surprise</td>
+<td class="py-5 px-4 text-center text-white/20">-</td>
+<td class="py-5 px-4 text-center text-white bg-[#2a261c]/30">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+<td class="py-5 px-4 text-center text-[#bbb39b]">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-4 text-white font-medium">Personal Stylist</td>
+<td class="py-5 px-4 text-center text-white/20">-</td>
+<td class="py-5 px-4 text-center text-white bg-[#2a261c]/30">-</td>
+<td class="py-5 px-4 text-center text-[#bbb39b]">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-white/[0.02] transition-colors">
+<td class="py-5 px-4 text-white font-medium">VIP Event Invites</td>
+<td class="py-5 px-4 text-center text-white/20">-</td>
+<td class="py-5 px-4 text-center text-white bg-[#2a261c]/30">-</td>
+<td class="py-5 px-4 text-center text-[#bbb39b]">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Rewards Catalog -->
+<section>
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-3xl font-bold text-white">REDEEM YOUR POINTS</h2>
+<a class="text-primary text-sm font-bold flex items-center hover:underline" href="#">View All Rewards <span class="material-symbols-outlined text-lg">chevron_right</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Reward 1 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg aspect-[4/5] mb-4">
+<div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white z-10">500 PTS</div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Elegant $20 voucher card with gold details" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAyGOaIqTKAyhOq9JzJvGnNzSK4gD5hQjDoO8ORy7s3yodsTfL8MW0qo9zR4klPGfTYbTH9-x_tA0T1eJquPRMjxAVJZ8B6kvuVttlOQ-Y71jXS5LQlBSFdgT6zrftm60qBBqdR-BWcSGAIqjcKLB970tIo6iyTX88lFfU1ba3sz-L-2Qvzhf4Hdu81rAeyzFA-uosQdMjrweIGrO_XTiEtOTYd25B9wOePjw7JgCmkuNB13-LsKQxkZRBHdge5UQVs-8j4ax_1w1t3");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<button class="w-full py-2 bg-white text-black font-bold text-sm rounded hover:bg-primary transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">Redeem</button>
+</div>
+</div>
+<h4 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">$20 Off Next Purchase</h4>
+<p class="text-[#bbb39b] text-sm mt-1">Valid on all accessories</p>
+</div>
+<!-- Reward 2 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg aspect-[4/5] mb-4">
+<div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white z-10">1200 PTS</div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Exclusive silk scarf product shot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYulZ3GdkIXGNU1v1bij39e1GqM0WNudb1w4JhQAT0oFI5oZBfm4F0FOCnoo5vF-bn97aq2ImaCi0gC1kBqKJr37SPff2mf0kS3noljNJeO-m-eR1mnDe0Tr6JNUR3NiSTqFNmWBg4AqPBxtGilSPbE37NtmjJhqWnUqhzcktIxcf9MwZk9-dp47kfkrlKp5lX7fGMorxrOD_SJ72B_h4qiUKVSZxxRvKg51x8J9488g6DJTpXrZOc_KzddtUgTU3ZxaOBPzBSNbVW");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<button class="w-full py-2 bg-white text-black font-bold text-sm rounded hover:bg-primary transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">Redeem</button>
+</div>
+</div>
+<h4 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">Signature Silk Scarf</h4>
+<p class="text-[#bbb39b] text-sm mt-1">Limited edition OAX print</p>
+</div>
+<!-- Reward 3 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg aspect-[4/5] mb-4">
+<div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white z-10">2500 PTS</div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Premium leather wallet product shot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbwvoIrSrhJJ9i4zXhoUvELONhe6ITuKXwIdUg3tXjad6L3E8O4gqFoE5VAyYrM0hABV9ItrTZiT8ZxfhIOI41ckEGbhhSaNo0-bqj9otwmAn_9yEdTQBq1Aw9nOU9btJ2iquWEdX-KaRI-WU32ywl3rJUXH9NAmM2Im23Hoi_LRT7_zAQCxm1mZPJzWtR1UF5PIf0rmxqrK8OeXNv2E9PWVKivcyK1I3UtoXd258gxsvQNi9Psd14N51mZbYP0vZGM9LRRx-c4OEc");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<button class="w-full py-2 bg-white text-black font-bold text-sm rounded hover:bg-primary transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">Redeem</button>
+</div>
+</div>
+<h4 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">Leather Card Holder</h4>
+<p class="text-[#bbb39b] text-sm mt-1">Personalized monogramming included</p>
+</div>
+<!-- Reward 4 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg aspect-[4/5] mb-4">
+<div class="absolute top-3 left-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white z-10">5000 PTS</div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="VIP private shopping event invitation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2ZMGebQm4LZZqppG5t-r5R8G7gQ94M5UWPBSqASgLlTfZwYQ3C_EjlZCpStKxzHn5l8THt883Y79T8WmtYus70eykkYlwpDUZU9ZVaSnaX7flOWrH18W4Kn7TAEcq_giGPN4TJsKCKNAyGNugSjg2tNXG8CdiQAR7tKlZpoGlJ4Y5ZqXEMMKxcGesf9ie2fPzKv2cGXA6_hIjoplmLBXyi0bVxhV9y-B5LTXzB6xNbk29zhzI-uBcxR8F-Rj0oI-hdqt4GfZSApFY");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<button class="w-full py-2 bg-white text-black font-bold text-sm rounded hover:bg-primary transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">Redeem</button>
+</div>
+</div>
+<h4 class="text-white font-bold text-lg leading-tight group-hover:text-primary transition-colors">Private Styling Session</h4>
+<p class="text-[#bbb39b] text-sm mt-1">Virtual or In-store experience</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Call to Action Footer Strip -->
+<div class="w-full bg-primary/10 border-t border-primary/20 mt-10">
+<div class="max-w-[1200px] mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-primary rounded-full text-background-dark">
+<span class="material-symbols-outlined">loyalty</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">Ready to earn more points?</h4>
+<p class="text-[#bbb39b] text-sm">Explore our latest collection and get closer to Platinum.</p>
+</div>
+</div>
+<button class="bg-primary hover:bg-white text-background-dark font-bold py-3 px-8 rounded-lg transition-colors whitespace-nowrap">
+                        Shop New Arrivals
+                    </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark border-t border-[#3a3527] pt-16 pb-8 px-10">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<h2 class="text-white text-xl font-black tracking-widest">OAX FASHION</h2>
+<p class="text-[#bbb39b] text-sm leading-relaxed">Redefining luxury through craftsmanship and modern design. Join our community for exclusive access.</p>
+<div class="flex gap-4 text-white">
+<span class="cursor-pointer hover:text-primary material-symbols-outlined">public</span>
+<span class="cursor-pointer hover:text-primary material-symbols-outlined">alternate_email</span>
+<span class="cursor-pointer hover:text-primary material-symbols-outlined">photo_camera</span>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Customer Care</h4>
+<ul class="flex flex-col gap-3 text-sm text-[#bbb39b]">
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Order Tracking</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Size Guide</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Legal</h4>
+<ul class="flex flex-col gap-3 text-sm text-[#bbb39b]">
+<li><a class="hover:text-primary transition-colors" href="#">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Newsletter</h4>
+<p class="text-[#bbb39b] text-sm mb-4">Subscribe to receive updates, access to exclusive deals, and more.</p>
+<div class="flex gap-2">
+<input class="bg-[#2a261c] border border-[#3a3527] rounded px-4 py-2 text-white w-full text-sm focus:border-primary focus:ring-0" placeholder="Enter your email" type="email"/>
+<button class="bg-[#3a3527] text-white px-4 py-2 rounded hover:bg-primary hover:text-black transition-colors">OK</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto border-t border-[#3a3527] pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-[#554e3a]">
+<p>© 2024 OAX Fashion. All rights reserved.</p>
+<div class="flex gap-4 mt-4 md:mt-0">
+<span>Currency: USD</span>
+<span>Language: English</span>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

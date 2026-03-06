@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION Collections</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ea2a33", // Maintaining the requested config primary
+              "oax-blood": "#8B0000",
+              "oax-black": "#0C0C0C",
+              "oax-gray": "#1A1A1A",
+              "oax-gold": "#D4AF37",
+              "background-light": "#f8f6f6",
+              "background-dark": "#121212", 
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "serif": ["Playfair Display", "serif"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom styles for smooth image hover effects */
+        .group-hover-scale {
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .group:hover .group-hover-scale {
+            transform: scale(1.05);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-white font-display overflow-x-hidden antialiased">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-[#333]">
+<div class="px-6 md:px-10 lg:px-16 py-4 flex items-center justify-between">
+<!-- Brand -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2 group" href="#">
+<span class="material-symbols-outlined text-oax-gold text-3xl">diamond</span>
+<h1 class="text-xl md:text-2xl font-serif font-bold tracking-tight text-gray-900 dark:text-white">OAX FASHION</h1>
+</a>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">NEW ARRIVALS</a>
+<a class="text-sm font-medium text-primary" href="#">COLLECTIONS</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">EDITORIAL</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">ACCESSORIES</a>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="p-2 hover:bg-gray-200 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">search</span>
+</button>
+<button aria-label="Shopping Bag" class="p-2 hover:bg-gray-200 dark:hover:bg-white/10 rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button aria-label="User Account" class="hidden md:block p-2 hover:bg-gray-200 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">person</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden p-2 hover:bg-gray-200 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Wrapper -->
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center bg-no-repeat" data-alt="Dark moody fashion model in red avant-garde dress" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNHy_IzW_vU98H2oOzZ_hfIwnJdxLbc71EpwiaFq5v9GBbQRQ4fJheoNYZ3yp6wm0x7xbXfSzCj2Go6bEM7T2waTjGqfdcMakkOAABGrF3jjEix_bllewZJhY4gfjJ7SBBdWt8nSaa5lWhSfuYg34PocczUdcM9vWLTnIogvFrcNxhZum8DgSPWPZJ0rBdyjkaw5vcsXrr5WewdmBIpDYucdSC5i4XSbbaR5fUCIehjvq88HH5-BuVWbjjlr5E4h-MLnebfHuw_bSN");'>
+</div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-black/30 opacity-90"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">
+<p class="text-oax-gold tracking-[0.2em] text-sm md:text-base font-medium uppercase animate-fade-in-up">Seasonal Campaign 2024</p>
+<h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-none tracking-tight">
+                    The Winter<br/><span class="italic font-light text-gray-300">Avant-Garde</span>
+</h1>
+<p class="text-gray-300 max-w-lg mx-auto text-base md:text-lg font-light leading-relaxed mt-4">
+                    Defining modern luxury through structural silhouettes and deep, resonant tones. Explore the narrative woven into every thread.
+                </p>
+<div class="mt-8 flex flex-col sm:flex-row gap-4">
+<button class="px-8 py-3 bg-white text-black font-bold tracking-wider text-sm hover:bg-gray-200 transition-colors uppercase">
+                        View Lookbook
+                    </button>
+<button class="px-8 py-3 border border-white/30 text-white font-bold tracking-wider text-sm hover:bg-white/10 backdrop-blur-sm transition-colors uppercase flex items-center gap-2">
+                        Shop Collection <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 animate-bounce">
+<span class="material-symbols-outlined text-white/50 text-3xl">keyboard_arrow_down</span>
+</div>
+</section>
+<!-- Featured Collection Split -->
+<section class="w-full bg-white dark:bg-oax-black py-20 px-6 md:px-12 lg:px-20">
+<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+<div class="lg:w-1/2 relative group cursor-pointer overflow-hidden">
+<div class="aspect-[3/4] w-full overflow-hidden rounded-lg">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="High fashion model posing in urban streetwear setting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBrI5TpMCuq9mgWWUdTwhgt_BxWxRBEfpCsjVgHOcQpSEgGTnc-aegi6NFkGZG0tfvXgjvavbEG5bU-1thFUQQwtpY6EhCSjhEJJEDups6N5tUvv96GM-uyWoAI9gK9w2_L11wx75S-F3zOqIQpCh4Ji3wSq1xUgKFRKMri-1McawzCaQLp5vezNf7KLRpLoJb1x6o_qun2Jkt6dxHOzIwHCLwp4JvWhWQ2S7AKgqQ9wxSf0EktLXUMYieGe5dHS_ZjmtW8mUeL65ZO");'>
+</div>
+</div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-white text-black text-xs font-bold px-3 py-1 uppercase tracking-wider mb-2 inline-block">Trending</span>
+</div>
+</div>
+<div class="lg:w-1/2 flex flex-col gap-6">
+<h2 class="text-oax-blood text-sm font-bold tracking-widest uppercase">Street Luxury</h2>
+<h3 class="font-serif text-4xl md:text-5xl text-gray-900 dark:text-white leading-tight">
+                        Urban Nomad
+                    </h3>
+<p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                        Function meets high fashion. Our Urban Nomad collection redefines streetwear with premium materials, oversized cuts, and a rebellious spirit. Designed for those who move with the city's rhythm.
+                    </p>
+<ul class="flex flex-col gap-3 mt-4 text-gray-500 dark:text-gray-400">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-oax-gold text-lg">check_circle</span>
+                            Sustainable Technical Fabrics
+                        </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-oax-gold text-lg">check_circle</span>
+                            Limited Edition Colorways
+                        </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-oax-gold text-lg">check_circle</span>
+                            Hand-finished Details
+                        </li>
+</ul>
+<a class="mt-6 inline-flex items-center gap-2 text-primary font-bold uppercase tracking-wide hover:underline underline-offset-4 decoration-oax-gold" href="#">
+                        Explore Urban Nomad <span class="material-symbols-outlined text-lg">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Masonry Grid Collections -->
+<section class="bg-background-light dark:bg-background-dark py-20 px-4 md:px-10">
+<div class="max-w-7xl mx-auto mb-16 text-center">
+<h2 class="font-serif text-3xl md:text-4xl text-gray-900 dark:text-white mb-4">Curated Selections</h2>
+<div class="h-1 w-20 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[400px]">
+<!-- Card 1: Large Vertical -->
+<div class="relative group overflow-hidden rounded-xl row-span-2 cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center group-hover-scale" data-alt="Elegant woman in silk evening gown looking away" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJK-bpjqS0ZO0UIrxJEjY3YQIbHpohDYGv7xnO2m89V0aK_zB5orVQ0edAWbIJJcg_brTbNEhro3x-QTdeO5TNICqAUF11k-CfPa91gEBUw5F6r8kFzXBcZ0FkplBKU4okJeizm9nh5k3a_kWv7qFaiHyxkZgLu4X4rLx5qDwp0zDUaUtw_zpgXOdptNq2AcPumTHoW7HcVPzrZi7vLgOvOMiSFUgzqmr3DJ8_YrYfoNVuvH1K7E-ZX4rShhp6YfLanez0XC-D19Yb");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 transition-opacity duration-300"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+<p class="text-white/80 text-sm uppercase tracking-widest mb-1">Evening Wear</p>
+<h3 class="font-serif text-3xl text-white mb-4">Silk &amp; Shadow</h3>
+<button class="text-white border-b border-oax-gold pb-1 text-sm font-medium hover:text-oax-gold transition-colors">
+                            VIEW COLLECTION
+                        </button>
+</div>
+</div>
+<!-- Card 2: Square -->
+<div class="relative group overflow-hidden rounded-xl cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center group-hover-scale" data-alt="Close up of gold jewelry on dark skin" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcW38dGFdAdMtWu2B04TfzDDqVfxxkLmq2LHpAWVMywi2-ZneNUdi8Ii1pqq1ZuUU5H3Tmk2lgOv7Jn5FXmVz3qShCwozLdt-IejJ7646B972fPWwyffS5I_s35A16qlcsIp9SG4sDdKnu7aquRp8XuWAmxlS2CgPnTbW_OBXI3X4oxyw-qDsZ3nwNvmUrXUIENQYgMx_zya9oMaH-FD2fwq5MwSaPrJM7xvKam1YvcYNnudNN8YxCYgVY66V9bbEjj_3AF0EqKr_e");'>
+</div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute bottom-6 left-6">
+<h3 class="font-serif text-2xl text-white">Gold Accents</h3>
+<p class="text-white/70 text-sm mt-1">Fine Jewelry Edit</p>
+</div>
+</div>
+<!-- Card 3: Square -->
+<div class="relative group overflow-hidden rounded-xl cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center group-hover-scale" data-alt="Man in leather jacket posing confidently" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB124Ul7d0JJ8cN5QmxQ6G-ePvUTwqFV4bbARYgUUVjO8RU9c4CLyZHF_TlnPwqyDoaNzRjRv5RxW9mLaoil93Q8_5O_Valny566TjL3o3Gfj69PXTm6H4lLk0pSy7YHpfnP_XnalWesVsWx8_zOiNFsZmzeGXZCDY79Pa_jq0fGPURqN6-mglEbUde2v9NnkXaBQwmxotCg6mwUU6zTDUnKXRCBEVu6t24VcQVqIN4E6tgN9xFW8mmKt8tnHsblRYPI1LXuVcWc5qN");'>
+</div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute bottom-6 left-6">
+<h3 class="font-serif text-2xl text-white">The Leather Cut</h3>
+<p class="text-white/70 text-sm mt-1">Jackets &amp; Accessories</p>
+</div>
+</div>
+<!-- Card 4: Horizontal Span -->
+<div class="relative group overflow-hidden rounded-xl md:col-span-2 cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center group-hover-scale" data-alt="Group of models walking in monochrome outfits" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIsNL4Et_AmocUSL3xltDBA0-02e4WxwA3Ga0qQ4MrgAhb0RH6bqCdE1_q72K-2GltzMMh6dkP-3iFnvz0ZjR7ezIHqUyKXTAIygPl3udBiavi6xS-SOxxFl9L5PnM39x6nYTGlcfTbsjtKR4UX04PWgNOGWQFMVi5_rpuwH3lV9F_cg4Qvj6grZ67xc6dqlhoW4UJvYzUn6PRO5HJ_aB8fo-xnpID1SWvggDerNw1xOhCG7lbZ0GPtW4Fa12gDodKHc3dzIDkgI9G");'>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+<div class="absolute top-0 left-0 h-full flex flex-col justify-center p-10 max-w-md">
+<h3 class="font-serif text-4xl text-white mb-2">Monochrome Series</h3>
+<p class="text-white/80 mb-6">A study in black and white. Minimalist designs for maximum impact.</p>
+<button class="w-fit px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded hover:bg-white hover:text-black transition-all">
+                            Discover More
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Horizontal Scroll / Featured Products -->
+<section class="py-20 bg-white dark:bg-[#151515] overflow-hidden border-t border-gray-200 dark:border-white/5">
+<div class="px-6 md:px-10 lg:px-16 mb-8 flex justify-between items-end">
+<div>
+<span class="text-primary font-bold text-xs tracking-widest uppercase mb-2 block">Available Now</span>
+<h2 class="font-serif text-3xl text-gray-900 dark:text-white">Signature Pieces</h2>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Scroll Container -->
+<div class="flex overflow-x-auto gap-6 px-6 md:px-10 lg:px-16 pb-8 scrollbar-hide snap-x">
+<!-- Product Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-start group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 mb-4">
+<img alt="Model wearing velvet blazer" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Model wearing velvet blazer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoMhIYf3NEjVyl2w2C_m_9U47CbgMpU-adqRWKmmF23DsgVJA04L9VinCWhndsO9lydu8cWUkIZGP4zIb7iXnf8oHXYvgp88BpAC7DqlYonH5XPpAjU2DSSqQKGUOlU3tM_gwOCYoPfs6_2FvdJUqtx6RsDk-w7zGUbkOF-QoAnelQeasgHpOUDgwe6e6RjVVPNRSa-iues3bciqoQkGDpiUziyYkSGdcSHBXQkh2OU3QDjgvCH2sYWMRdPRj3oEozBOILgUi6kvlm"/>
+<div class="absolute top-3 right-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded">NEW</div>
+<button class="absolute bottom-4 right-4 bg-white text-black p-2 rounded-full shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-oax-gold hover:text-white">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="text-gray-900 dark:text-white font-serif text-lg leading-tight">Velvet Midnight Blazer</h3>
+<p class="text-gray-500 text-sm mt-1">$450.00</p>
+</div>
+<!-- Product Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-start group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 mb-4">
+<img alt="Model in yellow vibrant dress" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Model in yellow vibrant dress" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArTjTPNibQ1jEUyn5mS1aSRry3LD3925YBNcTHa0kv0pwpGtUMqe98qyxM-SssT-yNRdO-4VyOVt_YKZP-Tsuimp_0gGXC2u6C1nO0XmoHKBBlqsSV7EKTNvuijoA1dathw4QbL0m_mHJQwgk62vBR7P3Ps1VDooWRgrWSnr35lrs3YT3_fLpM9P3o0Xa5h9Y836QbvY5Bey_WR8thPskrvjT7tzFM9y0wQT9Jx89JhhCGRmp5tVRPICoNWrGMrL4qOltYfcIg_szf"/>
+<button class="absolute bottom-4 right-4 bg-white text-black p-2 rounded-full shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-oax-gold hover:text-white">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="text-gray-900 dark:text-white font-serif text-lg leading-tight">Saffron Silk Gown</h3>
+<p class="text-gray-500 text-sm mt-1">$890.00</p>
+</div>
+<!-- Product Card 3 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-start group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 mb-4">
+<img alt="Fashionable summer dress with floral pattern" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Fashionable summer dress with floral pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyiuWKDy7p3KodsvjpbpbAf9U6wNmyQGXITQQFgfAA9LwrkllLjGfjU-T5cXoQUCq1beojzO_LJ8IvucdDCpWEkBGti4PNubRAAICjGUNZN8ndCPfwgOM5-lO74WSgKgTUm4TdYOPI0zyHyAa3UXPA0IowZu5mRfjTLr-W4ptjpuNzowrFUqyWgmcJgnScWiidEK0D1YPVCKjHiPcmVzc_8hKPAutJzZ98J8Xmu8SCKo1nUK-VK_HfeWcr24WsKzUGilQ02ce_xWia"/>
+<button class="absolute bottom-4 right-4 bg-white text-black p-2 rounded-full shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-oax-gold hover:text-white">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="text-gray-900 dark:text-white font-serif text-lg leading-tight">Floral Avant Drape</h3>
+<p class="text-gray-500 text-sm mt-1">$620.00</p>
+</div>
+<!-- Product Card 4 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-start group cursor-pointer">
+<div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 mb-4">
+<img alt="Minimalist beige trench coat" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Minimalist beige trench coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA50-QLmXTBhUwvar6Dp1lCcbA2gIXg3oHsHUVQ3bHpQLNdTltmyry_oTsXSrNeonCmKLdG3jkrE6YKeLkxGgxO_aw7U9bNmjySU37cayuwSo5pQW_rjSjUP13aMhi2UYTAFSOb-ojD9vR9S8_4T5gzE_m2nmTmRlh6cS3EGERHCyTlVP_SGz91KLL81xBNFdnivmrAKO-6gw1BgI-to_h87jt4WpyOzTheynEBc2iy7y7JbzWjdzjC3BAc5V8yVJpizMIm301mzsap"/>
+<div class="absolute top-3 right-3 bg-black/70 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded">LIMITED</div>
+<button class="absolute bottom-4 right-4 bg-white text-black p-2 rounded-full shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-oax-gold hover:text-white">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="text-gray-900 dark:text-white font-serif text-lg leading-tight">OAX Trench II</h3>
+<p class="text-gray-500 text-sm mt-1">$1,200.00</p>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-24 px-6 relative bg-oax-black text-center overflow-hidden">
+<!-- Abstract Background -->
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-oax-blood via-black to-black"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<span class="material-symbols-outlined text-4xl text-oax-gold mb-6">mail</span>
+<h2 class="font-serif text-3xl md:text-5xl text-white mb-4">Join the Inner Circle</h2>
+<p class="text-gray-400 mb-8">Be the first to access new collections, exclusive events, and private sales.</p>
+<form class="flex flex-col sm:flex-row gap-3">
+<input class="flex-1 bg-white/10 border border-white/20 text-white placeholder-gray-500 px-4 py-3 rounded focus:outline-none focus:border-oax-gold transition-colors" placeholder="Enter your email address" type="email"/>
+<button class="bg-primary hover:bg-red-700 text-white px-8 py-3 rounded font-bold uppercase tracking-wider transition-colors" type="submit">
+                         Subscribe
+                     </button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#111] text-white border-t border-[#222] pt-16 pb-8">
+<div class="px-6 md:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<!-- Brand Column -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-oax-gold">diamond</span>
+<span class="font-serif font-bold text-xl">OAX FASHION</span>
+</div>
+<p class="text-gray-500 text-sm leading-relaxed">
+                    Redefining luxury through avant-garde design and sustainable craftsmanship. 
+                </p>
+<div class="flex gap-4 mt-2">
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="text-sm">INSTAGRAM</span></a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="text-sm">TWITTER</span></a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="text-sm">PINTEREST</span></a>
+</div>
+</div>
+<!-- Links Column 1 -->
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest mb-6 text-gray-300">Shop</h4>
+<ul class="space-y-3 text-sm text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Women's Collection</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Men's Collection</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Accessories</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest mb-6 text-gray-300">About OAX</h4>
+<ul class="space-y-3 text-sm text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+<!-- Links Column 3 -->
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest mb-6 text-gray-300">Client Services</h4>
+<ul class="space-y-3 text-sm text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Size Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="px-6 md:px-10 lg:px-16 pt-8 border-t border-[#222] flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+<p>© 2024 OAX FASHION. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-gray-400" href="#">Privacy Policy</a>
+<a class="hover:text-gray-400" href="#">Terms of Service</a>
+<a class="hover:text-gray-400" href="#">Cookie Settings</a>
+</div>
+</div>
+</footer>
+</body></html>

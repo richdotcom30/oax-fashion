@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Order List - OAX FASHION</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "surface-dark": "#1C242D", // Matches the provided component style roughly
+                        "surface-highlight": "#293038", // Lighter surface for hover/inputs
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111921; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #293038; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display h-screen flex overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-background-dark border-r border-[#293038] hidden md:flex flex-col flex-shrink-0">
+<div class="flex flex-col h-full p-4">
+<div class="mb-8 px-2">
+<h1 class="text-white text-xl font-bold tracking-tight">OAX FASHION</h1>
+<p class="text-[#9dabb8] text-xs font-normal">Admin Panel</p>
+</div>
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#9dabb8] hover:bg-[#293038] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">package_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<!-- Active Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/20 text-white border-l-4 border-primary" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#9dabb8] hover:bg-[#293038] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">group</span>
+<span class="text-sm font-medium">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#9dabb8] hover:bg-[#293038] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">assignment</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#9dabb8] hover:bg-[#293038] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">content_copy</span>
+<span class="text-sm font-medium">Content</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-[#293038] pt-4">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#9dabb8] hover:bg-[#293038] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#9dabb8] hover:bg-[#293038] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">logout</span>
+<span class="text-sm font-medium">Log Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark overflow-hidden">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between border-b border-[#293038] bg-background-dark px-6 py-3 flex-shrink-0">
+<div class="flex items-center gap-4 text-white">
+<!-- Mobile Menu Toggle (Hidden on Desktop) -->
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight hidden sm:block">Admin Dashboard</h2>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search (Header) -->
+<div class="hidden lg:flex items-center bg-[#293038] rounded-lg px-3 py-1.5 w-64">
+<span class="material-symbols-outlined text-[#9dabb8] text-[20px]">search</span>
+<input class="bg-transparent border-none text-white text-sm focus:ring-0 w-full placeholder-[#9dabb8]" placeholder="Search..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#293038] hover:bg-[#374151] text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#293038] hover:bg-[#374151] text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full bg-cover bg-center border-2 border-[#293038] cursor-pointer" data-alt="Admin profile picture showing a professional man in a suit" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8w8TSKcxurByblW1UbNtg3CNioVq3bvrbbO02ChVDV23jeDNiI9XKx0CerEhf26WA4eAkDcjvmoAJ3CkgiFBYh-vW76Ai68bYkEcivsigXMz6Sf67563ou_eRmoJsuzrO_dM47Y_U292VMYE4hWHdoConEfu16pxZiks_VnGzs6TZj638lZxpEwq_we76kGWoLdHTOzAWRPPGEp-Wj2flkkCX_rRCJxXrWggBRCS4Wmi_RxgNu7n9TvFfvcpANBLZ8A13om-e1QXA");'>
+</div>
+</div>
+</header>
+<!-- Scrollable Main Content -->
+<main class="flex-1 overflow-y-auto p-4 md:p-8">
+<div class="max-w-[1400px] mx-auto flex flex-col gap-6">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm">
+<a class="text-[#9dabb8] hover:text-primary transition-colors font-medium" href="#">Dashboard</a>
+<span class="text-[#9dabb8]">/</span>
+<span class="text-white font-medium">Orders</span>
+</div>
+<!-- Page Heading & Primary Action -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h1 class="text-white text-3xl md:text-4xl font-bold tracking-tight">All Orders</h1>
+<p class="text-[#9dabb8] text-base font-normal">Manage and track customer orders, inventory allocation, and fulfillment.</p>
+</div>
+<button class="flex items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary/90 text-white font-bold h-10 px-6 transition-colors shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Create Order</span>
+</button>
+</div>
+<!-- Filters & Actions Toolbar -->
+<div class="bg-surface-dark rounded-xl border border-[#293038] p-4 flex flex-col xl:flex-row gap-4 justify-between items-start xl:items-center">
+<!-- Filter Group -->
+<div class="flex flex-col md:flex-row gap-3 w-full xl:w-auto">
+<!-- Search -->
+<div class="relative group w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#9dabb8] group-focus-within:text-white transition-colors">search</span>
+<input class="w-full bg-[#111921] border border-[#293038] text-white text-sm rounded-lg pl-10 pr-4 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary placeholder-[#586474]" placeholder="Search order ID, customer..." type="text"/>
+</div>
+<!-- Status Select -->
+<div class="relative w-full md:w-48">
+<select class="w-full bg-[#111921] border border-[#293038] text-white text-sm rounded-lg pl-3 pr-10 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
+<option value="">Filter by Status</option>
+<option value="paid">Paid</option>
+<option value="pending">Pending</option>
+<option value="failed">Failed</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[#9dabb8] pointer-events-none">expand_more</span>
+</div>
+<!-- Date Range (Simplified) -->
+<div class="relative w-full md:w-48">
+<input class="w-full bg-[#111921] border border-[#293038] text-[#9dabb8] text-sm rounded-lg px-3 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary appearance-none" type="date"/>
+</div>
+</div>
+<!-- Batch Actions Group -->
+<div class="flex flex-wrap gap-3 w-full xl:w-auto justify-end">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#293038] hover:bg-[#374151] text-white text-sm font-medium border border-[#3e4856] transition-colors">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+                            Export CSV
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#293038] hover:bg-[#374151] text-white text-sm font-medium border border-[#3e4856] transition-colors">
+<span class="material-symbols-outlined text-[18px]">print</span>
+                            Print Labels
+                        </button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-surface-dark rounded-xl border border-[#293038] overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#293038] bg-[#293038]/50">
+<th class="p-4 w-12 text-center">
+<input class="rounded border-[#3e4856] bg-[#111921] text-primary focus:ring-offset-background-dark focus:ring-primary h-4 w-4" type="checkbox"/>
+</th>
+<th class="p-4 text-xs font-semibold text-[#9dabb8] uppercase tracking-wider">Order</th>
+<th class="p-4 text-xs font-semibold text-[#9dabb8] uppercase tracking-wider">Date</th>
+<th class="p-4 text-xs font-semibold text-[#9dabb8] uppercase tracking-wider">Customer</th>
+<th class="p-4 text-xs font-semibold text-[#9dabb8] uppercase tracking-wider">Payment</th>
+<th class="p-4 text-xs font-semibold text-[#9dabb8] uppercase tracking-wider">Fulfillment</th>
+<th class="p-4 text-xs font-semibold text-[#9dabb8] uppercase tracking-wider text-right">Total</th>
+<th class="p-4 w-12"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#293038]">
+<!-- Row 1 -->
+<tr class="group hover:bg-[#293038]/40 transition-colors">
+<td class="p-4 text-center">
+<input class="rounded border-[#3e4856] bg-[#111921] text-primary focus:ring-offset-background-dark focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<a class="text-primary font-bold hover:underline font-mono text-sm" href="#">#10245</a>
+</td>
+<td class="p-4 text-sm text-[#9dabb8] whitespace-nowrap">
+                                        Oct 24, 2023 <br/> <span class="text-xs text-[#586474]">10:42 AM</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-cover bg-center" data-alt="Portrait of customer Sarah Johnson" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDPTlqMpdGegiAjRN8LmXbwZjRw_g4zun6pvqxeF-ijR7orDkrET28YSFi1JEwxo7ebKEokSpzdl95FAGQUCi8iPVRedQ7IWGZ200nJn9YMEejld4e96d8GU4ZucGFgu-nifWKmqdBgTzxKu6RxIP5zUDTTGltXH3Rf50nv7W9fH_l5xWrmW7QbO2qcCjqVgVdQBwxjrbjHksye2TmP6tXeMeeZ9x6FmsDh7AeTR2-Hmejqls5RHHPmpcoINh5PJcT6Rq2PNfZODKGP");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">Sarah Johnson</span>
+<span class="text-xs text-[#9dabb8]">sarah.j@example.com</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                            Paid
+                                        </span>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                                            Processing
+                                        </span>
+</td>
+<td class="p-4 text-right text-sm font-medium text-white font-mono">
+                                        $1,250.00
+                                    </td>
+<td class="p-4 text-center relative">
+<button class="text-[#9dabb8] hover:text-white p-1 rounded hover:bg-[#293038] transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-[#293038]/40 transition-colors">
+<td class="p-4 text-center">
+<input class="rounded border-[#3e4856] bg-[#111921] text-primary focus:ring-offset-background-dark focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<a class="text-primary font-bold hover:underline font-mono text-sm" href="#">#10244</a>
+</td>
+<td class="p-4 text-sm text-[#9dabb8] whitespace-nowrap">
+                                        Oct 24, 2023 <br/> <span class="text-xs text-[#586474]">09:15 AM</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-[#374151] flex items-center justify-center text-white text-xs font-bold">
+                                                MK
+                                            </div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">Michael K.</span>
+<span class="text-xs text-[#9dabb8]">mike.k@example.com</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                            Paid
+                                        </span>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                                            Shipped
+                                        </span>
+</td>
+<td class="p-4 text-right text-sm font-medium text-white font-mono">
+                                        $450.50
+                                    </td>
+<td class="p-4 text-center relative">
+<button class="text-[#9dabb8] hover:text-white p-1 rounded hover:bg-[#293038] transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-[#293038]/40 transition-colors">
+<td class="p-4 text-center">
+<input class="rounded border-[#3e4856] bg-[#111921] text-primary focus:ring-offset-background-dark focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<a class="text-primary font-bold hover:underline font-mono text-sm" href="#">#10243</a>
+</td>
+<td class="p-4 text-sm text-[#9dabb8] whitespace-nowrap">
+                                        Oct 23, 2023 <br/> <span class="text-xs text-[#586474]">16:20 PM</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-cover bg-center" data-alt="Portrait of customer Elena V" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAe94jrsZWOEGT8BlO0n02xX4IzFLeXmxTHXWUvoPDD6FkD6O7mJP_L9qsG28jgPJnHw9P2BKkywVz578uUcUPZnJBaSjudREv3aMecaAbU7UNJqRjFMGKG9xkBJ-y7JTyZ7VIiDnED-KUN1lLhbNFGGHARJln9YbuT7IpI25q9X5pyIj0vHifGaU2rdZuEWDZYnpL3a-Y-lHj3dXWa42mGhZJL-X_-hIcw8vEUw8froLzLEkJaW-LDixd2cki4NBIOWZOIJWWdmz_1");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">Elena V.</span>
+<span class="text-xs text-[#9dabb8]">elena.v@example.com</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                                            Pending
+                                        </span>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-500/10 text-gray-400 border border-gray-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                                            Unfulfilled
+                                        </span>
+</td>
+<td class="p-4 text-right text-sm font-medium text-white font-mono">
+                                        $3,100.00
+                                    </td>
+<td class="p-4 text-center relative">
+<button class="text-[#9dabb8] hover:text-white p-1 rounded hover:bg-[#293038] transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-[#293038]/40 transition-colors">
+<td class="p-4 text-center">
+<input class="rounded border-[#3e4856] bg-[#111921] text-primary focus:ring-offset-background-dark focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<a class="text-primary font-bold hover:underline font-mono text-sm" href="#">#10242</a>
+</td>
+<td class="p-4 text-sm text-[#9dabb8] whitespace-nowrap">
+                                        Oct 23, 2023 <br/> <span class="text-xs text-[#586474]">14:10 PM</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-[#374151] flex items-center justify-center text-white text-xs font-bold">
+                                                JD
+                                            </div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">John Doe</span>
+<span class="text-xs text-[#9dabb8]">john.d@example.com</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-400 border border-red-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                                            Failed
+                                        </span>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-gray-500/10 text-gray-400 border border-gray-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                                            Cancelled
+                                        </span>
+</td>
+<td class="p-4 text-right text-sm font-medium text-white font-mono">
+                                        $89.99
+                                    </td>
+<td class="p-4 text-center relative">
+<button class="text-[#9dabb8] hover:text-white p-1 rounded hover:bg-[#293038] transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-[#293038]/40 transition-colors">
+<td class="p-4 text-center">
+<input class="rounded border-[#3e4856] bg-[#111921] text-primary focus:ring-offset-background-dark focus:ring-primary h-4 w-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<a class="text-primary font-bold hover:underline font-mono text-sm" href="#">#10241</a>
+</td>
+<td class="p-4 text-sm text-[#9dabb8] whitespace-nowrap">
+                                        Oct 22, 2023 <br/> <span class="text-xs text-[#586474]">08:30 AM</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-cover bg-center" data-alt="Portrait of customer Clara M" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDz3f1DvuaCaRTOrDKymvZmQasYswNGU9tMS0Z2ZMh1l1suvDK00QK8sQSzCiQ6Zo14_bVUw8sG9n14FQzLfGR2o1B0DfIql1OQvP2gLrVgpKQnJsWfWwuOzTgJB2Pgiij2w6nR2KRQIfKnQDF0A6lXrPh9Sjvh8y_H6O8EwohmC79J643TupzxFX6Wvc5itv-h4eXg1yQu-ho2E3i4X-RDj6wGG8XK13ypEh1RUnSd30dP-eBDbQfdtfPI9VaMdkYmr2UPct3QoJFG");'></div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">Clara M.</span>
+<span class="text-xs text-[#9dabb8]">clara.m@example.com</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                            Paid
+                                        </span>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                            Delivered
+                                        </span>
+</td>
+<td class="p-4 text-right text-sm font-medium text-white font-mono">
+                                        $2,450.00
+                                    </td>
+<td class="p-4 text-center relative">
+<button class="text-[#9dabb8] hover:text-white p-1 rounded hover:bg-[#293038] transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="border-t border-[#293038] p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="text-sm text-[#9dabb8]">
+                            Showing <span class="text-white font-medium">1-5</span> of <span class="text-white font-medium">1,240</span> orders
+                        </div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-2 rounded-lg border border-[#3e4856] text-white text-sm hover:bg-[#293038] disabled:opacity-50 disabled:cursor-not-allowed transition-colors" disabled="">
+                                Previous
+                            </button>
+<button class="px-3 py-2 rounded-lg bg-primary text-white text-sm border border-transparent hover:bg-primary/90 transition-colors">
+                                1
+                            </button>
+<button class="px-3 py-2 rounded-lg border border-[#3e4856] text-white text-sm hover:bg-[#293038] transition-colors">
+                                2
+                            </button>
+<button class="px-3 py-2 rounded-lg border border-[#3e4856] text-white text-sm hover:bg-[#293038] transition-colors">
+                                3
+                            </button>
+<span class="text-[#9dabb8]">...</span>
+<button class="px-3 py-2 rounded-lg border border-[#3e4856] text-white text-sm hover:bg-[#293038] transition-colors">
+                                Next
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

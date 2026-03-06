@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Style Profile</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d41111", // OAX Blood inspired
+                        "primary-dark": "#8B0000",
+                        "accent-gold": "#D4AF37",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181111", // Deep dark base
+                        "surface-dark": "#271c1c", // Slightly lighter for inputs/cards
+                        "border-dark": "#392828",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom range slider styling since Tailwind forms plugin has limited range support out of the box */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #D4AF37;
+            cursor: pointer;
+            margin-top: -8px; 
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #392828;
+            border-radius: 2px;
+        }
+        /* Hide scrollbar for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-black dark:text-white font-display overflow-x-hidden antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-dark bg-[#181111]/95 backdrop-blur-md px-6 py-4 lg:px-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white cursor-pointer hover:opacity-80 transition-opacity">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-[28px]">diamond</span>
+</div>
+<h2 class="text-white text-xl font-extrabold leading-tight tracking-[0.1em]">OAX FASHION</h2>
+</div>
+<div class="hidden lg:flex items-center gap-9">
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">New Arrivals</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Designers</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Clothing</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Shoes</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Bags</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-6">
+<!-- Search Bar -->
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64 group">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full border border-transparent group-focus-within:border-primary/50 transition-colors">
+<div class="text-[#b99d9d] flex border-none bg-surface-dark items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-surface-dark focus:border-none h-full placeholder:text-[#b99d9d] px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search collection..." value=""/>
+</div>
+</label>
+<!-- Actions -->
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-surface-dark text-white hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-surface-dark text-white hover:bg-primary hover:text-white transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-accent-gold rounded-full"></span>
+</button>
+<button class="lg:hidden flex items-center justify-center rounded-lg h-10 w-10 bg-surface-dark text-white">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+</div>
+</div>
+</header>
+<div class="layout-container flex h-full grow flex-col w-full">
+<div class="w-full flex flex-1 justify-center py-5 px-4 lg:px-8">
+<div class="layout-content-container flex flex-col max-w-[1024px] flex-1">
+<!-- Page Heading / Hero -->
+<div class="relative overflow-hidden rounded-xl bg-surface-dark border border-border-dark mb-8">
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Silk background" class="w-full h-full object-cover" data-alt="Abstract luxurious red silk fabric texture background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxfMNNDJ009mVNgEH40AeQNy8OiNzK5EmzUo_UsIFUOiODws5MlfcTU7B6B34ebmrbNrH6eUjsv1AHPMjP1QE7VKLgVbqbYT4k6Tj5xz1oJstSQXMp0KFq3UMTvgEVnVfqL3CAb68okWEYUY-uReoG7lbznvoHe-s_y84vFYNSygUCdW8OHGvrYXREMYl5eoJP7g7cEedp8Zm4yZ9ACgg6ae4CHm1BJ9-66R7VFZ54C7RfU2OVe8B-qIYn21z0SssKxi45j9-PB02i"/>
+</div>
+<div class="relative z-10 flex flex-col gap-4 p-8 lg:p-12">
+<div class="flex flex-col gap-2">
+<p class="text-accent-gold text-sm font-bold tracking-widest uppercase">My Account</p>
+<h1 class="text-white text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em]">YOUR STYLE DNA</h1>
+</div>
+<p class="text-[#dcdcdc] text-lg font-light leading-normal max-w-xl">
+                                Tailor your OAX experience. Tell us what you love, and we’ll curate a selection that speaks your language.
+                            </p>
+</div>
+</div>
+<!-- Main Form Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Primary Content -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Section: The Fit -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-border-dark pb-2">
+<h2 class="text-white text-xl font-bold tracking-tight">THE FIT</h2>
+<a class="text-accent-gold text-sm font-medium hover:text-white hover:underline transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">straighten</span> Size Guide
+                                    </a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<label class="flex flex-col gap-2 group">
+<p class="text-[#b99d9d] text-sm font-medium uppercase tracking-wider group-hover:text-white transition-colors">Tops</p>
+<div class="relative">
+<select class="form-select w-full h-14 rounded-lg bg-surface-dark border border-border-dark text-white focus:border-accent-gold focus:ring-0 px-4 appearance-none cursor-pointer hover:border-[#543b3b] transition-colors">
+<option>Select Size</option>
+<option>XS</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-[#b99d9d] pointer-events-none">expand_more</span>
+</div>
+</label>
+<label class="flex flex-col gap-2 group">
+<p class="text-[#b99d9d] text-sm font-medium uppercase tracking-wider group-hover:text-white transition-colors">Bottoms</p>
+<div class="relative">
+<select class="form-select w-full h-14 rounded-lg bg-surface-dark border border-border-dark text-white focus:border-accent-gold focus:ring-0 px-4 appearance-none cursor-pointer hover:border-[#543b3b] transition-colors">
+<option>Select Size</option>
+<option>US 2</option>
+<option>US 4</option>
+<option>US 6</option>
+<option>US 8</option>
+<option>US 10</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-[#b99d9d] pointer-events-none">expand_more</span>
+</div>
+</label>
+<label class="flex flex-col gap-2 group">
+<p class="text-[#b99d9d] text-sm font-medium uppercase tracking-wider group-hover:text-white transition-colors">Shoes</p>
+<div class="relative">
+<select class="form-select w-full h-14 rounded-lg bg-surface-dark border border-border-dark text-white focus:border-accent-gold focus:ring-0 px-4 appearance-none cursor-pointer hover:border-[#543b3b] transition-colors">
+<option>Select Size</option>
+<option>EU 36</option>
+<option>EU 37</option>
+<option>EU 38</option>
+<option>EU 39</option>
+<option>EU 40</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-[#b99d9d] pointer-events-none">expand_more</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Section: The Aesthetic -->
+<section class="flex flex-col gap-4 mt-4">
+<div class="border-b border-border-dark pb-2">
+<h2 class="text-white text-xl font-bold tracking-tight">THE AESTHETIC</h2>
+<p class="text-[#b99d9d] text-sm pt-1">Select the styles that inspire you.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="group cursor-pointer relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-accent-gold transition-all duration-300">
+<img alt="Minimalist Style" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Woman in minimal beige outfit posing elegantly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp9gSZ5O7yDNAk7FI--h0lIjHiw9wi7Qzb8MvsNu9M7l-lpoOHbE-YoZr21EY1j2wARmn9lNHXdXlRekQHCjokEKs6AhrnAThAzPyQ04A7MXhfnlhADBG3LFx6cnzFsC9cnAql36TuscIzrS4QUV9WAHZbJOeApENz7nQpMBnEInTcqJjiCPkjzp344nye7rhDBo_U_mnVgHp7-skekCqNIo7RyyVQ02KzYskeyn6gAngZxX2gg3vkBtkvypNLjeioEVfw-H86LWgL"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<div class="flex justify-between items-center w-full">
+<span class="text-white font-bold text-sm tracking-wide">MINIMALIST</span>
+<div class="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100">check</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-primary transition-all duration-300 ring-2 ring-primary/20">
+<img alt="Avant-Garde Style" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Edgy street fashion model with sunglasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClGcnJsOpxo8E-clyCe5LRDLJxryHtGqZjJrKBTOa3Z0rDnA_28DrZlPt32R4biMmReaHG92q-GIqPKlk09ky_8isMh_3hvi5Lb8bTO3RQg9xHqS793rCIZAW69NukUVJNjt2s5CA87YugvtUw0fuU6jxxkAK1lxGHkHGJdEW1eOUDLoO4Prik7brpMCswkKpmo8jTiT-kfPHGd8ubm8IahIMOUTG6AC5wwPBHBMYZzYiIUP5eYfaiTgMdOBTla6e194jzUc42mNtp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<div class="flex justify-between items-center w-full">
+<span class="text-white font-bold text-sm tracking-wide">AVANT-GARDE</span>
+<div class="w-5 h-5 rounded-full bg-primary border border-primary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-accent-gold transition-all duration-300">
+<img alt="Bohemian Style" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Bohemian style woman in floral dress outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZoOck2o8zXY2Qa23Mxz3ImDuxk224DVFJynbMJEQ7PX-LqnFeCQgEZRzayVNLxhEofVTqUM9zyEasfZMW0Sxcx9GQqllcUo7IF-JDhH0aKjR3X8s5wYfWRgxYTm8nZ3W0v3pepjWaSBZ12bbGQTkoDrKlZ704ymflu82jH2hJT-yNaANSpDuqBL2R7A2vE8yuczZc2NZ7QdU5Fb2fyn1oBvrlzD6cimxcSSjGIZLR6ED-0Kewq2Y-MVGH0Uf3zspsEFWGRAQAjcYv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<div class="flex justify-between items-center w-full">
+<span class="text-white font-bold text-sm tracking-wide">BOHEMIAN</span>
+<div class="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100">check</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-accent-gold transition-all duration-300">
+<img alt="Classic Glamour Style" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Woman in formal evening gown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV3XXNO_5_H4d5UTdKuXLITR0_fZAlrldlzesSe5TN_A3Ol60dcIKzmp6MTRImbnMNOiTPRWdDkxdpxny7MEouAVUGTgdof-4dpiKainKtq-tM8deEF1Z_6CkSc-La1x3pzUEIVHjOJUEBJ5_-aaTUmPsbtT1nIRy__N1zS7pOtPS7Ecs1BSxUoGuIJa7WsowCFsuFWuN2ZVQ9ADCViJyt8Ju5ETHlbmqe00XXyCzKyV22rwxxK4ha3Q_r_oCSDhFBfdPdeaVkxKIO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<div class="flex justify-between items-center w-full">
+<span class="text-white font-bold text-sm tracking-wide">GLAMOUR</span>
+<div class="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100">check</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Occasion Needs -->
+<section class="flex flex-col gap-4 mt-4">
+<div class="border-b border-border-dark pb-2">
+<h2 class="text-white text-xl font-bold tracking-tight">LIFESTYLE</h2>
+<p class="text-[#b99d9d] text-sm pt-1">Where do you want to wear OAX?</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full border border-border-dark bg-surface-dark text-[#b99d9d] hover:text-white hover:border-white transition-all text-sm font-medium">Workwear</button>
+<button class="px-5 py-2.5 rounded-full border border-primary bg-primary text-white text-sm font-medium shadow-[0_0_10px_rgba(212,17,17,0.3)]">Gala &amp; Evening</button>
+<button class="px-5 py-2.5 rounded-full border border-border-dark bg-surface-dark text-[#b99d9d] hover:text-white hover:border-white transition-all text-sm font-medium">Vacation</button>
+<button class="px-5 py-2.5 rounded-full border border-border-dark bg-surface-dark text-[#b99d9d] hover:text-white hover:border-white transition-all text-sm font-medium">Weekend Casual</button>
+<button class="px-5 py-2.5 rounded-full border border-border-dark bg-surface-dark text-[#b99d9d] hover:text-white hover:border-white transition-all text-sm font-medium">Date Night</button>
+<button class="px-5 py-2.5 rounded-full border border-primary bg-primary text-white text-sm font-medium shadow-[0_0_10px_rgba(212,17,17,0.3)]">Resort</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar Settings -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Color Palette -->
+<div class="bg-surface-dark rounded-xl p-6 border border-border-dark">
+<h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-gold">palette</span>
+                                    COLOR PALETTE
+                                </h3>
+<p class="text-[#b99d9d] text-xs mb-4">Select up to 3 favorites.</p>
+<div class="grid grid-cols-4 gap-4">
+<button aria-label="Black" class="w-12 h-12 rounded-full bg-black border-2 border-white ring-2 ring-white/20 transition-transform hover:scale-110"></button>
+<button aria-label="White" class="w-12 h-12 rounded-full bg-white border border-gray-300 transition-transform hover:scale-110"></button>
+<button aria-label="OAX Blood" class="w-12 h-12 rounded-full bg-[#8B0000] transition-transform hover:scale-110 relative">
+<span class="material-symbols-outlined text-white text-lg absolute inset-0 flex items-center justify-center">check</span>
+</button>
+<button aria-label="Dark Gray" class="w-12 h-12 rounded-full bg-[#1A1A1A] transition-transform hover:scale-110"></button>
+<button aria-label="Light Gray" class="w-12 h-12 rounded-full bg-[#F5F5F5] border border-gray-300 transition-transform hover:scale-110"></button>
+<button aria-label="Gold" class="w-12 h-12 rounded-full bg-[#D4AF37] transition-transform hover:scale-110"></button>
+<button aria-label="Navy" class="w-12 h-12 rounded-full bg-[#1e3a8a] transition-transform hover:scale-110"></button>
+<button aria-label="Zinc" class="w-12 h-12 rounded-full bg-[#3f3f46] transition-transform hover:scale-110"></button>
+</div>
+</div>
+<!-- Budget Slider -->
+<div class="bg-surface-dark rounded-xl p-6 border border-border-dark">
+<h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-gold">attach_money</span>
+                                    INVESTMENT RANGE
+                                </h3>
+<div class="flex flex-col gap-6 pt-2">
+<input class="w-full bg-transparent appearance-none" max="5000" min="0" step="100" type="range"/>
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-[#b99d9d] text-xs">Minimum</span>
+<span class="text-white font-mono font-medium">$500</span>
+</div>
+<div class="h-px w-8 bg-border-dark mb-2"></div>
+<div class="flex flex-col text-right">
+<span class="text-[#b99d9d] text-xs">Maximum</span>
+<span class="text-white font-mono font-medium text-xl text-accent-gold">$2,500+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Save Action -->
+<div class="bg-surface-dark/50 rounded-xl p-6 border border-dashed border-border-dark flex flex-col gap-3">
+<p class="text-[#b99d9d] text-sm text-center">Ready to see your curated collection?</p>
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-lg shadow-lg shadow-primary/20 transition-all transform hover:translate-y-px active:translate-y-1 flex items-center justify-center gap-2">
+                                    SAVE STYLE PROFILE
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="text-[#b99d9d] text-xs font-medium hover:text-white transition-colors text-center underline">Clear all preferences</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Simple -->
+<footer class="mt-auto border-t border-border-dark bg-[#110c0c] py-8">
+<div class="flex flex-col md:flex-row justify-center items-center gap-6 text-[#7c6f6f]">
+<span class="text-sm">© 2024 OAX FASHION</span>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors text-sm" href="#">Privacy</a>
+<a class="hover:text-white transition-colors text-sm" href="#">Terms</a>
+<a class="hover:text-white transition-colors text-sm" href="#">Contact Concierge</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

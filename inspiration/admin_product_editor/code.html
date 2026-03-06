@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Admin Product Editor</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1754cf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "card-dark": "#1c212c", 
+                        "input-dark": "#111621",
+                        "border-dark": "#292e38",
+                        "text-secondary": "#9da6b8"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better aesthetic in dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111621; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3c4453; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased selection:bg-primary selection:text-white">
+<div class="flex min-h-screen w-full flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-border-dark bg-white dark:bg-background-dark px-4 py-3 md:px-10">
+<div class="flex items-center gap-4 md:gap-8">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<div class="size-8 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">diamond</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] hidden md:block">OAX FASHION Admin</h2>
+</div>
+<!-- Search Bar -->
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full border border-gray-200 dark:border-border-dark bg-gray-50 dark:bg-card-dark transition-colors focus-within:border-primary">
+<div class="text-text-secondary flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-transparent border-none focus:ring-0 h-full placeholder:text-text-secondary px-3 text-sm font-normal leading-normal text-slate-900 dark:text-white" placeholder="Search products..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4 md:gap-8">
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-text-secondary hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-slate-900 dark:text-white text-sm font-bold leading-normal" href="#">Products</a>
+<a class="text-text-secondary hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Orders</a>
+<a class="text-text-secondary hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Analytics</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-border-dark text-text-secondary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex size-10 cursor-pointer items-center justify-center rounded-lg hover:bg-gray-100 dark:hover:bg-border-dark text-text-secondary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border border-gray-200 dark:border-border-dark" data-alt="Admin user profile picture showing a professional headshot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3rpWdBSUdaxUWB1vLXzAhUVZ-czyiou8YMC50a6CvTBH6V7HaMXLDT6gy1v7KEnWDlhb-xobXBaD2rofIfIfCqh7Ml8nrwOYhZlLJQPpUcxgcOHzBz-rMzwlIzEXLqMFoBCtOHVmGdE9FwCyw5uMJEzMbljZgCfSyi8nyyXdEhPWB5-7aum3KRpKf2Tft9Mhc9FaMSn9eRyPAY1YdRt3KAXuwYBUlidKl-VTWP6QdZAxmblMmbpD1V__A98G9cdKTULd1v3B-_Tl3");'></div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 md:px-10 py-6 md:py-8 w-full max-w-[1600px] mx-auto">
+<!-- Breadcrumbs & Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="flex flex-col gap-2">
+<div class="flex flex-wrap items-center gap-2 text-sm">
+<a class="text-text-secondary hover:text-primary transition-colors" href="#">Products</a>
+<span class="text-text-secondary">/</span>
+<span class="text-slate-900 dark:text-white font-medium">Edit Product</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="text-2xl md:text-3xl font-black tracking-tight text-slate-900 dark:text-white">Silk Evening Gown</h1>
+<span class="px-2 py-0.5 rounded text-xs font-bold bg-green-500/20 text-green-500 border border-green-500/20">Active</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 h-10 rounded-lg border border-gray-200 dark:border-border-dark bg-white dark:bg-card-dark text-slate-700 dark:text-white text-sm font-bold hover:bg-gray-50 dark:hover:bg-border-dark transition-colors">
+                        Discard
+                    </button>
+<button class="px-6 h-10 rounded-lg bg-primary text-white text-sm font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                        Save Changes
+                    </button>
+</div>
+</div>
+<!-- Editor Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Column (Main Content) -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<!-- General Info -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+<h3 class="text-lg font-bold mb-4">General Information</h3>
+<div class="flex flex-col gap-5">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Product Title</span>
+<input class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-text-secondary text-slate-900 dark:text-white" value="Silk Evening Gown"/>
+</label>
+<div class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Description</span>
+<div class="rounded-lg border border-gray-200 dark:border-border-dark overflow-hidden">
+<div class="flex items-center gap-1 p-2 bg-gray-50 dark:bg-input-dark border-b border-gray-200 dark:border-border-dark">
+<button class="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-border-dark text-text-secondary"><span class="material-symbols-outlined text-[20px]">format_bold</span></button>
+<button class="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-border-dark text-text-secondary"><span class="material-symbols-outlined text-[20px]">format_italic</span></button>
+<button class="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-border-dark text-text-secondary"><span class="material-symbols-outlined text-[20px]">format_underlined</span></button>
+<div class="w-px h-4 bg-gray-300 dark:bg-border-dark mx-1"></div>
+<button class="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-border-dark text-text-secondary"><span class="material-symbols-outlined text-[20px]">format_list_bulleted</span></button>
+<button class="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-border-dark text-text-secondary"><span class="material-symbols-outlined text-[20px]">link</span></button>
+<button class="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-border-dark text-text-secondary"><span class="material-symbols-outlined text-[20px]">image</span></button>
+</div>
+<textarea class="w-full bg-white dark:bg-card-dark p-4 text-sm h-32 focus:outline-none resize-y text-slate-900 dark:text-white" placeholder="Describe your product...">Eleganza's Silk Evening Gown is crafted from 100% mulberry silk, featuring a floor-length silhouette and delicate hand-stitched embroidery. Perfect for black-tie events.</textarea>
+</div>
+</div>
+</div>
+</div>
+<!-- Media -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold">Media</h3>
+<button class="text-primary text-sm font-bold hover:underline">Download All</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+<!-- Existing Image 1 -->
+<div class="group relative aspect-[3/4] rounded-lg overflow-hidden border border-gray-200 dark:border-border-dark bg-gray-100 dark:bg-input-dark">
+<img class="w-full h-full object-cover" data-alt="Model wearing a long green silk evening gown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQRnNq3h4buPwfOsOyI-ucRwQBYAgN1pczNxmgyXY4twHyaoEGJJHXuJjUzmrAa0DpyqrJE1mDMML47Wug2Ku2fKi-QNQLXaXeCbsV3Vnw4stsV3kbEFzZBo2wX5fRRmTdzZEBX2VLi3MOs2Nh6VhrIgDArHJPttag0f_nkFBLm_V-RoYiYn04rmRe--350wwl8vlVi0wzvnnMFQzMdw0KIosiF88lAGFU3ZfEvP0ATPkcTL4cgHnjLB5B1uFVSspAR1DT75p9WMCX"/>
+<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+<button class="p-2 rounded-full bg-red-500/80 hover:bg-red-500 text-white backdrop-blur-sm"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-black/60 backdrop-blur-md rounded text-[10px] font-bold text-white uppercase tracking-wider">Main</div>
+</div>
+<!-- Existing Image 2 -->
+<div class="group relative aspect-[3/4] rounded-lg overflow-hidden border border-gray-200 dark:border-border-dark bg-gray-100 dark:bg-input-dark">
+<img class="w-full h-full object-cover" data-alt="Close up detail of silk fabric texture and stitching" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc9GcZOsEkl8EDeJLkJVUrNIkGxy_cXGE3yirbQD3gpLycVpi-KSTGT25LMEWJB3aKPCaZDH-IA1Tq7ukkdmXTtIBL3aQ2-DJ6J5JRaJYrCo3R6UHStJMFKbgdPjXLT8MSwUILXbFgB9zx_L6U9IPrKZbnTjKo7wJHlGOWaXjY1j4RkdN-Qqi5rijRhFtaqCiCxX6bFgwRzoO7bwnLccsdQgA4FZSfWR9ggxjIu_9DimwKS5igLfK8_cMjD68xjapAxJZA6H-pGH7m"/>
+<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+<button class="p-2 rounded-full bg-red-500/80 hover:bg-red-500 text-white backdrop-blur-sm"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</div>
+<!-- Existing Image 3 -->
+<div class="group relative aspect-[3/4] rounded-lg overflow-hidden border border-gray-200 dark:border-border-dark bg-gray-100 dark:bg-input-dark">
+<img class="w-full h-full object-cover" data-alt="Model walking away showing the back of the silk dress" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmmDiTlcq9CkSSh8C3WutbBw-6jKKHzLhFrrgWtKnFtDx4nnGuMZfNU_REKAsk4FarjjOYKcptOK2o5iXJfuWt5OCp9L8IR8_SPRTk8mONpzkltP8S8YyRcEx6op4Z3WoTe8R9JriHVP-mmH0YI7wYQMOc6GogLSaGT1PyZEQJrzzLHdFEfyeLgF8wWkAEKkg0Lp4Nourxb6BRfFjJpPpDJM-nS8BXcaO0iqnxNPMEjJEU2Qv64jwCY1GhBD90yO-5S4GbHvw4_8by"/>
+<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"><span class="material-symbols-outlined text-[20px]">visibility</span></button>
+<button class="p-2 rounded-full bg-red-500/80 hover:bg-red-500 text-white backdrop-blur-sm"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</div>
+<!-- Upload Box -->
+<div class="aspect-[3/4] rounded-lg border-2 border-dashed border-gray-300 dark:border-border-dark hover:border-primary dark:hover:border-primary hover:bg-primary/5 transition-all flex flex-col items-center justify-center cursor-pointer gap-2 group">
+<div class="p-3 rounded-full bg-gray-100 dark:bg-input-dark group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-primary">add_photo_alternate</span>
+</div>
+<span class="text-xs font-bold text-text-secondary group-hover:text-primary">Add Media</span>
+</div>
+</div>
+<p class="text-xs text-text-secondary">Supported formats: JPG, PNG, GIF, WEBP. Max size: 20MB.</p>
+</div>
+<!-- Variant Matrix -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm overflow-hidden">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold">Variants</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">add</span> Add Option
+                            </button>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-input-dark text-xs font-bold text-slate-700 dark:text-white border border-gray-200 dark:border-border-dark">
+                                Size: S, M, L <button class="hover:text-red-500"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-input-dark text-xs font-bold text-slate-700 dark:text-white border border-gray-200 dark:border-border-dark">
+                                Color: Emerald, Midnight <button class="hover:text-red-500"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+</div>
+<div class="overflow-x-auto -mx-6 px-6 pb-2">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-gray-200 dark:border-border-dark">
+<th class="py-3 px-2 text-xs font-bold text-text-secondary uppercase tracking-wider w-10">
+<input class="rounded border-gray-300 dark:border-border-dark bg-transparent text-primary focus:ring-primary/20" type="checkbox"/>
+</th>
+<th class="py-3 px-2 text-xs font-bold text-text-secondary uppercase tracking-wider">Variant</th>
+<th class="py-3 px-2 text-xs font-bold text-text-secondary uppercase tracking-wider w-32">Price</th>
+<th class="py-3 px-2 text-xs font-bold text-text-secondary uppercase tracking-wider w-24">Quantity</th>
+<th class="py-3 px-2 text-xs font-bold text-text-secondary uppercase tracking-wider w-40">SKU</th>
+<th class="py-3 px-2 text-xs font-bold text-text-secondary uppercase tracking-wider w-10"></th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="group border-b border-gray-100 dark:border-border-dark/50 last:border-0 hover:bg-gray-50 dark:hover:bg-input-dark/50 transition-colors">
+<td class="py-3 px-2"><input class="rounded border-gray-300 dark:border-border-dark bg-transparent text-primary focus:ring-primary/20" type="checkbox"/></td>
+<td class="py-3 px-2 font-medium text-slate-900 dark:text-white">S / Emerald</td>
+<td class="py-3 px-2">
+<div class="relative">
+<span class="absolute left-2 top-1/2 -translate-y-1/2 text-text-secondary">$</span>
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 pl-5 pr-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="295.00"/>
+</div>
+</td>
+<td class="py-3 px-2">
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 px-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="15"/>
+</td>
+<td class="py-3 px-2">
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 px-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="SLK-EM-S"/>
+</td>
+<td class="py-3 px-2 text-right">
+<button class="text-text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</td>
+</tr>
+<tr class="group border-b border-gray-100 dark:border-border-dark/50 last:border-0 hover:bg-gray-50 dark:hover:bg-input-dark/50 transition-colors">
+<td class="py-3 px-2"><input class="rounded border-gray-300 dark:border-border-dark bg-transparent text-primary focus:ring-primary/20" type="checkbox"/></td>
+<td class="py-3 px-2 font-medium text-slate-900 dark:text-white">M / Emerald</td>
+<td class="py-3 px-2">
+<div class="relative">
+<span class="absolute left-2 top-1/2 -translate-y-1/2 text-text-secondary">$</span>
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 pl-5 pr-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="295.00"/>
+</div>
+</td>
+<td class="py-3 px-2">
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 px-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="8"/>
+</td>
+<td class="py-3 px-2">
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 px-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="SLK-EM-M"/>
+</td>
+<td class="py-3 px-2 text-right">
+<button class="text-text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</td>
+</tr>
+<tr class="group border-b border-gray-100 dark:border-border-dark/50 last:border-0 hover:bg-gray-50 dark:hover:bg-input-dark/50 transition-colors">
+<td class="py-3 px-2"><input class="rounded border-gray-300 dark:border-border-dark bg-transparent text-primary focus:ring-primary/20" type="checkbox"/></td>
+<td class="py-3 px-2 font-medium text-slate-900 dark:text-white">L / Emerald</td>
+<td class="py-3 px-2">
+<div class="relative">
+<span class="absolute left-2 top-1/2 -translate-y-1/2 text-text-secondary">$</span>
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 pl-5 pr-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="295.00"/>
+</div>
+</td>
+<td class="py-3 px-2">
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 px-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="0"/>
+</td>
+<td class="py-3 px-2">
+<input class="w-full rounded bg-white dark:bg-input-dark border border-gray-200 dark:border-border-dark py-1 px-2 text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none" value="SLK-EM-L"/>
+</td>
+<td class="py-3 px-2 text-right">
+<button class="text-text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- SEO Section -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold">Search Engine Listing</h3>
+<button class="text-primary text-sm font-bold">Edit</button>
+</div>
+<p class="text-sm text-text-secondary mb-4">Add a title and description to see how this product might appear in a search engine listing.</p>
+<div class="bg-gray-50 dark:bg-input-dark rounded-lg p-4 border border-gray-200 dark:border-border-dark">
+<p class="text-xs text-text-secondary mb-1">https://oaxfashion.com/products/silk-evening-gown</p>
+<h4 class="text-base font-medium text-primary mb-1 hover:underline cursor-pointer">Silk Evening Gown - OAX FASHION Luxury Collection</h4>
+<p class="text-sm text-text-secondary">Eleganza's Silk Evening Gown is crafted from 100% mulberry silk, featuring a floor-length silhouette and delicate hand-stitched embroidery...</p>
+</div>
+</div>
+</div>
+<!-- Right Column (Sidebar) -->
+<div class="lg:col-span-1 flex flex-col gap-6">
+<!-- Publishing -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+<h3 class="text-lg font-bold mb-4">Publishing</h3>
+<div class="flex flex-col gap-4">
+<div>
+<label class="text-sm font-medium text-slate-700 dark:text-white mb-2 block">Status</label>
+<select class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-900 dark:text-white">
+<option value="active">Active</option>
+<option value="draft">Draft</option>
+<option value="archived">Archived</option>
+</select>
+</div>
+<hr class="border-gray-200 dark:border-border-dark my-1"/>
+<div>
+<h4 class="text-sm font-medium text-slate-700 dark:text-white mb-2">Sales Channels</h4>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded border-gray-300 dark:border-border-dark bg-transparent text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm text-text-secondary">Online Store</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded border-gray-300 dark:border-border-dark bg-transparent text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm text-text-secondary">Shop App</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-gray-300 dark:border-border-dark bg-transparent text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm text-text-secondary">Facebook &amp; Instagram</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing & Inventory Sidebar Summary -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+<h3 class="text-lg font-bold mb-4">Pricing Rules</h3>
+<div class="flex flex-col gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Base Price</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary">$</span>
+<input class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark pl-6 pr-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-900 dark:text-white" value="295.00"/>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Compare-at Price</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary">$</span>
+<input class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark pl-6 pr-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-900 dark:text-white" placeholder="0.00"/>
+</div>
+<span class="text-xs text-text-secondary">Enter a value higher than base price to show a sale.</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer mt-1">
+<input checked="" class="rounded border-gray-300 dark:border-border-dark bg-transparent text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm text-text-secondary">Charge tax on this product</span>
+</label>
+</div>
+</div>
+<!-- Organization -->
+<div class="bg-white dark:bg-card-dark rounded-xl border border-gray-200 dark:border-border-dark p-6 shadow-sm">
+<h3 class="text-lg font-bold mb-4">Organization</h3>
+<div class="flex flex-col gap-4">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Product Category</span>
+<select class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-900 dark:text-white">
+<option value="apparel">Apparel &amp; Accessories &gt; Clothing &gt; Dresses</option>
+<option value="other">Other</option>
+</select>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Product Type</span>
+<input class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-900 dark:text-white" value="Evening Gown"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Vendor</span>
+<input class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark px-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-900 dark:text-white" value="Eleganza"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Collections</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary"><span class="material-symbols-outlined text-[18px]">folder_open</span></span>
+<input class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark pl-9 pr-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-900 dark:text-white" placeholder="Search collections..."/>
+</div>
+<div class="flex flex-wrap gap-2 mt-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary/20 text-primary text-xs font-medium">Summer Gala <button class="hover:text-primary/70">×</button></span>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-slate-700 dark:text-white">Tags</span>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary"><span class="material-symbols-outlined text-[18px]">label</span></span>
+<input class="w-full rounded-lg bg-gray-50 dark:bg-input-dark border border-gray-200 dark:border-border-dark pl-9 pr-3 py-2 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-900 dark:text-white" placeholder="Vintage, Silk, Limited..."/>
+</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

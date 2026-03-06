@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX Admin Settings</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111418", 
+                        "surface-dark": "#1c2126",
+                        "border-dark": "#3c4753",
+                        "text-secondary": "#9dabb8"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111418; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3c4753; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a5568; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden">
+<div class="relative flex h-screen w-full overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 flex-shrink-0 flex flex-col border-r border-border-dark bg-background-dark h-full overflow-y-auto">
+<div class="p-4 flex flex-col gap-8 h-full">
+<!-- User Profile -->
+<div class="flex gap-3 items-center px-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 shrink-0" data-alt="Abstract blue geometric pattern representing admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7J16eSpABSw06TsUURH8RKh65cn1-DJFRfj-LroKjCwMf7Xlw0iN7A15Asig6Zoc6rgha1d88ldquduxmQSviX0VTUW2esiaUdzzd5CZcAimVb8TNQ_nlftdr7kdDpwHFuoRy_0deLwtsKUwBDcOytNYzvKWduoesrYCa-mrhzduh2prXqWalvKzlomJYae_xqYDUXA8UbcWmt4W_sE_eplN8UAMIpWhLUMJlT1ArrFG1Wqbag__nmd3VG5aurODwOLe6m-IGea0H");'></div>
+<div class="flex flex-col overflow-hidden">
+<h1 class="text-white text-base font-medium leading-normal truncate">OAX Admin</h1>
+<p class="text-text-secondary text-sm font-normal leading-normal truncate">Super Admin</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-2 flex-1">
+<!-- Active Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#293038] group transition-colors" href="#">
+<span class="material-symbols-outlined text-white group-hover:text-primary transition-colors">settings</span>
+<p class="text-white text-sm font-medium leading-normal">General</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#1c2126] group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white transition-colors">credit_card</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium leading-normal">Payments</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#1c2126] group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white transition-colors">local_shipping</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium leading-normal">Shipping &amp; Delivery</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#1c2126] group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white transition-colors">receipt_long</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium leading-normal">Taxes</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#1c2126] group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white transition-colors">notifications</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium leading-normal">Notifications</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#1c2126] group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white transition-colors">group</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium leading-normal">Team &amp; Permissions</p>
+</a>
+</nav>
+<!-- Bottom Action -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1980e6] hover:bg-[#166ac0] transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">View Store</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light dark:bg-background-dark relative">
+<div class="flex-1 overflow-y-auto p-4 md:p-10">
+<div class="max-w-5xl mx-auto flex flex-col gap-8 pb-24">
+<!-- Breadcrumbs & Heading -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-sm">
+<a class="text-text-secondary hover:text-white transition-colors font-medium" href="#">Dashboard</a>
+<span class="text-text-secondary font-medium">/</span>
+<span class="text-white font-medium">Settings</span>
+</div>
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">General Settings</h1>
+<p class="text-text-secondary text-base font-normal">Manage your store configuration and preferences.</p>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px w-full bg-border-dark"></div>
+<!-- Form Section: Store Details -->
+<section class="flex flex-col gap-6">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Store Details</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Store Name</span>
+<input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 placeholder:text-text-secondary px-4 text-base transition-all" placeholder="e.g. OAX Fashion" type="text" value="OAX Fashion"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Legal Business Name</span>
+<input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 placeholder:text-text-secondary px-4 text-base transition-all" placeholder="e.g. OAX Group Ltd." type="text" value="OAX Group Ltd."/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Support Email</span>
+<input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 placeholder:text-text-secondary px-4 text-base transition-all" placeholder="support@example.com" type="email" value="concierge@oaxfashion.com"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Industry</span>
+<div class="relative">
+<select class="form-select w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 px-4 text-base appearance-none cursor-pointer transition-all">
+<option>Fashion &amp; Apparel</option>
+<option>Beauty &amp; Cosmetics</option>
+<option>Home &amp; Decor</option>
+<option>Electronics</option>
+</select>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none material-symbols-outlined">expand_more</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-px w-full bg-border-dark"></div>
+<!-- Form Section: Location -->
+<section class="flex flex-col gap-6">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Store Address</h2>
+<div class="flex flex-col gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Street Address</span>
+<input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 placeholder:text-text-secondary px-4 text-base transition-all" placeholder="123 Fashion Ave" type="text" value="100 Luxury Blvd, Suite 400"/>
+</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">City</span>
+<input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 placeholder:text-text-secondary px-4 text-base" type="text" value="New York"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Zip / Postal Code</span>
+<input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 placeholder:text-text-secondary px-4 text-base" type="text" value="10001"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Country</span>
+<div class="relative">
+<select class="form-select w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 px-4 text-base appearance-none cursor-pointer">
+<option>United States</option>
+<option>United Kingdom</option>
+<option>France</option>
+<option>Italy</option>
+</select>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none material-symbols-outlined">expand_more</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-px w-full bg-border-dark"></div>
+<!-- Form Section: Standards -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-end flex-wrap gap-4">
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Standards &amp; Formats</h2>
+<p class="text-text-secondary text-sm">Standards are used to calculate product prices, shipping weights, and order times.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Store Currency</span>
+<div class="relative">
+<select class="form-select w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 px-4 text-base appearance-none cursor-pointer">
+<option>USD - United States Dollar</option>
+<option>EUR - Euro</option>
+<option>GBP - British Pound</option>
+</select>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none material-symbols-outlined">attach_money</span>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Timezone</span>
+<div class="relative">
+<select class="form-select w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 px-4 text-base appearance-none cursor-pointer">
+<option>(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+<option>(GMT+00:00) London</option>
+<option>(GMT+01:00) Paris</option>
+</select>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none material-symbols-outlined">schedule</span>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Unit System</span>
+<div class="relative">
+<select class="form-select w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 px-4 text-base appearance-none cursor-pointer">
+<option>Imperial (lb, in)</option>
+<option>Metric (kg, cm)</option>
+</select>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none material-symbols-outlined">straighten</span>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-base font-medium leading-normal">Order ID Prefix (Optional)</span>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none">#</span>
+<input class="form-input w-full rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-dark bg-surface-dark focus:border-primary h-12 placeholder:text-text-secondary pl-8 pr-4 text-base" placeholder="OAX-" type="text" value=""/>
+</div>
+</label>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-px w-full bg-border-dark"></div>
+<!-- Form Section: Preferences (Toggles) -->
+<section class="flex flex-col gap-6">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Preferences</h2>
+<div class="flex flex-col gap-4 bg-surface-dark rounded-xl p-4 border border-border-dark">
+<!-- Toggle Item 1 -->
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-white text-base font-medium">Enable Guest Checkout</p>
+<p class="text-text-secondary text-sm">Allow customers to purchase without creating an account.</p>
+</div>
+<label class="inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="relative w-11 h-6 bg-[#3c4753] peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/50 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="h-px bg-border-dark w-full"></div>
+<!-- Toggle Item 2 -->
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-white text-base font-medium">Password Protection</p>
+<p class="text-text-secondary text-sm">Restrict access to your store with a password (Maintenance Mode).</p>
+</div>
+<label class="inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="relative w-11 h-6 bg-[#3c4753] peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/50 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Sticky Footer Action Bar -->
+<div class="border-t border-border-dark bg-background-dark p-4 md:px-10 flex items-center justify-between z-10 shrink-0">
+<p class="text-text-secondary text-sm hidden md:block">Unsaved changes will be lost.</p>
+<div class="flex items-center gap-3">
+<button class="px-6 h-10 rounded-lg border border-border-dark text-white font-medium hover:bg-surface-dark transition-colors">Discard</button>
+<button class="px-6 h-10 rounded-lg bg-primary hover:bg-[#166ac0] text-white font-bold transition-colors shadow-lg shadow-primary/20">Save Changes</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

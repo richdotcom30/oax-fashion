@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Personal Stylist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8B0000", /* OAX Blood as Primary */
+                        "primary-hover": "#660000",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0a0a0a", /* Near black */
+                        "surface-dark": "#1A1A1A", /* Dark Gray */
+                        "accent-gold": "#D4AF37",
+                        "text-secondary": "#A3A3A3",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased transition-colors duration-300">
+<div class="flex flex-col min-h-screen">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-[#382929]/30 bg-background-dark/80 backdrop-blur-md">
+<div class="px-6 md:px-10 py-4 flex items-center justify-between max-w-[1440px] mx-auto w-full">
+<!-- Logo -->
+<div class="flex items-center gap-4">
+<div class="text-white">
+<span class="material-symbols-outlined text-accent-gold text-3xl">diamond</span>
+</div>
+<h2 class="text-white text-xl font-bold tracking-[0.1em] uppercase">OAX Fashion</h2>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors uppercase tracking-widest" href="#">Collections</a>
+<a class="text-accent-gold text-sm font-medium transition-colors uppercase tracking-widest border-b border-accent-gold pb-1" href="#">Personal Stylist</a>
+<a class="text-white/80 hover:text-accent-gold text-sm font-medium transition-colors uppercase tracking-widest" href="#">Journal</a>
+</nav>
+<!-- Right Actions -->
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center border-b border-[#382929] pb-1">
+<span class="material-symbols-outlined text-[#b89d9f] text-xl mr-2">search</span>
+<input class="bg-transparent border-none text-white placeholder-[#b89d9f] focus:ring-0 p-0 text-sm w-32" placeholder="Search..." type="text"/>
+</div>
+<div class="flex gap-4">
+<button class="text-white hover:text-accent-gold transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 flex h-3 w-3 items-center justify-center rounded-full bg-primary text-[8px] text-white">2</span>
+</button>
+<button class="text-white hover:text-accent-gold transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-[85vh] w-full overflow-hidden flex items-center justify-center">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" data-alt="High fashion model in dark elegant red dress posing dramatically in shadows" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(10,10,10,1)); background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKvMdTGnEIKq58ZaNs86Gy3NsjWPduJ1JDBOv66tYI0eXZJd_S1UWRAdg3VVzYRNfEJJII-NErKoPOCPoxJWsFXDNZjGb2Ok_zNZbyexW0Li4rjL5mx65gFh1AUN56D6cROBKkf7e1rQS-2BgfzrpVdQpjJ1AF5mxhdCPNw0ehB4ju_EoPFSla23C2vqYnZT8WG73pNdmd91Fptgr-Ll766JqnF7_k4VtZv83eWtFl2Uoh8haLykFcFEk0nhE4VeWCbTjo33GMH0Zy');">
+<div class="absolute inset-0 bg-black/50"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-4xl px-4 animate-fade-in-up">
+<span class="text-accent-gold text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-4">Exclusively Yours</span>
+<h1 class="text-white text-5xl md:text-7xl font-light tracking-tight mb-6 leading-tight">
+                    Unlock Your <br/> <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#999]">Signature Style</span>
+</h1>
+<p class="text-gray-200 text-lg md:text-xl font-light max-w-2xl mb-10 leading-relaxed">
+                    Experience the fusion of AI precision and haute couture expertise. Curated exclusively for your unique aesthetic and body profile.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-sm text-sm font-bold tracking-widest uppercase transition-all duration-300 shadow-[0_0_20px_rgba(139,0,0,0.3)] hover:shadow-[0_0_30px_rgba(139,0,0,0.5)]">
+                        Start Style Profile
+                    </button>
+<button class="bg-transparent border border-white/30 hover:border-white text-white px-8 py-4 rounded-sm text-sm font-bold tracking-widest uppercase transition-all duration-300 backdrop-blur-sm">
+                        Meet Our Stylists
+                    </button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 animate-bounce">
+<span class="text-white text-xs tracking-widest uppercase">Scroll</span>
+<span class="material-symbols-outlined text-white">keyboard_arrow_down</span>
+</div>
+</section>
+<!-- The Experience Steps -->
+<section class="py-24 bg-surface-dark relative">
+<div class="max-w-[1200px] mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-light text-white mb-4">The OAX Experience</h2>
+<div class="h-1 w-20 bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center group cursor-pointer">
+<div class="w-16 h-16 rounded-full border border-white/10 bg-background-dark flex items-center justify-center mb-6 group-hover:border-accent-gold transition-colors duration-500">
+<span class="material-symbols-outlined text-3xl text-white group-hover:text-accent-gold">fingerprint</span>
+</div>
+<h3 class="text-xl text-white font-medium mb-3">1. Define Your Essence</h3>
+<p class="text-text-secondary text-sm leading-relaxed">Complete our sensory questionnaire to map your aesthetic preferences and measurements.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center group cursor-pointer">
+<div class="w-16 h-16 rounded-full border border-white/10 bg-background-dark flex items-center justify-center mb-6 group-hover:border-accent-gold transition-colors duration-500">
+<span class="material-symbols-outlined text-3xl text-white group-hover:text-accent-gold">auto_awesome</span>
+</div>
+<h3 class="text-xl text-white font-medium mb-3">2. AI Curation</h3>
+<p class="text-text-secondary text-sm leading-relaxed">Our algorithms scan thousands of luxury pieces to generate an Instant Lookbook tailored to you.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center group cursor-pointer">
+<div class="w-16 h-16 rounded-full border border-white/10 bg-background-dark flex items-center justify-center mb-6 group-hover:border-accent-gold transition-colors duration-500">
+<span class="material-symbols-outlined text-3xl text-white group-hover:text-accent-gold">video_camera_front</span>
+</div>
+<h3 class="text-xl text-white font-medium mb-3">3. Expert Consultation</h3>
+<p class="text-text-secondary text-sm leading-relaxed">Connect with a dedicated OAX Stylist for a 1-on-1 video session to refine your wardrobe.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Style Quiz Preview (Wizard) -->
+<section class="py-24 bg-background-dark border-t border-white/5">
+<div class="max-w-[960px] mx-auto px-6">
+<!-- Progress Header -->
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-2xl text-white font-light">Your Style Profile</h3>
+<div class="text-accent-gold text-sm font-medium">Step 1 of 4</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-dark h-1 rounded-full mb-12 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-accent-gold h-full w-1/4 rounded-full"></div>
+</div>
+<!-- Question Area -->
+<div class="bg-surface-dark rounded-xl p-8 md:p-12 border border-white/5 shadow-2xl">
+<h4 class="text-3xl text-white font-light mb-2 text-center">Which aesthetic resonates with you?</h4>
+<p class="text-text-secondary text-center mb-10">Select up to 3 styles that define your current mood.</p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<label class="group relative aspect-[3/4] cursor-pointer overflow-hidden rounded-lg">
+<input class="peer sr-only" type="checkbox"/>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist monochromatic fashion outfit in white and beige" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArq0zrum9zmmXze7UtG-L7DmWAyeH9coG9KEPpwGcFMxedulagxdZ1FSsc3U8A79J5GTB4bwjv_zBo74aWp2f_1n5ZDLZxRWXnxqVATQblPhjwco8GJNtQuHutLJuMBvH8Ub5WQ9ttLQ8AoVupM73eP60iCRkuw4BXvLLN2WXNp7u2kFSAll4X1wTb4KuSmWbQDUm6MiF4L5d7e4W_1Ojb6Lcqwkuc9GXaPV8j_I2BdOg3AeVsB7hEW3tCvuVETDGKLYHWsV1PRSUb');"></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 ring-2 ring-transparent peer-checked:ring-accent-gold transition-all duration-300 z-20"></div>
+<div class="absolute top-4 right-4 z-20 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-accent-gold bg-black rounded-full p-1">check</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+<span class="text-white font-medium tracking-wide">Minimalist</span>
+</div>
+</label>
+<!-- Card 2 -->
+<label class="group relative aspect-[3/4] cursor-pointer overflow-hidden rounded-lg">
+<input class="peer sr-only" type="checkbox"/>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Bold avant garde fashion with structural elements" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHbu0rCbwzCkBNl-gKdA6eh3NddmPmdycHmx8cKkj-8rMBBbEdB90mUij9-7tTuR_j_ieAXk0AQvjGax2LsScu5M6upqEgOvOmHW2veZ1niFbXWQ4K8hrwF6nr6r54lDrf5NRR1Xp262-8iLuWkRJ3yxNDlp6eH1KG4t5zIANDSick91rsV_gmpRYTXDibouQPzDCBGhMaUUv0mi8b_NPMsclwI3Pvq7UV2zX20TvXdk3TdlNxtkSpyntPV9ZA3LbA8TPx_GsosITL');"></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 ring-2 ring-transparent peer-checked:ring-accent-gold transition-all duration-300 z-20"></div>
+<div class="absolute top-4 right-4 z-20 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-accent-gold bg-black rounded-full p-1">check</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+<span class="text-white font-medium tracking-wide">Avant-Garde</span>
+</div>
+</label>
+<!-- Card 3 -->
+<label class="group relative aspect-[3/4] cursor-pointer overflow-hidden rounded-lg">
+<input class="peer sr-only" type="checkbox"/>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Classic tailored suit outfit elegant businessman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNIXMOkXWt25GvTEvbci49ofL75PRMzppXTjTmgc5Pqx73uocSEztFgVT8ZGc5UjldH7yUz8Xg6LIHNBNEN5gK-3VyHWCjbFAWsHzx2hKRHP5T1AqYiQW5MD6k-Qm55MKPUQFPHyQbt7v-t0Hm3NzBxghMe-FA36-ee95YnKMQTyByJiOcgAN0w7HT5pINa1l0flEvcBsPSJybmND1QTnXcCm90hUL5ygxtkqWPH1rffX4yDdL5K75JLQKHMZ2nAJ-B9Hum5XSLIIM');"></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute inset-0 ring-2 ring-transparent peer-checked:ring-accent-gold transition-all duration-300 z-20"></div>
+<div class="absolute top-4 right-4 z-20 opacity-0 peer-checked:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-accent-gold bg-black rounded-full p-1">check</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 to-transparent">
+<span class="text-white font-medium tracking-wide">Classic Tailoring</span>
+</div>
+</label>
+</div>
+<div class="mt-10 flex justify-end">
+<button class="flex items-center gap-2 bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest transition-colors">
+                            Next Step
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Stylists & Booking -->
+<section class="py-24 bg-surface-dark relative overflow-hidden">
+<!-- Abstract Gold Accent -->
+<div class="absolute -top-40 -right-40 w-96 h-96 bg-accent-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-[1200px] mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="text-3xl md:text-5xl font-light text-white mb-2">Private Consultation</h2>
+<p class="text-text-secondary max-w-md">Schedule a video session with our elite styling team.</p>
+</div>
+<a class="text-accent-gold hover:text-white transition-colors border-b border-accent-gold pb-1 text-sm uppercase tracking-widest" href="#">View All Stylists</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Stylist Card 1 -->
+<div class="bg-background-dark rounded-xl overflow-hidden group hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 border border-white/5">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105" data-alt="Professional female stylist portrait smiling wearing glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK0YSEYnH-Q6_9N7onJiTQh7Ydbt2n8RFIe6s4dCyp2Zx0iofKF4fqB40oMes2Xczloh-ZUEb5ZZwS3ptKMzvqsb2AdfmT6WaDyJOaKlkFRS53Z0wfUJW4BxzJcwmDFLm7YR9u9-RAUF0A3ebuy6FCwHpA-b7XWtHnMvTXU9WIYA-kPG7q-yJDK9o-gKCj1IlWYrueF9ES3e1Cn6fm5eaeNPrBa7PQSoUGfFSuP9f0S5bTfY7sy1hcaQU1MjdTpxAX6fnAjDY7wI8p"/>
+<div class="absolute bottom-4 right-4 bg-white text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                                Available Today
+                            </div>
+</div>
+<div class="p-6">
+<h3 class="text-white text-xl font-medium mb-1">Elena V.</h3>
+<p class="text-accent-gold text-xs uppercase tracking-widest mb-4">Senior Couture Specialist</p>
+<p class="text-text-secondary text-sm mb-6 line-clamp-2">Expert in red carpet events and avant-garde pairings. Elena brings 10 years of Paris Fashion Week experience.</p>
+<div class="flex justify-between items-center pt-4 border-t border-white/10">
+<div class="flex items-center gap-1 text-white/60">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="text-xs">4.9 (128)</span>
+</div>
+<button class="text-white hover:text-primary transition-colors text-sm font-bold uppercase tracking-wide flex items-center gap-2">
+                                    Book Now
+                                    <span class="material-symbols-outlined text-sm">calendar_month</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stylist Card 2 -->
+<div class="bg-background-dark rounded-xl overflow-hidden group hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 border border-white/5">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105" data-alt="Male stylist portrait intense look dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx-Zg5-DAew6psen5og8JrPcbFeqYWk8l2ssHeZn2zdlfOfB1DTf7bLE_Bqt893cYnaljyhVcVdt1nqBmE5cWEWFwIwjHlSrlUIN4vlPK2QcpRSTZMjPzlMgWi8tJQNCInV-LnFFMqVsSXb_r98ZDTKT10_A608jOLKIF74940kGqJxcf3fZH1VfqK7zUgOClExomHImiiywZ_TZmnEjmgUm6LJChSgxF86wFWm4JuTREz5mWpyhPgmYkR1bs7bdjyrZw1jJwri-sU"/>
+</div>
+<div class="p-6">
+<h3 class="text-white text-xl font-medium mb-1">Marcus D.</h3>
+<p class="text-accent-gold text-xs uppercase tracking-widest mb-4">Streetwear &amp; Modern Luxury</p>
+<p class="text-text-secondary text-sm mb-6 line-clamp-2">Specializing in the intersection of luxury and streetwear. Marcus helps clients build versatile, modern wardrobes.</p>
+<div class="flex justify-between items-center pt-4 border-t border-white/10">
+<div class="flex items-center gap-1 text-white/60">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="text-xs">5.0 (84)</span>
+</div>
+<button class="text-white hover:text-primary transition-colors text-sm font-bold uppercase tracking-wide flex items-center gap-2">
+                                    Book Now
+                                    <span class="material-symbols-outlined text-sm">calendar_month</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stylist Card 3 -->
+<div class="bg-background-dark rounded-xl overflow-hidden group hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 border border-white/5 hidden lg:block">
+<div class="aspect-[4/5] overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105" data-alt="Elegant female stylist smiling warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzz0Whsd4jnfrS4-HBSWYP0adnjpahp7l5jJ5SAOCU7T-dKskTRQ9tk3yL5tG4_khu-27aeyJTRIpJirtiia1rHAgpuOQ0Hsskp7KBNskx5PKbs-vQX0MD4FqVIq8QuwQepLUleyKZ89P2DrxdozoT84qUz1x6tyhe-Fy65hqU-L4fW8DIxumr2PCtBTJfoh_79MR-GXyqv2NPuxk4hJ8kRMmdFsGuL1y6r4XOA1XQICteNxCAE7ikVakKxDnQzMoFew9lYPUHl2LB"/>
+<div class="absolute bottom-4 right-4 bg-surface-dark text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide border border-white/20">
+                                Next Available: Tue
+                            </div>
+</div>
+<div class="p-6">
+<h3 class="text-white text-xl font-medium mb-1">Sophia L.</h3>
+<p class="text-accent-gold text-xs uppercase tracking-widest mb-4">Personal Shopping &amp; Events</p>
+<p class="text-text-secondary text-sm mb-6 line-clamp-2">From galas to business summits, Sophia curates complete looks that make powerful statements.</p>
+<div class="flex justify-between items-center pt-4 border-t border-white/10">
+<div class="flex items-center gap-1 text-white/60">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="text-xs">4.8 (210)</span>
+</div>
+<button class="text-white hover:text-primary transition-colors text-sm font-bold uppercase tracking-wide flex items-center gap-2">
+                                    Book Now
+                                    <span class="material-symbols-outlined text-sm">calendar_month</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Generated Curated Edit Preview -->
+<section class="py-24 bg-background-dark">
+<div class="max-w-[1440px] mx-auto px-6">
+<div class="flex flex-col items-center mb-16">
+<span class="text-accent-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">AI Powered</span>
+<h2 class="text-3xl md:text-5xl font-light text-white text-center">Curated Edit: "Midnight Luxe"</h2>
+<p class="text-text-secondary mt-4 text-center">A sample collection generated for the modern minimalist.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Product 1 -->
+<div class="group relative">
+<div class="aspect-[3/4] overflow-hidden bg-surface-dark rounded-lg">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury black leather handbag on dark surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXIp3jEfyhVnDLO0oH_Z2SmasHVn34fF_JX-FGhxhG_Un4x-qqtvzzZJMIOYs_NZUtGvw-i0L1nmW2qVYcIJ8UTxy4MugwJdpVEoefvNu3J4y4x2R4EYTe8jkEjV5wUDbT9ORHNNjmRoU1wKp2eK08yiB1rwL_ysMXOm2A2gO9Sfpwm4LQiVjSzb0QW_5nBg4iXNpDxON4comJGuOIKiEOEQGo2CVkBeUuq9D6TgyxgdOLjrH6OEbzFQs0--SBmzw8M4swIQCAvgpT"/>
+<button class="absolute bottom-4 right-4 bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-accent-gold translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="mt-3">
+<h4 class="text-white text-sm font-medium">Obsidian Tote</h4>
+<p class="text-text-secondary text-xs mt-1">$2,450.00</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group relative md:mt-12">
+<div class="aspect-[3/4] overflow-hidden bg-surface-dark rounded-lg">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Woman wearing long black evening gown standing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM-xrvckCcgYY_-C2Ij_PvraXt5_Zvtd60JJm9ykHQ6VvlHvOE4TSomURt7UbBw_qXeBWp1Xgv3qBJ-Izm2qvNy8qgwmW_CxqJpLn-4-v3dK96bjWEV4tRuAGN7GzQafhkRMXqMZc2sehv9XKW6KxkGy-lP-lszpDJN7w3HUHtivX7xKEYpn9gT_XcIzcmgnxnRbc90kd17ArgcUKIaMhn3GfWTxfG0Bc304bTNhvNU1OdkkSKzVwM_XL6x21rgoE867C80-C6Ukm_"/>
+<button class="absolute bottom-4 right-4 bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-accent-gold translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="mt-3">
+<h4 class="text-white text-sm font-medium">Velvet Silhouette Dress</h4>
+<p class="text-text-secondary text-xs mt-1">$4,200.00</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group relative">
+<div class="aspect-[3/4] overflow-hidden bg-surface-dark rounded-lg">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="White modern shirt with structural sleeves on grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACfes4-xD0H6117qtDonlkgS7vHe9HXRxBKMWY555c6ZuGXMjVWmLHxJHUcmob7yPxUJjLznJLKymi31jQdQBfGq90NRcn66_iJDta_Jjiox9SmvXqCZnXemdBrPbkNiihdlviw_BMw-r3gFMraRNz61o_gZQa-r2FxKRWyLBv6fG36EbnpDzZ15dxZxfZk1yTAMyhSA0CZpQUqjDRhnAfXD4hXq95IJYx-KQqhRiCxfWwJPgGrxWGiu-7U5gyFR3gB_5ywAWekSk8"/>
+<button class="absolute bottom-4 right-4 bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-accent-gold translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="mt-3">
+<h4 class="text-white text-sm font-medium">Architectural Blouse</h4>
+<p class="text-text-secondary text-xs mt-1">$1,150.00</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group relative md:mt-12">
+<div class="aspect-[3/4] overflow-hidden bg-surface-dark rounded-lg">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High heeled blue luxury shoes on blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDFfIu7k0VJDeFdzMcUeFtFLjiKl6pVNHNXoYtBumU8PSr5SO8PDXwIlykLZMeN5-lu2omuzbeq-s5bcDxbhkQ9N8Ex4sOpnu-SUhef8QKICioNVTAK7jYxG8UZ1Oe43GmEQc4BE5h-Vw6FWh_Kc8LdamG7kwxCUod39LLpDRlBYpLneifv2f78baSBW4dI37uow4LUL0zUKVe6E69_NXtn8OvOgnqYfWsYVQKkAYjBO-nU2lehTiC22f6e-v6WL1C8lOJD6rxYmP5"/>
+<button class="absolute bottom-4 right-4 bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-accent-gold translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="mt-3">
+<h4 class="text-white text-sm font-medium">Sapphire Pumps</h4>
+<p class="text-text-secondary text-xs mt-1">$980.00</p>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-16">
+<button class="border border-white/20 hover:border-accent-gold text-white hover:text-accent-gold px-8 py-3 rounded-sm uppercase tracking-widest text-xs font-bold transition-all">
+                        Generate More Looks
+                    </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-black text-white py-16 border-t border-white/10">
+<div class="max-w-[1440px] mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-accent-gold text-2xl">diamond</span>
+<span class="text-lg font-bold tracking-widest uppercase">OAX Fashion</span>
+</div>
+<p class="text-text-secondary text-sm leading-relaxed">
+                            Redefining luxury through the lens of personalized AI and human expertise.
+                        </p>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest text-accent-gold mb-6">Experience</h4>
+<ul class="space-y-4 text-sm text-text-secondary">
+<li><a class="hover:text-white transition-colors" href="#">Personal Stylist</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Virtual Try-On</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Made to Measure</a></li>
+<li><a class="hover:text-white transition-colors" href="#">VIP Membership</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest text-accent-gold mb-6">Support</h4>
+<ul class="space-y-4 text-sm text-text-secondary">
+<li><a class="hover:text-white transition-colors" href="#">Contact Concierge</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest text-accent-gold mb-6">Stay Connected</h4>
+<div class="flex gap-4 mb-6">
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors" href="#">
+<span class="text-xs">IG</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors" href="#">
+<span class="text-xs">FB</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-colors" href="#">
+<span class="text-xs">X</span>
+</a>
+</div>
+<p class="text-xs text-text-secondary">© 2024 OAX Fashion. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating Concierge Action -->
+<button class="fixed bottom-8 right-8 z-50 bg-accent-gold hover:bg-white hover:text-black text-black font-bold h-14 w-14 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center justify-center transition-all duration-300 group">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">chat_bubble</span>
+</button>
+</div>
+</body></html>

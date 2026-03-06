@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Nocturnal Bloom Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33", // Requested Primary Red
+                        "primary-dark": "#8B0000", // OAX Blood
+                        "accent-gold": "#D4AF37", // Gold Accent
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#1A1A1A", // Dark Gray
+                        "background-black": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Custom scrollbar for horizontal scrolling sections */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .hotspot-pulse::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(234, 42, 51, 0.6);
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-x-hidden">
+<!-- Navigation -->
+<header class="fixed top-0 z-50 w-full border-b border-[#382929]/50 bg-[#1A1A1A]/90 backdrop-blur-md transition-all duration-300">
+<div class="flex items-center justify-between px-6 py-4 lg:px-12">
+<div class="flex items-center gap-8">
+<!-- Hamburger Menu -->
+<button class="text-white hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">menu</span>
+</button>
+<!-- Logo -->
+<a class="flex items-center gap-2" href="#">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold tracking-tight">OAX FASHION</h2>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8 ml-4">
+<a class="text-white/80 hover:text-white text-sm font-medium transition-colors" href="#">New Arrivals</a>
+<a class="text-white text-sm font-medium border-b border-primary pb-0.5" href="#">Editorials</a>
+<a class="text-white/80 hover:text-white text-sm font-medium transition-colors" href="#">Clothing</a>
+<a class="text-white/80 hover:text-white text-sm font-medium transition-colors" href="#">Accessories</a>
+</nav>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-[#2A1F1F] rounded-full px-4 py-2 border border-[#382929]">
+<span class="material-symbols-outlined text-[#b89d9f] text-[20px]">search</span>
+<input class="bg-transparent border-none text-white placeholder-[#b89d9f] focus:ring-0 text-sm w-32 lg:w-48 ml-2" placeholder="Search collection" type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-white hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="text-white hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">2</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Wrapper -->
+<main class="relative min-h-screen w-full flex flex-col pt-16">
+<!-- Hero Editorial Section -->
+<section class="relative h-[85vh] w-full overflow-hidden">
+<div class="absolute inset-0 bg-black/30 z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10s] hover:scale-105" data-alt="Dark moody fashion model in red dress against urban night background" style='background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(26,26,26,1)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrdaPYkqbLUaMmq8WsntgzyZ_TaSUaOx2YBK38LjoYtIISAiBNn6UsGtWqgsBoj8b7DJp5OoHHmcZpM8OshMykKg4NLkX37fZEbxmqRJFDINNp0MXmmC2ZiV-UF3RxqS6xHOfmoysgOt5mulxnUp9bP1RUmrxRboM8LK7rLZRD-woSJYXaj3sAwnBdnE-X9DSCVgtLOQQRv2MBd2bgrKyY3bHhiuoq9iqMG98p10KXV5lbI_tNzHNmKdK33ZmEcXyWzTJwyi14PCSo");'>
+</div>
+<div class="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
+<span class="mb-4 text-accent-gold text-sm font-medium tracking-[0.2em] uppercase">The Fall Collection 2024</span>
+<h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-medium text-white leading-tight tracking-tight mb-6">
+                    NOCTURNAL<br/><span class="italic font-light">BLOOM</span>
+</h1>
+<p class="max-w-xl text-lg text-gray-300 font-light leading-relaxed mb-10">
+                    An exploration of shadow and light. Where sharp silhouettes meet fluid drapes in a dance of midnight contrasts.
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded text-sm font-bold tracking-wide transition-all uppercase">
+                        Explore Campaign
+                    </button>
+<button class="border border-white/30 hover:border-white hover:bg-white/5 text-white px-8 py-3 rounded text-sm font-bold tracking-wide transition-all uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">play_circle</span> Watch Film
+                    </button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+<span class="material-symbols-outlined text-white/50 text-3xl">keyboard_arrow_down</span>
+</div>
+</section>
+<!-- Narrative Text Section -->
+<section class="bg-background-dark py-20 px-6 md:px-20 lg:px-40 border-t border-[#382929]">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-serif text-3xl md:text-4xl text-white mb-8">THE NARRATIVE</h2>
+<div class="flex flex-col md:flex-row gap-8 items-center md:items-start text-left">
+<p class="flex-1 text-gray-400 leading-relaxed text-lg first-letter:text-5xl first-letter:font-serif first-letter:text-accent-gold first-letter:float-left first-letter:mr-3 first-letter:mt-[-10px]">
+                        In the heart of the city, when the sun sets, a new elegance emerges. We strip away the unnecessary, focusing on the raw beauty of form and texture. This collection is a tribute to the modern muse who thrives in the after-hours.
+                    </p>
+<p class="flex-1 text-gray-400 leading-relaxed text-lg">
+                        Rich textures of velvet and silk collide with the rigid structure of leather. The color palette draws from the deepening gradient of the twilight sky—midnight blues, pitch blacks, and the striking punctuation of blood red.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Look 1: Hotspot Interaction -->
+<section class="relative w-full bg-background-dark py-12">
+<div class="container mx-auto px-4 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Text Side -->
+<div class="lg:col-span-4 order-2 lg:order-1 flex flex-col justify-center space-y-6">
+<span class="text-accent-gold text-xs tracking-widest uppercase">Look 01</span>
+<h3 class="font-serif text-3xl text-white">The Midnight Trench</h3>
+<p class="text-gray-400">Structured shoulders meet flowing fabrics. Designed for the transitional moments between day and night.</p>
+<!-- Mini Product Card (Visible on mobile/tablet or as fallback) -->
+<div class="mt-6 p-4 bg-[#2A1F1F] rounded-lg border border-[#382929] flex gap-4 items-center group cursor-pointer hover:border-primary/50 transition-colors">
+<div class="h-20 w-16 bg-cover bg-center rounded" data-alt="Black trench coat product shot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCyzH0c24K_63FxneSUcnBTpVCg45X2pfVHcdkf9k4ws_rbvEzi4kSAAsrsUI8p0CstZ5oAL9ZfaTGYXH6pMIw-kZ8vkpoB4scrl1Im5cEMUGzFP2bVopomdGInUe9qLXpd8sXI75f9DeR32xL_nzO0stKMBMFncGN80FdbqunOS_okU3Vz0HY_D1Lb8ES66id6hG7Zw8YqTFF7fC5ud1F-4lKW85F8Q57S90TGmdPRQYdg3Hr0UoUjzVHhbrHczNTe-FqWrSVsh4DY");'></div>
+<div>
+<h4 class="text-white text-sm font-medium">OAX Structured Coat</h4>
+<p class="text-accent-gold text-sm mt-1">$1,250.00</p>
+<button class="text-xs text-white/60 group-hover:text-primary mt-2 flex items-center gap-1">Shop Now <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+</div>
+</div>
+<!-- Image Side with Hotspots -->
+<div class="lg:col-span-8 order-1 lg:order-2 relative group">
+<div class="relative w-full aspect-[4/5] md:aspect-[16/9] lg:aspect-[4/3] bg-cover bg-center rounded-lg overflow-hidden shadow-2xl" data-alt="Model walking down a dimly lit street wearing a long black coat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjJzbQd4KA0Q2i7Tt7iJkQ1_MgA6IZoPN-3Zs6SaUnO_LpnJpXONGZHwfDDkcei2raHZW-ZT47O-8c4uZAxQsrC4InVwtJkekyYKHLG3wCSc2HLZ-GUbg6XfVXF9G1Qw2Wz8mmb9Y5hWlgx3bKqc4cnMctOJcW-IglJ9yJUtYrAxsT8UJT_fOAQFuxyEG558byfdDmUhYqjUPtPQhN3rF8GTOw3hkuQhLjkyIkOM4ueMtMsi6kLUQm9W5kKigMVdUuWzyuxyUhTBvz");'>
+<!-- Hotspot 1 -->
+<div class="absolute top-[40%] left-[55%] z-10 group/hotspot">
+<button class="relative flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-transform hover:scale-110 hotspot-pulse">
+<div class="h-3 w-3 rounded-full bg-primary shadow-lg"></div>
+</button>
+<!-- Floating Product Card on Hover -->
+<div class="absolute left-10 top-0 w-64 opacity-0 scale-95 invisible group-hover/hotspot:visible group-hover/hotspot:opacity-100 group-hover/hotspot:scale-100 transition-all duration-300 z-20 origin-top-left">
+<div class="bg-[#1A1A1A] border border-[#382929] p-3 rounded-lg shadow-2xl">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-white text-sm font-bold">Midnight Trench</h4>
+<span class="text-accent-gold text-xs font-medium">$890</span>
+</div>
+<p class="text-xs text-gray-400 mb-3">Italian wool blend with silk lining.</p>
+<button class="w-full bg-white text-black hover:bg-gray-200 text-xs font-bold py-2 rounded transition-colors">
+                                            Quick Add
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Look 2 & 3: Asymmetrical Grid -->
+<section class="bg-[#141414] py-20">
+<div class="container mx-auto px-4 md:px-12">
+<div class="flex flex-col md:flex-row gap-8 lg:gap-16">
+<!-- Column 1: Tall Image -->
+<div class="md:w-5/12 pt-0 md:pt-20">
+<div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg mb-6 group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Close up of luxury handbag with gold hardware details" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJlfMZFVzX-YPntM7IVi53U-wSv2CMmNdHF_zH0dyD3AyPYcBUfwzRXjF6aNa9RFoa42rGXHUYvIx4ugm0voxRGTSBz0t7sAbhsD5c413h6P0gGyXcDX_RkiBFHl5JIK4V8XAb7THYu3j4ILPz5ZnLKmtE25x4DIojEGFTlKkhmqa45BJ2WIZwhpFx272WF6pjBZ85Kx7LPIWIewaUdzx8Asea3txKhVNQZOnHhy4yigZE6fS8I4GCxoy0VyOt7Qk1DICT5wme-MLO");'>
+</div>
+<!-- Hotspot -->
+<div class="absolute bottom-[30%] left-[40%] group/hotspot">
+<button class="relative flex h-6 w-6 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm hotspot-pulse">
+<div class="h-2 w-2 rounded-full bg-primary shadow-lg"></div>
+</button>
+<!-- Tooltip -->
+<div class="absolute left-8 bottom-0 w-48 opacity-0 invisible group-hover/hotspot:visible group-hover/hotspot:opacity-100 transition-all duration-300">
+<div class="bg-[#1A1A1A]/95 p-2 rounded border border-gray-800">
+<p class="text-white text-xs font-bold">OAX Signature Bag</p>
+<p class="text-accent-gold text-xs">$2,400</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-2">
+<h3 class="font-serif text-2xl text-white mb-2">Details Defined</h3>
+<p class="text-gray-400 text-sm leading-relaxed">Hardware inspired by brutalist architecture. Gold accents that catch the city lights.</p>
+</div>
+</div>
+<!-- Column 2: Video/Motion & Text -->
+<div class="md:w-7/12">
+<div class="mb-12 max-w-sm">
+<span class="text-primary text-xs font-bold uppercase tracking-widest mb-2 block">The Collection</span>
+<h3 class="font-serif text-3xl md:text-4xl text-white leading-tight">Motion in<br/>Stillness</h3>
+</div>
+<div class="relative aspect-[4/3] w-full overflow-hidden rounded-lg mb-6 group">
+<!-- Abstract video representation using image for static output -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Model spinning in a red silk dress, motion blur effect" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKUTEib7Sd8Cpj8Rx68dy5kG05gX4b6Lzc5sAgITJohWI0bD9rBIrtIpSaHdebQjAXtyGv9uwFC2javeyeD68Q-_F6YHJljcqfP9eIfrn1tFyYi4Se7AqlQnwqE4BnfcUjvjF-SqhhfALxY9QEJMI4ba4ZuwWR4VZGLaZpxjehYiILDI7cBleSIgpM5m30JJYCfVbiOjpiIXwh92k46aRAx2x3bl8WjsFAO4xd7lONfSb3_b9I4GNZiAJUiYhbEsH1GTGGxN5ftnvj");'>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-transparent transition-colors">
+<span class="material-symbols-outlined text-white text-5xl opacity-80 drop-shadow-lg">play_circle</span>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-[#382929] pt-4 mt-4">
+<div>
+<h4 class="text-white font-medium">Silk Evening Gown</h4>
+<span class="text-accent-gold text-sm">Crimson Red</span>
+</div>
+<button class="text-white hover:text-primary text-sm font-bold uppercase tracking-wider flex items-center gap-2">
+                                Shop Look <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop the Collection Carousel -->
+<section class="py-20 bg-background-dark border-t border-[#382929]">
+<div class="container mx-auto px-6 mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-serif text-3xl text-white mb-2">Shop The Editorial</h2>
+<p class="text-gray-500 text-sm">Curated pieces from the Nocturnal Bloom campaign.</p>
+</div>
+<a class="text-white text-sm border-b border-primary pb-1 hover:text-primary transition-colors" href="#">View All Products</a>
+</div>
+<!-- Carousel Container -->
+<div class="flex overflow-x-auto gap-6 px-6 pb-8 hide-scrollbar snap-x snap-mandatory">
+<!-- Product 1 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-center">
+<div class="group relative bg-[#141414] rounded-lg overflow-hidden mb-4">
+<div class="aspect-[3/4] bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Black leather ankle boots product shot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAvrOkkBa39H28MNsvshVDKEZCQT5C4mZANBs_EG-CoSrMKE8YL7sFmSsgmP41G6nxJg30PsV5RayOo3nFQ-3whpT4xIduYA7fGOpjIaLloHzDItRd44GNafs2nFOqMa3Uh5y6Higoj5E522zgzvHLCHuNB_FLxLbscW8YpxVE5i5_e332SVosYpHVqUdaPZpJvEqdvw-LB7hiuV_bVRTd-MfkpvNwubYVpwES6DFL_2Khq_Kb2tOuyAGxoEurm0DpSZv1Ekhk2gSq");'>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/90 to-transparent">
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded text-sm uppercase tracking-wide">
+                                Add to Bag
+                            </button>
+</div>
+<!-- Badge -->
+<div class="absolute top-3 left-3 bg-accent-gold text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
+                            New In
+                        </div>
+</div>
+<h3 class="text-white text-lg font-medium">Noir Ankle Boots</h3>
+<p class="text-gray-500 text-sm mb-2">Calfskin Leather</p>
+<p class="text-accent-gold font-medium">$850.00</p>
+</div>
+<!-- Product 2 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-center">
+<div class="group relative bg-[#141414] rounded-lg overflow-hidden mb-4">
+<div class="aspect-[3/4] bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Red silk scarf draped elegantly" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4Ty3IYrj9CJsEGzP0WG2ySBwO_y-Nx88kH4r0Wtu6HlBi7gRtQdwKkRfGoaVrkuMVMh3sqYS-Or-sOg0wapJw88bPHBq70OeKbrKcEaEq3MLs9WMbx2FmGYjvUhJUwQln0-yzNgAdrOtsfcK7IzBsTud41m6IpmHhkQJ8P1bXvqZGxuO9n1--WmyvwI3I2K4c4HwMW4ljyIomBWzwGVE_b5dGo1lffqDTVCoaLGjHNeXmFEcz4tlsmPAr3P3Pc8iOxL8HBHglDIbQ");'>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/90 to-transparent">
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded text-sm uppercase tracking-wide">
+                                Add to Bag
+                            </button>
+</div>
+</div>
+<h3 class="text-white text-lg font-medium">Crimson Silk Scarf</h3>
+<p class="text-gray-500 text-sm mb-2">100% Mulberry Silk</p>
+<p class="text-accent-gold font-medium">$220.00</p>
+</div>
+<!-- Product 3 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-center">
+<div class="group relative bg-[#141414] rounded-lg overflow-hidden mb-4">
+<div class="aspect-[3/4] bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Gold geometric earrings product shot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5OPU7JGRSrY1Vs4EQuqlv6mpyUXJBL6WLmKHRuk5mPCV_477GtzoI3grXTldZKw8eeDCfL7Ku3KrvwRvcdeMmXg1RnuSHIulUUR8lbh-eGvYh0VDFyC6XD6lTYSI6kecgAWUZQtXCUKPq9ViysHQnm92w9cLa5LSgjPnEHz523u2cKii0gsM4oDjpiAJ8ReFBY9J2qP14yEGi2fa3oq7oFkCIzIo4mYb7S8gyrkJaQuirh36HsRZ5XPNSxf68TJf6B9PYuEU4khhf");'>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/90 to-transparent">
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded text-sm uppercase tracking-wide">
+                                Add to Bag
+                            </button>
+</div>
+</div>
+<h3 class="text-white text-lg font-medium">Eclipse Earrings</h3>
+<p class="text-gray-500 text-sm mb-2">18k Gold Plated</p>
+<p class="text-accent-gold font-medium">$450.00</p>
+</div>
+<!-- Product 4 -->
+<div class="min-w-[280px] md:min-w-[320px] snap-center">
+<div class="group relative bg-[#141414] rounded-lg overflow-hidden mb-4">
+<div class="aspect-[3/4] bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Black leather handbag with gold chain" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdw1W3BpC3y01Q1UwhzgfvAL2fx-1LASbk5LRdc7efRRWLTUT-VSUmPttBl6I70FGglbj4UZXgGtZz3o-v1gkrOC2SqfAOyHg_NfYrFZPfs8qw7Gz3BFh0bKBI_fqmsqNr-hx9H7v7poBKF-VdnOgPpIJ3stchJUzQHZYhGS5ef163b6fmZeUHcu6pxPgW-bYGSGX3J8KAtq3RxkbdbzqNtYa8ARctn5AhAXlUDsLgeVHy-crGZapWbnljMp4GASfxZvZzzEfgWbEd");'>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/90 to-transparent">
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded text-sm uppercase tracking-wide">
+                                Add to Bag
+                            </button>
+</div>
+</div>
+<h3 class="text-white text-lg font-medium">The OAX Tote</h3>
+<p class="text-gray-500 text-sm mb-2">Saffiano Leather</p>
+<p class="text-accent-gold font-medium">$1,890.00</p>
+</div>
+</div>
+</section>
+<!-- Newsletter / Footer Upsell -->
+<section class="relative py-24 px-6 text-center overflow-hidden">
+<div class="absolute inset-0 bg-[#211111]"></div>
+<!-- Decorative background element -->
+<div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: radial-gradient(#8B0000 1px, transparent 1px); background-size: 30px 30px;"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Join the Inner Circle</h2>
+<p class="text-gray-400 mb-10">Be the first to access new editorials, exclusive drops, and private sales.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-1 bg-transparent border-b border-gray-600 text-white placeholder-gray-500 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="Your email address" type="email"/>
+<button class="mt-4 sm:mt-0 text-white font-bold uppercase tracking-widest text-sm hover:text-primary transition-colors" type="button">
+                         Subscribe
+                     </button>
+</form>
+</div>
+</section>
+</main>
+<!-- Floating Action Bar (Sticky Bottom) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] md:w-auto">
+<div class="bg-[#1A1A1A]/90 backdrop-blur-md border border-[#382929] rounded-full shadow-2xl px-6 py-3 flex items-center gap-6 md:gap-10">
+<button class="flex items-center gap-2 text-white hover:text-primary transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="text-xs md:text-sm font-bold uppercase">Add Look to Bag</span>
+</button>
+<div class="w-px h-6 bg-gray-700"></div>
+<button class="flex items-center gap-2 text-white hover:text-primary transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">share</span>
+<span class="text-xs md:text-sm font-bold uppercase">Share</span>
+</button>
+<div class="w-px h-6 bg-gray-700 hidden md:block"></div>
+<button class="hidden md:flex items-center gap-2 text-white hover:text-primary transition-colors whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+<span class="text-xs md:text-sm font-bold uppercase">All Looks</span>
+</button>
+</div>
+</div>
+<!-- Minimal Footer -->
+<footer class="bg-black py-12 px-6 border-t border-[#382929]">
+<div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<h2 class="text-white text-lg font-bold tracking-tight">OAX FASHION</h2>
+</div>
+<div class="flex gap-8">
+<a class="text-gray-500 hover:text-white text-xs uppercase tracking-wider" href="#">Instagram</a>
+<a class="text-gray-500 hover:text-white text-xs uppercase tracking-wider" href="#">Twitter</a>
+<a class="text-gray-500 hover:text-white text-xs uppercase tracking-wider" href="#">Pinterest</a>
+</div>
+<p class="text-gray-600 text-xs">© 2024 OAX Fashion. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

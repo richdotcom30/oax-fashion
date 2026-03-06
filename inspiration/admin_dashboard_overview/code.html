@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION Admin Dashboard</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ea2a33",
+              "background-light": "#f8f6f6",
+              "background-dark": "#181111",
+              "surface-dark": "#251a1a",
+              "border-dark": "#382929",
+              "text-secondary": "#b89d9f",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {
+                "DEFAULT": "0.5rem", // rounded-lg
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #181111; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #382929; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ea2a33; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex w-64 flex-col border-r border-border-dark bg-background-dark hidden md:flex shrink-0">
+<div class="flex flex-col justify-between h-full p-4">
+<div class="flex flex-col gap-6">
+<!-- Brand -->
+<div class="flex items-center gap-3 px-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10" data-alt="Abstract fashion logo with red accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpUY0NM5wwbYB8REayAwzqYUSvBehfYxtptGjkFP-6_h10sBrz0hkjypVI-Gm3W8ow32G3DHmo85eEEYBmu_Y4X0CONz0_yVGrknNVdzQR8VR9t5nfb9djjpD5KAHzT0ZWHc0CAXnfhwjQ6xPZAsDho_vAcra3BTXwi_pbegraAaJpJPPQkTMHTKpUjAHfLEX9fizNATyjBIIZ5Fw7UDl9TC-3koakiGyJzMsj_5CozhqHVA8OWytTXPeSUrEt1ZDwhwKpCtBKxLyf");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-bold tracking-wide">OAX FASHION</h1>
+<p class="text-text-secondary text-xs font-medium">Admin Dashboard</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-dark group" href="#">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<p class="text-white text-sm font-medium">Overview</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-dark group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">checkroom</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Products</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-dark group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">shopping_bag</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-dark group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">group</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-dark group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">inventory_2</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Inventory</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-dark group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">article</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Content</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-dark group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">bar_chart</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Analytics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-surface-dark group transition-colors" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">settings</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Settings</p>
+</a>
+</nav>
+</div>
+<!-- Footer Action -->
+<button class="flex w-full cursor-pointer items-center justify-start gap-3 rounded-lg p-3 hover:bg-surface-dark transition-colors">
+<span class="material-symbols-outlined text-primary">logout</span>
+<span class="text-white text-sm font-bold">Log Out</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full relative overflow-y-auto">
+<!-- Top Header -->
+<header class="sticky top-0 z-20 flex items-center justify-between whitespace-nowrap border-b border-border-dark bg-background-dark/95 backdrop-blur px-6 py-4">
+<!-- Search -->
+<div class="flex items-center gap-4 w-1/3">
+<div class="md:hidden">
+<span class="material-symbols-outlined text-white">menu</span>
+</div>
+<label class="flex items-center w-full max-w-md h-10 bg-surface-dark rounded-lg px-3 gap-2 ring-1 ring-transparent focus-within:ring-primary/50 transition-all">
+<span class="material-symbols-outlined text-text-secondary text-xl">search</span>
+<input class="w-full bg-transparent border-none p-0 text-white placeholder:text-text-secondary focus:ring-0 text-sm" placeholder="Search orders, products..."/>
+</label>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex h-10 items-center justify-center gap-2 px-4 bg-primary hover:bg-red-600 text-white text-sm font-bold rounded-lg transition-colors shadow-lg shadow-red-900/20">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>Add Product</span>
+</button>
+<button class="relative flex size-10 items-center justify-center rounded-lg bg-surface-dark text-white hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 bg-primary rounded-full border border-surface-dark"></span>
+</button>
+<div class="flex items-center gap-3 pl-2 border-l border-border-dark">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none">Admin User</p>
+<p class="text-xs text-text-secondary mt-1">Super Admin</p>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border border-border-dark" data-alt="Profile picture of administrator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1emIRf1YnhN-AcTmJH4ejQSq7-6DsiHieF21ojzEHIYP4i77Q5ejWZOf1IfPg57hbagyvCfClf41BcAIdC9sOh7V17Ct6008z36_IFZptw8ozvu8_sjqTlhnU32ET7ut8lGvasPBbcVUkvk_mrA65xCCEv3oB4HRmCwZ19aq5nOtJdwZTId88ge26GT1ULEmL4pxI-0aVKJw2eBfG1cPL3Vo-aMmrfOH2Ctx5chZO9u3Zi6VjKtAxlYE_dRKrMQAj6TJ-DWt0Zzx-");'></div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-6 md:p-8 flex flex-col gap-8 max-w-[1600px] mx-auto w-full">
+<!-- KPI Stats -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-surface-dark border border-border-dark hover:border-primary/20 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-text-secondary text-sm font-medium">Total Daily Sales</p>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-1.5 rounded-lg text-lg">attach_money</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-white text-2xl font-bold">$12,450</p>
+<span class="text-[#0bda95] text-xs font-bold bg-[#0bda95]/10 px-1.5 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined text-xs mr-0.5">trending_up</span> 12%
+                            </span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-surface-dark border border-border-dark hover:border-primary/20 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-text-secondary text-sm font-medium">New Orders</p>
+<span class="material-symbols-outlined text-white bg-white/5 p-1.5 rounded-lg text-lg">shopping_cart</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-white text-2xl font-bold">54</p>
+<span class="text-[#0bda95] text-xs font-bold bg-[#0bda95]/10 px-1.5 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined text-xs mr-0.5">trending_up</span> 5%
+                            </span>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-surface-dark border border-border-dark hover:border-primary/20 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-text-secondary text-sm font-medium">Pending Shipments</p>
+<span class="material-symbols-outlined text-white bg-white/5 p-1.5 rounded-lg text-lg">local_shipping</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-white text-2xl font-bold">12</p>
+<span class="text-text-secondary text-xs font-medium">Requires attention</span>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-surface-dark border border-border-dark hover:border-primary/20 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-text-secondary text-sm font-medium">Active Customers</p>
+<span class="material-symbols-outlined text-white bg-white/5 p-1.5 rounded-lg text-lg">group</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-white text-2xl font-bold">892</p>
+<span class="text-[#0bda95] text-xs font-bold bg-[#0bda95]/10 px-1.5 py-0.5 rounded flex items-center">
+<span class="material-symbols-outlined text-xs mr-0.5">trending_up</span> 2%
+                            </span>
+</div>
+</div>
+</section>
+<!-- Chart Section -->
+<section class="flex flex-col lg:flex-row gap-6 h-auto">
+<!-- Main Chart -->
+<div class="flex-1 rounded-xl bg-surface-dark border border-border-dark p-6">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-lg font-bold text-white">Revenue Trends</h3>
+<p class="text-sm text-text-secondary">Last 7 days performance</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 text-xs font-medium rounded-lg bg-background-dark text-white border border-border-dark">Weekly</button>
+<button class="px-3 py-1.5 text-xs font-medium rounded-lg text-text-secondary hover:text-white transition-colors">Monthly</button>
+</div>
+</div>
+<!-- SVG Chart Area -->
+<div class="relative w-full h-[250px] mt-4 group">
+<!-- Tooltip hint -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 bg-background-dark border border-border-dark px-3 py-1 rounded text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                                $14,230 on Wednesday
+                            </div>
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 800 250">
+<defs>
+<lineargradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ea2a33" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#ea2a33" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines -->
+<line stroke="#382929" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="200" y2="200"></line>
+<line stroke="#382929" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="150" y2="150"></line>
+<line stroke="#382929" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="100" y2="100"></line>
+<line stroke="#382929" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="50" y2="50"></line>
+<!-- The Line -->
+<path d="M0 200 C 100 180, 150 100, 200 120 S 300 180, 400 100 S 550 20, 650 60 S 750 150, 800 130" fill="none" stroke="#ea2a33" stroke-linecap="round" stroke-width="3"></path>
+<!-- The Fill Area -->
+<path d="M0 200 C 100 180, 150 100, 200 120 S 300 180, 400 100 S 550 20, 650 60 S 750 150, 800 130 V 250 H 0 Z" fill="url(#gradient)" opacity="0.6" stroke="none"></path>
+<!-- Data Points -->
+<circle class="hover:scale-150 transition-transform cursor-pointer" cx="200" cy="120" fill="#background-dark" r="4" stroke="#ea2a33" stroke-width="2"></circle>
+<circle class="hover:scale-150 transition-transform cursor-pointer" cx="400" cy="100" fill="#background-dark" r="4" stroke="#ea2a33" stroke-width="2"></circle>
+<circle class="hover:scale-125 transition-transform cursor-pointer shadow-glow" cx="650" cy="60" fill="#ea2a33" r="6" stroke="#fff" stroke-width="2"></circle>
+</svg>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between px-2 mt-4 text-xs font-medium text-text-secondary">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span>Sat</span>
+<span>Sun</span>
+</div>
+</div>
+<!-- Top Selling Products Sidebar -->
+<div class="w-full lg:w-96 rounded-xl bg-surface-dark border border-border-dark p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-white">Top Products</h3>
+<button class="text-primary text-xs font-bold hover:underline">View All</button>
+</div>
+<div class="flex flex-col gap-4 overflow-y-auto">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="bg-center bg-cover rounded-lg size-14 shrink-0" data-alt="Black luxury leather handbag" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKcakOBLk6MmC8Yc8OYQHjdjMSYIsUH3uu2QcOOvt9FNlZyO6V3OzmrweOn9PjKn7hXzSFBlqw0OwgWfNfNdLlVZB-bEj0m-L4u9H2WoRPYjcTXBga9rEwKz--y3mbAbg2ElMVbICimIbA0w105l1Nx7wJfB5uhpP7TR1B6ArpCkSh9SzvQI5RNt3fMBcdu9lBKSP0xT4Nj4J5K0SkhS1hNASNa4nwSA3qLSEFs63KNnQphisc_fA_r-VMEI9l8bHRUJS7nsSOkzpa");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-semibold truncate group-hover:text-primary transition-colors">OAX Leather Tote</p>
+<p class="text-text-secondary text-xs">Accessories</p>
+</div>
+<div class="text-right">
+<p class="text-white text-sm font-bold">124</p>
+<p class="text-text-secondary text-[10px]">Sold</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="bg-center bg-cover rounded-lg size-14 shrink-0" data-alt="Red velvet evening gown" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQRWWkjAf8MPiZMF6CgGS4obuW5KhI8526erpPKtOUmpVZiN-k2JPWtxbMn1pStQuTqVLK1LpYe6Arff_RtjCwdUY6UYiwkSLPaKsl8JN73gICEMiKqah-z4dcgG9YA1Ja6ZLvul_WqTPEJRL0ZA_cee9Oz933PUfMxd07he_VliLLYUPGdHLGfyx-Kwy-utcFtnKms4pKTSzf-OoUG3U4EkFyrndSQDGoE4ODdMCpHQUBwWExwquvl1raN4a93GzF_mt1CuiIJ9Gp");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-semibold truncate group-hover:text-primary transition-colors">Velvet Evening Gown</p>
+<p class="text-text-secondary text-xs">Dresses</p>
+</div>
+<div class="text-right">
+<p class="text-white text-sm font-bold">98</p>
+<p class="text-text-secondary text-[10px]">Sold</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="bg-center bg-cover rounded-lg size-14 shrink-0" data-alt="Silk scarf with patterns" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlc0vaKWfU9mQQeaESOwurVkb0EOfvBYUQ5mtJxr7fXu7AVI3Xri7Mm15jFwCZEDpC9fFIm2rJE_Pkj_xom8sakYtO5pgTK0WGZz6cX6_qtKxkNpPGY6xnGgNrskWSnkWQAyp_8PKrpQoI43yY64zo30h7WH7fSPxBFfWuDJOcdf3VYpHOEcxeIQHeajJBJ-zrBhZGR4oVrJK1EcumVnD1bWgbMXm7TIxmnW9UZoiNCqi001zPLHU6Y47IHLpmMiYebatxuwiUgrKo");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-semibold truncate group-hover:text-primary transition-colors">Silk Scarf - Noir</p>
+<p class="text-text-secondary text-xs">Accessories</p>
+</div>
+<div class="text-right">
+<p class="text-white text-sm font-bold">82</p>
+<p class="text-text-secondary text-[10px]">Sold</p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-3 border border-border-dark rounded-lg text-sm font-bold hover:bg-background-dark text-text-secondary hover:text-white transition-colors">
+                            Generate Report
+                        </button>
+</div>
+</section>
+<!-- Recent Orders Table -->
+<section class="rounded-xl bg-surface-dark border border-border-dark overflow-hidden">
+<div class="p-6 border-b border-border-dark flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<h3 class="text-lg font-bold text-white">Recent Orders</h3>
+<div class="flex gap-2">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary material-symbols-outlined text-sm">filter_list</span>
+<select class="appearance-none bg-background-dark border border-border-dark text-white text-sm rounded-lg pl-9 pr-8 py-2 focus:ring-1 focus:ring-primary focus:outline-none">
+<option>All Status</option>
+<option>Pending</option>
+<option>Shipped</option>
+<option>Returned</option>
+</select>
+</div>
+<button class="bg-background-dark border border-border-dark text-white rounded-lg px-3 py-2 text-sm font-bold hover:bg-white/5 transition-colors">Export</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-background-dark/50 border-b border-border-dark">
+<th class="py-4 px-6 text-xs font-semibold uppercase text-text-secondary tracking-wider w-24">Order ID</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase text-text-secondary tracking-wider">Customer</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase text-text-secondary tracking-wider">Product</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase text-text-secondary tracking-wider">Date</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase text-text-secondary tracking-wider">Amount</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase text-text-secondary tracking-wider">Status</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase text-text-secondary tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-dark">
+<tr class="group hover:bg-background-dark/30 transition-colors">
+<td class="py-4 px-6 text-sm font-bold text-white">#2394</td>
+<td class="py-4 px-6 text-sm">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-cover rounded-full size-8" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDj7SfY-FH6L8wa-ctobc1OUQ1EqD5R2obWP1tpWq_PDy_PMgtsbnC22F9xa0BNlu8LVDp-4te3cvYVTL2MYkdutmHs9gkUwfbT-dyFDMeNeyi_v3s_QqZ_gLOjjl6i-zo0LQg8xC4SHN9WEowtzs_WefyAmV5ZjRhZS_EaYNsxdHimiKPQv5m-WgfPiow7UiAZm2KkfPkOIVwGuczFtlEhK59HYlqA4uIIVB90kk__ULsSt8Y3N143bZ8bwGDnTnY_HwrxVkeH_H2Z");'></div>
+<span class="text-white font-medium">Elena Fisher</span>
+</div>
+</td>
+<td class="py-4 px-6 text-sm text-text-secondary">Velvet Evening Gown (M)</td>
+<td class="py-4 px-6 text-sm text-text-secondary">Oct 24, 2023</td>
+<td class="py-4 px-6 text-sm font-bold text-white">$450.00</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-yellow-500/10 text-yellow-500 border border-yellow-500/20">
+<span class="size-1.5 rounded-full bg-yellow-500"></span>
+                                            Pending
+                                        </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-text-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-background-dark/30 transition-colors">
+<td class="py-4 px-6 text-sm font-bold text-white">#2393</td>
+<td class="py-4 px-6 text-sm">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-cover rounded-full size-8" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5nTL-P79ho7qzNtkCVl-I1c3KFwYqvNC0GhtTltrmGZLqbL4CkBWca52FlgLloO6Bi_Y5b48p2jU2v0kBeiof-5Zc18wXHMnhG6f3Mm-X_cxz4a9nIA87tWoc3zCJPJUx86WnYed_gMzqjkMx-w6m7DyxTwpXg6Iy0-nM1sxLvxro8wtRhPI-1oeXNcPH0OZZoqeXBtlzGOS1YtY9EVRp5GBu8rugLzL6VBQRE3Y_gJKtXc2HuFsbPlRZYPybUXMRNW-VPpaS2hzg");'></div>
+<span class="text-white font-medium">Nathan Drake</span>
+</div>
+</td>
+<td class="py-4 px-6 text-sm text-text-secondary">OAX Leather Tote</td>
+<td class="py-4 px-6 text-sm text-text-secondary">Oct 24, 2023</td>
+<td class="py-4 px-6 text-sm font-bold text-white">$890.00</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-500/10 text-green-500 border border-green-500/20">
+<span class="size-1.5 rounded-full bg-green-500"></span>
+                                            Shipped
+                                        </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-text-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-background-dark/30 transition-colors">
+<td class="py-4 px-6 text-sm font-bold text-white">#2392</td>
+<td class="py-4 px-6 text-sm">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-cover rounded-full size-8" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD16PebPaDPFLxgxXUa8nr3CTuXcxM_dI3KrvV5pGmw41vzy-BJtfMjHzlVfMPD9xrkcBxWax3NLSIyWV-K5Dp5HQBXG99DpKjMyJbJZh8d1k8JqpztJBj77sTcypNceITAJc0jYUvJ2rAHzxC5bjHaKoD-tVgzgwPw3Py23VKtNKWRLrvVyrha87CNn5gGhQ9-cfQlnV9drnIkUhUW_C1FaqCk3f9amxMUi-FueX80K252naWH1yLx8j0yOi95D6kuV7Jw8lMWnsbs");'></div>
+<span class="text-white font-medium">Chloe Frazer</span>
+</div>
+</td>
+<td class="py-4 px-6 text-sm text-text-secondary">Silk Scarf - Noir</td>
+<td class="py-4 px-6 text-sm text-text-secondary">Oct 23, 2023</td>
+<td class="py-4 px-6 text-sm font-bold text-white">$120.00</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-500/10 text-green-500 border border-green-500/20">
+<span class="size-1.5 rounded-full bg-green-500"></span>
+                                            Delivered
+                                        </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-text-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-background-dark/30 transition-colors">
+<td class="py-4 px-6 text-sm font-bold text-white">#2391</td>
+<td class="py-4 px-6 text-sm">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-cover rounded-full size-8" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWkVQi6xUqtwpYmQ-K02rqfz9H2YKiq_PQdNOCM17gz4dcZCWyofm25ZzI-l4_ZSqaHdI4X3D7CB-jtYMFXz_rLsWmuSefJvrfeswg5BDAsHGP5-LRniJN5muRrwJkcVDYTIICySP57JxRlWuVt7-NwLAlEy0fMlRk90lJartjblol1NTv62iAhtH2RlLRX9ZiSc9v7luCK03tvF5Fmim5ZgqeD5Klrp38PST2i6aI2wmMvb-3-PJMXfa7c-cAYHpREInmpa9V_nA6");'></div>
+<span class="text-white font-medium">Victor Sullivan</span>
+</div>
+</td>
+<td class="py-4 px-6 text-sm text-text-secondary">Classic Wool Coat (L)</td>
+<td class="py-4 px-6 text-sm text-text-secondary">Oct 23, 2023</td>
+<td class="py-4 px-6 text-sm font-bold text-white">$1,200.00</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20">
+<span class="size-1.5 rounded-full bg-red-500"></span>
+                                            Cancelled
+                                        </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-text-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-border-dark flex justify-between items-center bg-background-dark/30">
+<p class="text-xs text-text-secondary">Showing 4 of 240 orders</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-medium text-text-secondary border border-border-dark rounded hover:bg-surface-dark transition-colors disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 text-xs font-medium text-white border border-border-dark rounded hover:bg-surface-dark transition-colors">Next</button>
+</div>
+</div>
+</section>
+<footer class="mt-8 text-center pb-8 text-text-secondary text-sm">
+                    © 2023 OAX FASHION. All rights reserved. Admin Dashboard v2.0
+                </footer>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION Virtual Try-On</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33", // OAX Blood-ish red from config
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#120a0a", // Deepened for OAX Black feel
+                        "oax-gold": "#D4AF37",
+                        "surface-dark": "#1A1A1A",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for the sidebar */
+        .hide-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .hide-scrollbar::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+        .hide-scrollbar::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-hidden h-screen flex flex-col">
+<!-- Header -->
+<header class="flex-none flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#382929] px-6 py-4 bg-[#181111] z-20">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 flex items-center justify-center bg-white text-black rounded-full font-bold tracking-tighter">
+                OAX
+            </div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[0.1em] uppercase">Virtual Atelier</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-2 text-[#b89d9f] text-sm">
+<span class="material-symbols-outlined text-lg">lock</span>
+<span>Private Session</span>
+</div>
+<button class="flex items-center justify-center overflow-hidden rounded-full size-10 bg-[#382929] hover:bg-primary transition-colors text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
+<!-- Left: AR/Camera Viewport -->
+<div class="flex-1 relative bg-black flex items-center justify-center overflow-hidden group">
+<!-- Background Image simulating AR Feed -->
+<div class="absolute inset-0 bg-cover bg-center opacity-90 transition-transform duration-700 group-hover:scale-105" data-alt="Woman looking into camera wearing luxury sunglasses in a dimly lit chic room" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwhd98OxCEiBe8eBA3VGTYhHXM11PHK3EkPVbuTsW4xbMs1_Qqaer5Um9O5A6qOlPkKfCi7DFq_sNA8zbzvaEzaHl3HTV6AKKY5itmO6S2PbJe0gBP1LVHQbmTF1O1Nonz33XPWvgKnyxklqoZX-35biTze0gx8FBSCW6BaPvcXJydNddEWmFJd-D1sLxnOft9jDNmHDtZgxnPIiRPDqHNozMAf0oAcPgA_ExnRg212UjZZt99a_WWrGd8WfE5KgppdyWSXj0eQDwL");'>
+</div>
+<!-- AR Overlay UI -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+<!-- Facial Tracking Points (Decorative) -->
+<div class="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+<div class="border border-white/20 w-[300px] h-[400px] rounded-[50%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+<div class="w-2 h-2 bg-oax-gold rounded-full absolute top-[45%] left-[45%] shadow-[0_0_10px_#D4AF37]"></div>
+<div class="w-2 h-2 bg-oax-gold rounded-full absolute top-[45%] right-[45%] shadow-[0_0_10px_#D4AF37]"></div>
+</div>
+<!-- Top Left Status -->
+<div class="absolute top-6 left-6 flex items-center gap-2 z-10">
+<div class="flex items-center gap-2 bg-red-900/40 backdrop-blur-md border border-red-500/30 px-3 py-1.5 rounded-full">
+<div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+<span class="text-xs font-bold text-red-100 tracking-wider">LIVE FEED</span>
+</div>
+</div>
+<!-- Bottom Left Product Label (Overlaid on Camera) -->
+<div class="absolute bottom-8 left-8 right-8 flex justify-between items-end z-10">
+<div class="flex flex-col gap-1">
+<p class="text-oax-gold text-xs font-medium tracking-widest uppercase mb-1">Currently Trying</p>
+<h1 class="text-white text-3xl md:text-5xl font-light tracking-tight font-display">OAX Midnight <br/> <span class="font-bold">Aviators</span></h1>
+</div>
+<!-- Interactive AR Controls -->
+<div class="flex gap-3">
+<button class="size-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all" title="Capture Look">
+<span class="material-symbols-outlined">camera_alt</span>
+</button>
+<button class="size-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all" title="Reset Position">
+<span class="material-symbols-outlined">center_focus_strong</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right: Controls Sidebar -->
+<div class="w-full lg:w-[420px] bg-surface-dark border-l border-[#382929] flex flex-col h-full z-20 shadow-2xl">
+<!-- Segmented Control (Tabs) -->
+<div class="p-6 border-b border-[#382929]">
+<div class="flex h-12 w-full items-center justify-center rounded-lg bg-[#2a1e1e] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-[#382929] has-[:checked]:text-white has-[:checked]:shadow-sm text-[#b89d9f] text-sm font-medium transition-all">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">videocam</span> Live Camera</span>
+<input checked="" class="invisible w-0" name="view-mode" type="radio" value="Live Camera"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-2 has-[:checked]:bg-[#382929] has-[:checked]:text-white has-[:checked]:shadow-sm text-[#b89d9f] text-sm font-medium transition-all">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">upload</span> Upload Photo</span>
+<input class="invisible w-0" name="view-mode" type="radio" value="Upload Photo"/>
+</label>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto hide-scrollbar p-6 space-y-8">
+<!-- AI Fit Info -->
+<div class="bg-[#251a1a] rounded-xl p-4 border border-[#382929]">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-oax-gold">auto_awesome</span>
+<div>
+<h4 class="text-white text-sm font-bold mb-1">AI Fit Assistant</h4>
+<p class="text-[#b89d9f] text-xs leading-relaxed">Based on your facial analysis, the <span class="text-white">Aviator</span> shape balances your features perfectly. Size M fits best.</p>
+</div>
+</div>
+</div>
+<!-- Product Details -->
+<div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-primary text-sm font-bold mb-1">NEW COLLECTION</p>
+<h3 class="text-2xl font-bold text-white tracking-tight">Midnight Aviators</h3>
+</div>
+<p class="text-xl font-medium text-white">$550</p>
+</div>
+<p class="text-[#b89d9f] text-sm mb-4">Handcrafted acetate frames with 24k gold-plated accents and UV400 protection lenses.</p>
+<!-- Color Swatches -->
+<div class="flex gap-3 mb-2">
+<button class="w-8 h-8 rounded-full bg-black border-2 border-white ring-2 ring-offset-2 ring-offset-[#1A1A1A] ring-oax-gold"></button>
+<button class="w-8 h-8 rounded-full bg-[#523838] border border-transparent opacity-60 hover:opacity-100 transition-opacity"></button>
+<button class="w-8 h-8 rounded-full bg-[#D4AF37] border border-transparent opacity-60 hover:opacity-100 transition-opacity"></button>
+</div>
+<p class="text-xs text-[#b89d9f]">Color: <span class="text-white">Obsidian Black</span></p>
+</div>
+<!-- Lighting & Ambiance -->
+<div>
+<h3 class="text-white text-sm font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">light_mode</span> Lighting
+                    </h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold border border-primary">Studio</button>
+<button class="px-4 py-2 rounded-lg bg-[#2a1e1e] text-[#b89d9f] hover:text-white hover:bg-[#382929] text-xs font-medium border border-[#382929] transition-colors">Daylight</button>
+<button class="px-4 py-2 rounded-lg bg-[#2a1e1e] text-[#b89d9f] hover:text-white hover:bg-[#382929] text-xs font-medium border border-[#382929] transition-colors">Evening</button>
+<button class="px-4 py-2 rounded-lg bg-[#2a1e1e] text-[#b89d9f] hover:text-white hover:bg-[#382929] text-xs font-medium border border-[#382929] transition-colors">Candlelight</button>
+</div>
+</div>
+<!-- Similar Items -->
+<div>
+<h3 class="text-white text-sm font-bold uppercase tracking-widest mb-4">Try Others</h3>
+<div class="grid grid-cols-2 gap-3">
+<!-- Item 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-lg bg-[#2a1e1e] overflow-hidden mb-2 border border-[#382929] group-hover:border-oax-gold transition-colors relative">
+<img alt="Close up of golden luxury sunglasses" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxbKX9fkteF4obM7jtz5wSPg3xG5xTJhKWHYKoJCP89r-UTXULjl5Dn1BXPKuDfRFVOIgii6mi_-zt4hRw5Q5z_Pq4MEyK8jVYta0KN5P38GotKibP5VPduzFMLCz98EXMBWgGk_HMLohxxJwXvUhBwsPj5K_dTmY8Y7A7I4CtjG9-AmDoD2cVzipoq1YxVnze4ThuoZGYQiacShjmVmdlzXa98RgpJlvPI7S-fbyovSstMiPG-gspVrCXrpHaJfTc_QtAco0t53OD"/>
+<div class="absolute bottom-1 right-1 bg-black/70 px-1.5 rounded text-[10px] text-white font-bold">Try On</div>
+</div>
+<p class="text-white text-xs font-bold truncate">Gilded Wayfarer</p>
+<p class="text-[#b89d9f] text-xs">$620</p>
+</div>
+<!-- Item 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-lg bg-[#2a1e1e] overflow-hidden mb-2 border border-[#382929] group-hover:border-oax-gold transition-colors relative">
+<img alt="Close up of black luxury sunglasses" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9PfLgFs4hOhPECXBkFpkK3whDDtWPYWhbKLYkcGuFcj6oa7NlhMWbPO5BC2Gu5bRfBBobuZbdnNsJ-V-rSVfcrmGlr8BGWEMjlm13N8cg2nm1499p-a8blivqvkhfDs3NnUZRX2aXGOXgAUJQssGhyipFP2xuaRibYBq6wnQN9fal-_HfhhdFqD4DOShv5s-3qFVjClVuBsN34Gmo10dBUA0VnJ1YueDL_A_vTIc-F3CIR87BWqaprstSm3SbJKW2kKBSo9RJWmNR"/>
+<div class="absolute bottom-1 right-1 bg-black/70 px-1.5 rounded text-[10px] text-white font-bold">Try On</div>
+</div>
+<p class="text-white text-xs font-bold truncate">OAX Cat-Eye</p>
+<p class="text-[#b89d9f] text-xs">$480</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="p-6 border-t border-[#382929] bg-[#181111]">
+<div class="flex gap-3">
+<button class="flex-1 bg-white text-black hover:bg-gray-200 h-12 rounded-lg font-bold text-sm tracking-wide uppercase transition-colors">
+                        Add to Cart
+                    </button>
+<button class="size-12 rounded-lg border border-[#382929] hover:border-oax-gold hover:text-oax-gold flex items-center justify-center text-white transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="size-12 rounded-lg border border-[#382929] hover:border-white flex items-center justify-center text-white transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

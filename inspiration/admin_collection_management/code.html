@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX Admin - Collection Management</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1754cf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621", // Theme default, but we will lean on the specific hexes from the snippets for the specific dark UI look
+                        "surface-dark": "#111318",
+                        "card-dark": "#1c1f26",
+                        "border-dark": "#3c4453",
+                        "text-subtle": "#9da6b8"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-hidden h-screen flex w-full">
+<!-- Sidebar -->
+<aside class="w-[280px] bg-surface-dark border-r border-border-dark flex-shrink-0 flex flex-col h-full z-20">
+<div class="p-4 flex flex-col gap-4 h-full">
+<!-- User/Brand Profile -->
+<div class="flex gap-3 items-center mb-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Abstract dark gradient logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4T-oFg4M1EXqllvYye3RYDR-VXmThdyNka1OUbO-SoxoPfhfZTcXrgRZOMGba0oz5bpD5rQbKG_R69MgdX-4tcZt48GG31VX5qGXphyeLH1lUE2lJ-NQaL06R8Va-ptW17fdufV0uqelh0A0I4eqlHlWrVCPG-CBbTrRLuJZTzgCzP-oNXRM2M_uSjJH0zsotfGVGI4PLDRz5EZzqf3PFHf_sP08dKmxwiAXI4u1al4qR3uQOzkGPLjJGxsiLDBAfjU5DoXKjUiFP");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">OAX Admin</h1>
+<p class="text-text-subtle text-sm font-normal leading-normal">Super Admin</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2 flex-1">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#292e38] cursor-pointer transition-colors group">
+<div class="text-text-subtle group-hover:text-white" data-icon="dashboard">
+<span class="material-symbols-outlined">pie_chart</span>
+</div>
+<p class="text-text-subtle group-hover:text-white text-sm font-medium leading-normal">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#292e38] cursor-pointer transition-colors group">
+<div class="text-text-subtle group-hover:text-white" data-icon="shopping_cart">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<p class="text-text-subtle group-hover:text-white text-sm font-medium leading-normal">Orders</p>
+</div>
+<!-- Active State -->
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#292e38]">
+<div class="text-white" data-icon="folder_open">
+<span class="material-symbols-outlined">folder_open</span>
+</div>
+<p class="text-white text-sm font-medium leading-normal">Collections</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#292e38] cursor-pointer transition-colors group">
+<div class="text-text-subtle group-hover:text-white" data-icon="inventory_2">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<p class="text-text-subtle group-hover:text-white text-sm font-medium leading-normal">Inventory</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#292e38] cursor-pointer transition-colors group">
+<div class="text-text-subtle group-hover:text-white" data-icon="article">
+<span class="material-symbols-outlined">article</span>
+</div>
+<p class="text-text-subtle group-hover:text-white text-sm font-medium leading-normal">Content</p>
+</div>
+</div>
+<!-- Bottom Action -->
+<div class="flex items-center gap-3 px-3 py-2 mt-auto rounded-lg hover:bg-[#292e38] cursor-pointer transition-colors group">
+<div class="text-text-subtle group-hover:text-white">
+<span class="material-symbols-outlined">logout</span>
+</div>
+<p class="text-text-subtle group-hover:text-white text-sm font-medium leading-normal">Sign Out</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-background-dark relative">
+<!-- Top Scrollable Area -->
+<div class="flex-1 overflow-y-auto no-scrollbar">
+<div class="flex flex-col w-full max-w-[1200px] mx-auto p-6 md:p-10 gap-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 items-center">
+<a class="text-text-subtle text-sm font-medium leading-normal hover:text-white transition-colors" href="#">Collections</a>
+<span class="text-text-subtle text-sm font-medium leading-normal">/</span>
+<span class="text-white text-sm font-medium leading-normal">Spring 2024 Collection</span>
+</div>
+<!-- Page Heading & Actions -->
+<div class="flex flex-wrap justify-between items-end gap-4">
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Spring 2024 Collection</h1>
+<p class="text-text-subtle text-base font-normal leading-normal">Manage collection details, products, and visual layout.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 px-4 border border-border-dark bg-transparent text-white text-sm font-bold hover:bg-[#292e38] transition-colors">
+<span class="material-symbols-outlined mr-2 text-[18px]">visibility</span>
+<span class="truncate">Preview</span>
+</button>
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+<span class="truncate">Publish Collection</span>
+</button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="border-b border-border-dark">
+<div class="flex gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-white text-white pb-3 pt-2" href="#">
+<p class="text-white text-sm font-bold leading-normal tracking-[0.015em]">Details &amp; Visibility</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-subtle pb-3 pt-2 hover:text-white transition-colors" href="#">
+<p class="text-inherit text-sm font-bold leading-normal tracking-[0.015em]">Product List <span class="ml-1 px-1.5 py-0.5 rounded-full bg-[#292e38] text-xs font-normal">24</span></p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-text-subtle pb-3 pt-2 hover:text-white transition-colors" href="#">
+<p class="text-inherit text-sm font-bold leading-normal tracking-[0.015em]">Lookbook Builder</p>
+</a>
+</div>
+</div>
+<!-- Form Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column (General Info) -->
+<div class="lg:col-span-2 flex flex-col gap-8">
+<!-- General Information Card -->
+<section class="flex flex-col gap-5">
+<h3 class="text-white text-xl font-bold">General Information</h3>
+<div class="flex flex-col gap-4">
+<!-- Collection Name & Slug -->
+<div class="flex flex-col md:flex-row gap-4">
+<label class="flex flex-col flex-1">
+<p class="text-white text-sm font-medium leading-normal pb-2">Collection Name</p>
+<input class="form-input flex w-full resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-border-dark bg-card-dark focus:border-primary h-12 placeholder:text-text-subtle px-4 text-sm font-normal leading-normal transition-all" value="Spring 2024 Collection"/>
+</label>
+<label class="flex flex-col flex-1">
+<p class="text-white text-sm font-medium leading-normal pb-2">URL Slug</p>
+<div class="relative flex items-center">
+<span class="absolute left-4 text-text-subtle text-sm">/collections/</span>
+<input class="form-input flex w-full resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-border-dark bg-card-dark focus:border-primary h-12 placeholder:text-text-subtle pl-[100px] pr-4 text-sm font-normal leading-normal transition-all" value="spring-2024"/>
+</div>
+</label>
+</div>
+<!-- Description -->
+<label class="flex flex-col flex-1">
+<p class="text-white text-sm font-medium leading-normal pb-2">Description</p>
+<textarea class="form-textarea flex w-full resize-y overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-border-dark bg-card-dark focus:border-primary min-h-[140px] placeholder:text-text-subtle p-4 text-sm font-normal leading-normal transition-all">Discover the new essence of modern luxury. Our Spring 2024 collection features organic materials, subdued earth tones, and avant-garde silhouettes designed for the contemporary urbanite.</textarea>
+</label>
+</div>
+</section>
+<!-- Media / Lookbook Assets -->
+<section class="flex flex-col gap-5">
+<div class="flex justify-between items-end">
+<h3 class="text-white text-xl font-bold">Hero Media</h3>
+<button class="text-primary text-sm font-bold hover:underline">Open Media Library</button>
+</div>
+<!-- Hero Image Upload Area -->
+<div class="relative group w-full h-64 rounded-xl border-2 border-dashed border-border-dark bg-card-dark overflow-hidden flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-[#20252e] transition-all">
+<div class="bg-cover bg-center absolute inset-0 opacity-40 group-hover:opacity-20 transition-opacity" data-alt="Fashion model wearing spring collection clothes in a field" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaqoJ-sLo9dC8a6w-a4QTGMRNK0JXb_UnMIUnAntOnDb4T75ilDE7nqEFCT8CCI6_mafVAJ6blaYFyhk8eIuEZilflAOmmhAgzAHB_p6IKPdCw5dkJNZ14tc3c2nXRvUkX6oRrILxNwhmcydaoDu2u1OGShZZR28sicU88S7puGJsInreYMnxS0b4rd6Nngg2-HAp1mVWb9dm-h5XjYMwQltZ_knRYnE0NbHq9p5idLFSnPtbgz_Q_djX1rzUIO_2MD-18c6wY2rRG');"></div>
+<div class="z-10 flex flex-col items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">cloud_upload</span>
+</div>
+<div class="text-center">
+<p class="text-white font-medium">Click to replace or drag image</p>
+<p class="text-text-subtle text-sm mt-1">Recommended size: 2400 x 800px</p>
+</div>
+</div>
+</div>
+<!-- Mobile Alternative -->
+<div class="flex items-center gap-4 p-4 rounded-lg border border-border-dark bg-card-dark">
+<div class="w-16 h-16 rounded bg-[#292e38] flex items-center justify-center flex-shrink-0 text-text-subtle border border-dashed border-border-dark">
+<span class="material-symbols-outlined">phone_iphone</span>
+</div>
+<div class="flex-1">
+<p class="text-white text-sm font-bold">Mobile Fallback Image</p>
+<p class="text-text-subtle text-xs">Optional. Used on smaller screens for better framing.</p>
+</div>
+<button class="text-white text-sm font-bold bg-[#292e38] px-3 py-1.5 rounded hover:bg-[#353b47] transition-colors">Upload</button>
+</div>
+</section>
+</div>
+<!-- Right Column (Settings & Scheduling) -->
+<div class="flex flex-col gap-8">
+<!-- Visibility Card -->
+<section class="rounded-xl border border-border-dark bg-card-dark p-5 flex flex-col gap-5 sticky top-6">
+<div class="flex items-center justify-between pb-4 border-b border-border-dark">
+<h3 class="text-white text-lg font-bold">Visibility</h3>
+<div class="flex items-center gap-2">
+<span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+<span class="text-emerald-500 text-sm font-medium">Active</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<p class="text-white text-sm font-medium">Online Store</p>
+<p class="text-text-subtle text-xs">Visible to customers</p>
+</div>
+<!-- Toggle -->
+<button class="relative w-11 h-6 bg-primary rounded-full transition-colors focus:outline-none">
+<span class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform transform translate-x-5"></span>
+</button>
+</div>
+<div class="h-px bg-border-dark w-full"></div>
+<!-- Schedule -->
+<div class="flex flex-col gap-3">
+<p class="text-white text-sm font-bold">Schedule Availability</p>
+<label class="flex flex-col">
+<p class="text-text-subtle text-xs font-medium pb-1.5">Start Date</p>
+<div class="relative">
+<input class="form-input flex w-full rounded-lg text-white border border-border-dark bg-[#111318] h-10 px-3 text-sm font-normal focus:border-primary focus:ring-0 [&amp;::-webkit-calendar-picker-indicator]:invert" type="datetime-local" value="2024-03-01T09:00"/>
+</div>
+</label>
+<label class="flex flex-col">
+<p class="text-text-subtle text-xs font-medium pb-1.5">End Date</p>
+<div class="relative">
+<input class="form-input flex w-full rounded-lg text-white border border-border-dark bg-[#111318] h-10 px-3 text-sm font-normal focus:border-primary focus:ring-0 [&amp;::-webkit-calendar-picker-indicator]:invert" type="datetime-local"/>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Lookbook Preview Widget -->
+<section class="rounded-xl border border-border-dark bg-card-dark p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-white text-lg font-bold">Lookbook Layout</h3>
+<button class="text-xs text-primary font-bold uppercase tracking-wider">Edit Builder</button>
+</div>
+<p class="text-text-subtle text-sm">Visual preview of the grid layout.</p>
+<!-- Mini Grid Preview -->
+<div class="grid grid-cols-3 gap-1 rounded-lg overflow-hidden h-32 opacity-70">
+<div class="bg-cover bg-center col-span-2 row-span-2" data-alt="Abstract fashion texture detail" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxv1sg6jp6DLE_fI9n4MwJ6_aTqpGwGBF03YFqKQryK-vrtpAYNKBMbcLkWRiBROXXROokdqDzw1WxnvCrmydAC_zR44NqaQ3Y0-Kxp_qowbZnRwHzLMC_DK6Xz9k-eaQn9OcPzUYrwNA_MOeOo_GkzYOr_2GTbL5K7mqq_pElo69oj_2bZyNI1Pd2dMUyUxniGZEtjV0ZXsJ6s_uq3ZZbNUdT937-j6701HIds1ZOxZZMXEfVXg8-2YcQdJAWp-awYvLgtuboSl_K');"></div>
+<div class="bg-cover bg-center" data-alt="Female model posing in yellow outfit" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnToF6T8KIfa57qX9PP3suubjxO6qzO6RTA-SrO2aH_ZMqHcwSPpPpOjtI17WvakI8jU1FyFNHxqDwTITaqy1l1dRoTddQKBmcJwW9On8dYlVJVd_IA_HVcnWh9moMedjxZfsHcxXJqHLDVJNeq8b9Iptupi9rIdtkTCce3hXFJPSGKPmC1OzDwcPAjUoxmTYoak9qm_tf5I8TxfTLZZJvrJTYvhbYiZFEU8nAB8PZygGvmWgIgBupmDd7ZEqAxlglelRZBKeJdu3e');"></div>
+<div class="bg-cover bg-center" data-alt="Runway model walking" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACM-pn3NlE7ukHCCnLVUMLuoLogY7uLojgW7r73ltXB5cg5Mk9WL2ZJc3hMABWsV_ULzqpgFGfiTb9YKsX7Qnsv4bQkf-ACa9KyKy5SggnydyMJqm-HJbPD0zuzzkTLML3fBCWYJ2lOTFjYAQHLnMWS5Q1f57Kqkl1VqJV3iU0d8qbZJltu6DlGHUgzy6Z0aRpQTDjjP2BgMtWFXKzpV4bgKkdsgGr_BC87Rcp1swgC6k30FVQGx-OBbM6DP4W5nyyJ-bYTPWOhCid');"></div>
+</div>
+</section>
+</div>
+</div>
+<!-- Spacer for bottom scroll -->
+<div class="h-20"></div>
+</div>
+</div>
+</main>
+</body></html>

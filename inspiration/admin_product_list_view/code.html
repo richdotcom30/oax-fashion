@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Admin Product List</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "surface-dark": "#382929",
+                        "text-secondary": "#b89d9f",
+                        "border-dark": "#4a3b3b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #181111; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #382929; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a3b3b; 
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #ea2a33;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ea2a33;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-[#181111] text-slate-900 dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 border-r border-[#382929] bg-[#181111] flex flex-col hidden md:flex">
+<div class="p-6">
+<div class="flex flex-col">
+<h1 class="text-white text-xl font-bold tracking-tight">OAX FASHION</h1>
+<p class="text-text-secondary text-xs font-medium tracking-widest uppercase mt-1">Admin Console</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 space-y-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-[#382929] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[#382929] text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-white font-fill">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-[#382929] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">shopping_bag</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-[#382929] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">group</span>
+<span class="text-sm font-medium">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-[#382929] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">pie_chart</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<div class="pt-4 mt-4 border-t border-[#382929]">
+<p class="px-3 text-xs font-semibold text-text-secondary uppercase mb-2">Settings</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-secondary hover:bg-[#382929] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">settings</span>
+<span class="text-sm font-medium">General</span>
+</a>
+</div>
+</nav>
+<div class="p-4 border-t border-[#382929]">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold">JD</div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">Jane Doe</span>
+<span class="text-xs text-text-secondary">Admin</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-[#181111]">
+<!-- Header Area -->
+<header class="flex-shrink-0 px-6 py-5 border-b border-[#382929]">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 mb-4 text-sm">
+<a class="text-text-secondary hover:text-white transition-colors" href="#">Home</a>
+<span class="text-text-secondary">/</span>
+<a class="text-text-secondary hover:text-white transition-colors" href="#">Products</a>
+<span class="text-text-secondary">/</span>
+<span class="text-white font-medium">All Products</span>
+</div>
+<!-- Page Heading & Main Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-3xl font-bold tracking-tight">Products</h2>
+<p class="text-text-secondary text-sm">Manage your product inventory, prices and stock levels.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center gap-2 h-10 px-4 rounded-lg border border-[#382929] bg-transparent text-white text-sm font-semibold hover:bg-[#382929] transition-colors">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+<span>Export</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-10 px-5 rounded-lg bg-primary hover:bg-red-600 text-white text-sm font-bold shadow-lg shadow-red-900/20 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add New Product</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6">
+<!-- Controls Toolbar -->
+<div class="flex flex-col xl:flex-row gap-4 mb-6">
+<!-- Search -->
+<div class="flex-1 min-w-[300px]">
+<label class="relative flex w-full h-11">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+<span class="material-symbols-outlined text-text-secondary">search</span>
+</div>
+<input class="w-full bg-[#382929] border border-transparent focus:border-primary/50 text-white placeholder-text-secondary rounded-lg pl-11 pr-4 focus:ring-0 focus:outline-none transition-all" placeholder="Search by SKU, Name, or Tag..." value=""/>
+</label>
+</div>
+<!-- Filters & View Toggle -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Filter Chips -->
+<div class="flex items-center gap-3 bg-[#251a1a] p-1.5 rounded-lg border border-[#382929]">
+<div class="relative group">
+<button class="flex h-8 items-center gap-2 rounded px-3 text-sm font-medium text-white hover:bg-[#382929] transition-colors">
+<span>Category</span>
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+<div class="w-px h-5 bg-[#382929]"></div>
+<div class="relative group">
+<button class="flex h-8 items-center gap-2 rounded px-3 text-sm font-medium text-white hover:bg-[#382929] transition-colors">
+<span>Status</span>
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+<div class="w-px h-5 bg-[#382929]"></div>
+<div class="relative group">
+<button class="flex h-8 items-center gap-2 rounded px-3 text-sm font-medium text-white hover:bg-[#382929] transition-colors">
+<span>Stock Level</span>
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<!-- View Toggle -->
+<div class="flex bg-[#382929] rounded-lg p-1 border border-[#382929]">
+<button class="p-1.5 rounded bg-[#4a3b3b] text-white shadow-sm">
+<span class="material-symbols-outlined text-[20px]">list</span>
+</button>
+<button class="p-1.5 rounded text-text-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Table -->
+<div class="bg-[#1e1616] rounded-xl border border-[#382929] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#382929] bg-[#251a1a]">
+<th class="py-4 pl-6 pr-4 w-12">
+<input class="rounded border-[#4a3b3b] bg-[#382929] text-primary focus:ring-offset-[#181111] focus:ring-primary/50" type="checkbox"/>
+</th>
+<th class="py-4 px-4 text-xs font-semibold text-text-secondary uppercase tracking-wider">Product</th>
+<th class="py-4 px-4 text-xs font-semibold text-text-secondary uppercase tracking-wider">SKU</th>
+<th class="py-4 px-4 text-xs font-semibold text-text-secondary uppercase tracking-wider">Category</th>
+<th class="py-4 px-4 text-xs font-semibold text-text-secondary uppercase tracking-wider">Price</th>
+<th class="py-4 px-4 text-xs font-semibold text-text-secondary uppercase tracking-wider">Stock</th>
+<th class="py-4 px-4 text-xs font-semibold text-text-secondary uppercase tracking-wider">Status</th>
+<th class="py-4 px-4 text-xs font-semibold text-text-secondary uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#382929]">
+<!-- Row 1 -->
+<tr class="group hover:bg-[#2a2020] transition-colors">
+<td class="py-4 pl-6 pr-4">
+<input class="rounded border-[#4a3b3b] bg-[#382929] text-primary focus:ring-offset-[#181111] focus:ring-primary/50" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg bg-[#382929] border border-[#382929]">
+<img alt="Red silk evening gown on mannequin" class="h-full w-full object-cover" data-alt="Red silk evening gown on mannequin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi3N2IVGg_ZwQmK5fccIf39k9TAneKEu8_wkF5-mSeVNRAlT4oXgXAt8EkJ6NxZruXjgp1fkxbLa6RwwDE-CRPTaUtLT2EXdbZJKTF3Lwd0_Kk6yT8wTQtxESHC97mL7m80gWmV2BWD6cuwSfJfBKfEPXRqCkYGP1xTYB3lYY7IEw6UbKf_RCugCUgrjE-6HwN4RUkQ3uz_7SiVicEFXLyAuSqUKtJSj3OikLjQ5vqi3SlmsVgQbrxpmdV2pMT37cUud9oOIvp6ZKs"/>
+</div>
+<div>
+<div class="font-medium text-white">Silk Evening Gown</div>
+<div class="text-xs text-text-secondary mt-0.5">Size: M, L, XL</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 text-sm text-text-secondary font-mono">OAX-1024</td>
+<td class="py-4 px-4 text-sm text-white">Women / Dresses</td>
+<td class="py-4 px-4 text-sm font-semibold text-white">$1,250.00</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-red-500/10 px-2.5 py-1 text-xs font-medium text-red-400 border border-red-500/20">
+<span class="h-1.5 w-1.5 rounded-full bg-red-500"></span>
+                                            Low (4)
+                                        </span>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-[#4a3b3b] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-text-secondary hover:text-white rounded hover:bg-[#382929]">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 text-text-secondary hover:text-red-400 rounded hover:bg-red-500/10">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-[#2a2020] transition-colors">
+<td class="py-4 pl-6 pr-4">
+<input class="rounded border-[#4a3b3b] bg-[#382929] text-primary focus:ring-offset-[#181111] focus:ring-primary/50" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg bg-[#382929] border border-[#382929]">
+<img alt="Black leather biker jacket front view" class="h-full w-full object-cover" data-alt="Black leather biker jacket front view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfUOXfyO71hiN06bxKi_mJ2-OhCkrT9nowZQU8fMfEKYEI8N0D6sjPrN8XSyVl4E0ZFbbpPJ7eVymHauV-VLjxjRJD7wW5s1ZDupvlqhP8gOZlclQ_BhWyRACjheMTKlbkBWcx2NvRh8BCzPWvMSgiTU5rBQhGqjBBdyIaodQirCvNNAStuojAyVA2ch1wK5alPl-tpQE5IBTGGzhArL9WPEY8IZItZg68XKFNiSvT7tDsuzI06-a1Bl50o2jBW0raizTyohe4ejI_"/>
+</div>
+<div>
+<div class="font-medium text-white">Leather Biker Jacket</div>
+<div class="text-xs text-text-secondary mt-0.5">Size: S, M, L</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 text-sm text-text-secondary font-mono">OAX-8821</td>
+<td class="py-4 px-4 text-sm text-white">Men / Outerwear</td>
+<td class="py-4 px-4 text-sm font-semibold text-white">$895.00</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/20">
+<span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                                            In Stock (42)
+                                        </span>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-[#4a3b3b] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-text-secondary hover:text-white rounded hover:bg-[#382929]">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 text-text-secondary hover:text-red-400 rounded hover:bg-red-500/10">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-[#2a2020] transition-colors">
+<td class="py-4 pl-6 pr-4">
+<input class="rounded border-[#4a3b3b] bg-[#382929] text-primary focus:ring-offset-[#181111] focus:ring-primary/50" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg bg-[#382929] border border-[#382929]">
+<img alt="Minimalist white leather sneaker side profile" class="h-full w-full object-cover" data-alt="Minimalist white leather sneaker side profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-k9Kde2PYqlQKF0F2JBg3zZNQz0Q9bc2RgcTCtiqJVs0DuFxjn5m4mm_aGor4PJsxF3qlO2JnRMTtMZyG0JROLCojOOQFfatvoG2_B5362nWnFQsa7klAI95QLKHnvzZuuZR-cnqG2qx5qh-IjP5XcuPkwSA9OzVmlYsXCfabBZZHEcIRCfhQP2vpdK5Sn5V89IHmFVrVjQyTE6Btg9Nuusy5VDQgLtWBnkt-PI3uH1vneRu4CkihmWTuyJIBbWurCvlN0WoT4C44"/>
+</div>
+<div>
+<div class="font-medium text-white">Classic White Sneaker</div>
+<div class="text-xs text-text-secondary mt-0.5">Size: 36-45</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 text-sm text-text-secondary font-mono">OAX-3301</td>
+<td class="py-4 px-4 text-sm text-white">Unisex / Shoes</td>
+<td class="py-4 px-4 text-sm font-semibold text-white">$450.00</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-[#382929] px-2.5 py-1 text-xs font-medium text-text-secondary border border-[#4a3b3b]">
+<span class="h-1.5 w-1.5 rounded-full bg-gray-500"></span>
+                                            Out of Stock
+                                        </span>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-[#4a3b3b] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-text-secondary hover:text-white rounded hover:bg-[#382929]">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 text-text-secondary hover:text-red-400 rounded hover:bg-red-500/10">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-[#2a2020] transition-colors">
+<td class="py-4 pl-6 pr-4">
+<input class="rounded border-[#4a3b3b] bg-[#382929] text-primary focus:ring-offset-[#181111] focus:ring-primary/50" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg bg-[#382929] border border-[#382929]">
+<img alt="Textured black leather handbag with gold hardware" class="h-full w-full object-cover" data-alt="Textured black leather handbag with gold hardware" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Sc18soCvIwZsAHU15RLV9W9i1tALYu0XdgiYO7yuRYX6Uwjxh18EWuIzPv6Jr5IKxRyh5GZEninFLpB0dIMlWigOMVytkIN6d_FlN_aPv5auhT6WgKbgyI25CkEjcXZnLc2JKbJtTCq3ZBICRcBDSbGdhT9IEgyyTDfrXUQtYp-WAuR3zwKOM-kiid8YrpP0qxGqCtZVB3xI58TRrIvV1vHM59munmotlo61LL5RBHrL8ye_MKZTU8Gwn9bx3MCXpD9ZAGeCzTez"/>
+</div>
+<div>
+<div class="font-medium text-white">Signature Tote</div>
+<div class="text-xs text-text-secondary mt-0.5">Color: Black</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 text-sm text-text-secondary font-mono">OAX-4100</td>
+<td class="py-4 px-4 text-sm text-white">Women / Accessories</td>
+<td class="py-4 px-4 text-sm font-semibold text-white">$2,100.00</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/20">
+<span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                                            In Stock (15)
+                                        </span>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-[#4a3b3b] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-text-secondary hover:text-white rounded hover:bg-[#382929]">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 text-text-secondary hover:text-red-400 rounded hover:bg-red-500/10">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-[#2a2020] transition-colors">
+<td class="py-4 pl-6 pr-4">
+<input class="rounded border-[#4a3b3b] bg-[#382929] text-primary focus:ring-offset-[#181111] focus:ring-primary/50" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg bg-[#382929] border border-[#382929]">
+<img alt="Luxury gold wristwatch with black face" class="h-full w-full object-cover" data-alt="Luxury gold wristwatch with black face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2oUKeroBtiHmfvp28Motibs9b-llXFodxlOVElMLmzePfKi2ZVGhhsaNvJ0_Vrx92rz228tJuN5VkJsvO930vMpn-iAEpIsGN0sO_osQ1dhRVNVPbKcXe7BvNPl1s6pj_8g2KXSsDaKFiEf7DC5i19Sve-sDi4cYiZOwBA9w21GBuBWGxVZVIbi43v-T2jJNmeffdBMgAfP9Qy1HLS1ujgZclfOBKhIZfnOMa75s57zWouQXQoZEx-JGFVKmdAsceLjqLKYfUuOyK"/>
+</div>
+<div>
+<div class="font-medium text-white">Chronograph Gold</div>
+<div class="text-xs text-text-secondary mt-0.5">One Size</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 text-sm text-text-secondary font-mono">OAX-9920</td>
+<td class="py-4 px-4 text-sm text-white">Men / Accessories</td>
+<td class="py-4 px-4 text-sm font-semibold text-white">$5,450.00</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/20">
+<span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                                            In Stock (8)
+                                        </span>
+</td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-[#4a3b3b] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-text-secondary hover:text-white rounded hover:bg-[#382929]">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-1.5 text-text-secondary hover:text-red-400 rounded hover:bg-red-500/10">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="border-t border-[#382929] bg-[#251a1a] p-4 flex items-center justify-between">
+<div class="text-sm text-text-secondary">
+                            Showing <span class="font-medium text-white">1</span> to <span class="font-medium text-white">5</span> of <span class="font-medium text-white">1,450</span> results
+                        </div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-[#382929] text-text-secondary text-sm font-medium hover:bg-[#382929] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors" disabled="">Previous</button>
+<button class="px-3 py-1.5 rounded-lg border border-[#382929] text-white bg-[#382929] text-sm font-medium hover:bg-[#4a3b3b] transition-colors">1</button>
+<button class="px-3 py-1.5 rounded-lg border border-[#382929] text-text-secondary text-sm font-medium hover:bg-[#382929] hover:text-white transition-colors">2</button>
+<button class="px-3 py-1.5 rounded-lg border border-[#382929] text-text-secondary text-sm font-medium hover:bg-[#382929] hover:text-white transition-colors">3</button>
+<span class="px-2 py-1.5 text-text-secondary">...</span>
+<button class="px-3 py-1.5 rounded-lg border border-[#382929] text-text-secondary text-sm font-medium hover:bg-[#382929] hover:text-white transition-colors">Next</button>
+</div>
+</div>
+</div>
+<!-- Footer Copyright -->
+<div class="mt-8 text-center text-xs text-text-secondary pb-4">
+                    © 2024 OAX FASHION. Admin Console v2.0
+                </div>
+</div>
+</main>
+</div>
+</body></html>

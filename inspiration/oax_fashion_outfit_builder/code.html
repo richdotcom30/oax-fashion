@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Outfit Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33", // System primary
+                        "brand-blood": "#8B0000", // OAX Blood
+                        "brand-gold": "#D4AF37", // Gold Accent
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181111", // Matching header bg
+                        "surface-dark": "#261E1E", // Slightly lighter for cards/canvas
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #181111; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #382929; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a3b3b; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden flex flex-col h-screen">
+<!-- Top Navigation -->
+<header class="flex-none flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#382929] px-6 py-3 bg-[#181111] z-20">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-brand-gold">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-wide">OAX FASHION</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center">
+<!-- Breadcrumbs for context -->
+<div class="flex items-center gap-2 text-sm">
+<a class="text-[#b89d9f] hover:text-white transition-colors" href="#">Home</a>
+<span class="text-[#5a4848]">/</span>
+<span class="text-white font-medium">Outfit Builder</span>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<nav class="hidden lg:flex items-center gap-6 mr-4">
+<a class="text-[#b89d9f] hover:text-white text-sm font-medium transition-colors" href="#">Collections</a>
+<a class="text-[#b89d9f] hover:text-white text-sm font-medium transition-colors" href="#">Editorial</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex size-10 items-center justify-center rounded-full bg-[#382929] hover:bg-[#4a3b3b] text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full bg-[#382929] hover:bg-[#4a3b3b] text-white transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="absolute top-0 right-0 size-3 bg-brand-blood rounded-full border-2 border-[#181111]"></span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full bg-[#382929] hover:bg-[#4a3b3b] text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex flex-1 overflow-hidden relative">
+<!-- Sidebar: Product Catalog -->
+<aside class="w-[360px] md:w-[400px] flex flex-col border-r border-[#382929] bg-[#181111] shrink-0 z-10 transition-all duration-300 absolute md:relative h-full transform -translate-x-full md:translate-x-0" id="productSidebar">
+<!-- Sidebar Header & Search -->
+<div class="p-5 border-b border-[#382929] space-y-4">
+<div>
+<h3 class="text-white text-xl font-bold tracking-tight mb-1">Wardrobe</h3>
+<p class="text-[#b89d9f] text-xs">Drag items to the canvas.</p>
+</div>
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#b89d9f]">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-[#261E1E] border border-transparent focus:border-brand-gold/50 text-white text-sm rounded-lg pl-10 pr-4 py-2.5 placeholder-[#6e5d5e] focus:ring-0 focus:outline-none transition-all" placeholder="Search (e.g. Silk Blouse)" type="text"/>
+</div>
+<!-- Chips / Categories -->
+<div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar -mx-1 px-1">
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-white text-black text-xs font-bold shadow-sm">All</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-[#382929] hover:bg-[#4a3b3b] text-white text-xs font-medium transition-colors border border-transparent hover:border-[#5a4848]">Tops</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-[#382929] hover:bg-[#4a3b3b] text-white text-xs font-medium transition-colors border border-transparent hover:border-[#5a4848]">Bottoms</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-[#382929] hover:bg-[#4a3b3b] text-white text-xs font-medium transition-colors border border-transparent hover:border-[#5a4848]">Shoes</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-[#382929] hover:bg-[#4a3b3b] text-white text-xs font-medium transition-colors border border-transparent hover:border-[#5a4848]">Accs</button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
+<div class="grid grid-cols-2 gap-3">
+<!-- Product Card 1 -->
+<div class="group bg-[#261E1E] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing border border-transparent hover:border-brand-gold/30 transition-all hover:shadow-lg hover:shadow-black/40">
+<div class="aspect-[3/4] w-full bg-[#2a2222] relative p-2 flex items-center justify-center">
+<img alt="Velvet Blazer" class="object-contain h-full w-full opacity-90 group-hover:opacity-100 transition-opacity mix-blend-screen" data-alt="Black high fashion blazer on hanger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsPeHju9VHNKQMkiTJ94niIc7ZqC6N1hqtMPQkYzSQhe1m_FkXe0YGOyWywUdtG2eerlxn10oxYW14K5GiVUlziQboR3oYwAb8Zqj9AbTebrXaGBd_MSb8_us8WTgh8YxiBmWdNetk-MyoA4XqRv2UIm3XoNqNMoZQ1xcWIl88g8sVP2rynCAv6VNsUYgCKcVyRmfSkCsYqkh1xCltWpmd-St4JtQLuLZlwkOvnlfoWhH-VQ5U3brkl8j7IxKtqGSlClUwDhri5ty7"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="p-3">
+<p class="text-[#b89d9f] text-[10px] uppercase tracking-wider font-semibold mb-0.5">OAX Studio</p>
+<h4 class="text-white text-xs font-medium truncate">Midnight Velvet Blazer</h4>
+<p class="text-brand-gold text-xs font-bold mt-1">$890</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-[#261E1E] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing border border-transparent hover:border-brand-gold/30 transition-all hover:shadow-lg hover:shadow-black/40">
+<div class="aspect-[3/4] w-full bg-[#2a2222] relative p-2 flex items-center justify-center">
+<img alt="Silk Blouse" class="object-contain h-full w-full opacity-90 group-hover:opacity-100 transition-opacity mix-blend-normal" data-alt="White silk blouse luxury fashion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUZLYyw4uK9tpg4is-hGOPsmUNtkrh_SOhB3eKuxbXClnKzZcSGFteOHU0OQCjdoMA_RkSHeYJgo3y-c208C9GgYHR_mHH3CvqXqdm9I9htLZYTNtfEYnADtaUxJYxK17xzF36tsHucbjqhPHlVljk5eLjedqzMlRNjWH2tx-cCro9eJNOJyYDcCpqSeCvUvnJ6oRZHyNbUtfoaDMKaBXVwglcxO8bT4oH5oO03BDdhJ5SZJoIje7i9Ho3NZk1z4AVzoAYAerzcLUa"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="p-3">
+<p class="text-[#b89d9f] text-[10px] uppercase tracking-wider font-semibold mb-0.5">Essentials</p>
+<h4 class="text-white text-xs font-medium truncate">Ivory Silk Blouse</h4>
+<p class="text-brand-gold text-xs font-bold mt-1">$450</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-[#261E1E] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing border border-transparent hover:border-brand-gold/30 transition-all hover:shadow-lg hover:shadow-black/40">
+<div class="aspect-[3/4] w-full bg-[#2a2222] relative p-2 flex items-center justify-center">
+<img alt="Noir Pumps" class="object-contain h-full w-full opacity-90 group-hover:opacity-100 transition-opacity" data-alt="Black luxury leather heels" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfQN5d4fqJsOtz0GIC5cmivfUcz2wpaJjKuzr2Q0jV2sFS2ZN2CgmYlmBeFPzLdVpudpA_-krqZima-Puvb0nDmnqXRk1Hzf5iYab1_WfSEyID3J0Oza5drgV7TPe0LbSdqZuCS5ENi8RIfrxVIHd30e3qiA80AzT66o4Vg6Y1xN0XuLBxbeT49nKMRDEUwh6AcopmmGCbSlNzGmGTTRZxIhJj6_qFZSGz_TDV8M7nIkpyaqBWfM1j1iNokPWXMi6gxtEa_9Bgha4q"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="p-3">
+<p class="text-[#b89d9f] text-[10px] uppercase tracking-wider font-semibold mb-0.5">Footwear</p>
+<h4 class="text-white text-xs font-medium truncate">Noir Stiletto Pumps</h4>
+<p class="text-brand-gold text-xs font-bold mt-1">$620</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-[#261E1E] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing border border-transparent hover:border-brand-gold/30 transition-all hover:shadow-lg hover:shadow-black/40">
+<div class="aspect-[3/4] w-full bg-[#2a2222] relative p-2 flex items-center justify-center">
+<img alt="Gold Clutch" class="object-contain h-full w-full opacity-90 group-hover:opacity-100 transition-opacity" data-alt="Gold luxury handbag designer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnBN6fQfkufWAepsEiipJaHWWOqnwcDiuLTG6uUNbzkXlUj4lXkWZoPTch_sxBPD6JyzRtHpXMXp5OwZQ__ikvOzje14j7BzYul8R2u9wNv73l5PCRaPMQtwLO9R-41Yx4OtBD17Z1NT0BYZwe9sufQl_qKFTehVjHYzqsUYl6x-pwHdzW_vPZIXIbrz0G0WK9eb0xWfGW_z60KmKeCwhArBffMrqBT0EY5xCXku7rCC0DRy-UQ4MUG2SUc3sOEj4qRhuyPci4dnC-"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="p-3">
+<p class="text-[#b89d9f] text-[10px] uppercase tracking-wider font-semibold mb-0.5">Accessories</p>
+<h4 class="text-white text-xs font-medium truncate">Gilded Evening Clutch</h4>
+<p class="text-brand-gold text-xs font-bold mt-1">$1,200</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-[#261E1E] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing border border-transparent hover:border-brand-gold/30 transition-all hover:shadow-lg hover:shadow-black/40">
+<div class="aspect-[3/4] w-full bg-[#2a2222] relative p-2 flex items-center justify-center">
+<img alt="Pleated Skirt" class="object-contain h-full w-full opacity-90 group-hover:opacity-100 transition-opacity" data-alt="Designer pleated skirt green" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm7nz03aCAdvUTiPxF0bXGRthwzvDRbZ1JizSei4M_6Kx_2ssEV65BAhx7c6F4P958dIZyVp8hW5tqQpP4vIuM0Tt7rTkU4wpPexj2sMxwvHI__wtguIKpgMcNXyuU0UBrfGFIHBGttZdYIUaBroRjlygTX_FPTiPQva3ZSo-saJlEnkbhs_1bPkb62GkSda9-jySrLq3zrstltP7DBBnXsxj6Me2GBnbpyqR5JKsXdD98IlTK4pn-0WxSsJ3NYR-3x8iFT_N64Fqp"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="p-3">
+<p class="text-[#b89d9f] text-[10px] uppercase tracking-wider font-semibold mb-0.5">Bottoms</p>
+<h4 class="text-white text-xs font-medium truncate">Emerald Pleated Skirt</h4>
+<p class="text-brand-gold text-xs font-bold mt-1">$550</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-[#261E1E] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing border border-transparent hover:border-brand-gold/30 transition-all hover:shadow-lg hover:shadow-black/40">
+<div class="aspect-[3/4] w-full bg-[#2a2222] relative p-2 flex items-center justify-center">
+<img alt="Gold Chain" class="object-contain h-full w-full opacity-90 group-hover:opacity-100 transition-opacity" data-alt="Gold necklace jewelry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0if8TgndELDstA9SXMdOmYUdqmC3GqU-mxcqgI8QFLw7tSIQazA2j6kzCvwdlGNrRz5yqlbgM35VQSyVUdu_Tnoei4-8EJjrg8mvsV2ce6CoV7UxK2tvxer0xP5kiuh1AIwGUlo1dqz0LrCaqgUMg3NvHP0odTLqpnoeIi2NtNcMDctZ-V7G6M-5b7NS59IY0xsf9Spe8GDz7hEtUid3hdkCD8YQ-nvh80vzrmdxzgOCH0rkOUYKUm14BbeIAJZ4iPTVJ46Hip_dX"/>
+<button class="absolute top-2 right-2 p-1.5 rounded-full bg-black/40 hover:bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-all backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<div class="p-3">
+<p class="text-[#b89d9f] text-[10px] uppercase tracking-wider font-semibold mb-0.5">Jewelry</p>
+<h4 class="text-white text-xs font-medium truncate">OAX Signature Chain</h4>
+<p class="text-brand-gold text-xs font-bold mt-1">$320</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas: Studio Area -->
+<section class="flex-1 flex flex-col relative bg-[#120c0c] overflow-hidden">
+<!-- Mobile Toggle -->
+<button class="md:hidden absolute top-4 left-4 z-30 p-2 bg-[#382929] rounded-lg text-white" onclick="document.getElementById('productSidebar').classList.toggle('-translate-x-full')">
+<span class="material-symbols-outlined">view_sidebar</span>
+</button>
+<!-- Canvas Toolbar -->
+<div class="absolute top-6 left-1/2 -translate-x-1/2 z-20 bg-[#261E1E]/90 backdrop-blur-md border border-[#382929] rounded-full p-1.5 flex gap-1 shadow-xl">
+<button class="size-9 rounded-full hover:bg-[#382929] text-[#b89d9f] hover:text-white flex items-center justify-center transition-colors" title="Undo">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+</button>
+<button class="size-9 rounded-full hover:bg-[#382929] text-[#b89d9f] hover:text-white flex items-center justify-center transition-colors" title="Redo">
+<span class="material-symbols-outlined text-[20px]">redo</span>
+</button>
+<div class="w-px h-5 bg-[#382929] self-center mx-1"></div>
+<button class="size-9 rounded-full hover:bg-[#382929] text-[#b89d9f] hover:text-white flex items-center justify-center transition-colors" title="Clear Canvas">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+<button class="size-9 rounded-full hover:bg-[#382929] text-[#b89d9f] hover:text-white flex items-center justify-center transition-colors" title="Change Background">
+<span class="material-symbols-outlined text-[20px]">wallpaper</span>
+</button>
+</div>
+<!-- The Drop Zone / Canvas -->
+<div class="flex-1 relative flex items-center justify-center overflow-hidden">
+<!-- Background visual texture -->
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#2a2222 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-[#120c0c]/50 to-[#120c0c] pointer-events-none"></div>
+<!-- Placed Item 1: Coat -->
+<div class="absolute top-[15%] left-[35%] w-[320px] cursor-move z-10 group" style="transform: rotate(-2deg);">
+<div class="relative">
+<img alt="Velvet Blazer Layer" class="w-full drop-shadow-2xl mix-blend-screen brightness-110" data-alt="Large velvet blazer placed on canvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdpT9yjI936Y_VDI4wA3MGJ4DgykPOnrP7KUyA_2WfyAF3uV0FvR6RVmc6gz5S53CWU16vbCY-A_o0fYzqpKEgdxhCKdY1qjOFvt2KwEj8NeNdS7nluh26ZKY57NtqOrW3NOBF8Y2V2VRe7Eg1HN-sq-NAex5HjpJs8p7j5ySbxhSRUTDGGbPNYmoegYsDyxtVHVg8RWPccFthRB3ed4n7OQvVwqzpwj8PEaIB33KB5VtUViCHNIokQSo5JwoCJJ8wT-s-loPsUpKr"/>
+<!-- Item Controls (Visible on Hover/Select) -->
+<div class="absolute -top-4 -right-4 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-7 bg-white text-black rounded-full shadow-lg flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+<button class="size-7 bg-[#261E1E] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-gold hover:text-black transition-colors">
+<span class="material-symbols-outlined text-[16px]">flip_to_front</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Placed Item 2: Shirt -->
+<div class="absolute top-[22%] left-[42%] w-[240px] cursor-move z-0 group">
+<div class="relative">
+<img alt="Silk Shirt Layer" class="w-full drop-shadow-2xl brightness-90" data-alt="Silk shirt placed on canvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxJd04aPMA-x2CXjaok_Hz7_Ns4qBonAjHXFMX4aYPWXG1htcXRCaBgTCAOf_6CDnbZcyBEwi3L9wGIB4HvmMAtbQnjv9RwcrON7TIUAqGHI6WdDj9MyLodqZey8oilPZ2J2egCPTmAhFWFb_QZXevxfQsSd7GqkzHzT6dmnVjR_-rVMoBdeDosmnadv2qI3S9r2Wr5-CgGTCHnyrpt47ShMFR41m8YrmiFNzH8e9zQoIIeAzN3gim2zWBTM7m9RPW9sjS_acVzpUT"/>
+<div class="absolute -top-4 -right-4 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-7 bg-white text-black rounded-full shadow-lg flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+<button class="size-7 bg-[#261E1E] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-gold hover:text-black transition-colors">
+<span class="material-symbols-outlined text-[16px]">flip_to_front</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Placed Item 3: Pants -->
+<div class="absolute top-[50%] left-[38%] w-[260px] cursor-move z-0 group">
+<div class="relative">
+<img alt="Skirt Layer" class="w-full drop-shadow-2xl" data-alt="Skirt placed on canvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6pi7YJBaefaOiuzxyGZBFZ6VpWhP4WFWFBlfrvjCm6E1TDxVewDElpp1z4-7dzFPyPMp9svlNJxGFWJ-1pnE04UJ8rNtod3b5yBbbWEomV0KFYiKh8lUbtzMHo2QhyM50T1LHJ7oSqunvfbobPrSpiQg7v4Ov0mgmAV4hbQ6U4P6MBwYgWvvPn7JFX53rMjXbSmHM1H9w7cRi5_QT5qI7723eaLAt-LRrZwBxc8MOSSPDlhVGe1dftKd4Okd9mxpMTYwDt6yydzvo"/>
+<div class="absolute -top-4 -right-4 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-7 bg-white text-black rounded-full shadow-lg flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+<button class="size-7 bg-[#261E1E] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-gold hover:text-black transition-colors">
+<span class="material-symbols-outlined text-[16px]">flip_to_front</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Placed Item 4: Bag -->
+<div class="absolute top-[55%] left-[55%] w-[180px] cursor-move z-20 group" style="transform: rotate(10deg);">
+<div class="relative">
+<img alt="Bag Layer" class="w-full drop-shadow-2xl" data-alt="Bag placed on canvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt8AsTBUMa2sZspRDjfHiik8QJL5tEU4MwnId7SnLKkEc-h_A9N_xm32FAYHkS9WcZ7bWKdn_CcT-NHuffJq3Av8nMWshzwcohi8GCUqNLv1mGlmTK-dfp2qykickhU4x4rd2BCjq6kiqbqTaCjvQfU37o_zIlOSlU490D9WmXwb3koL1uAhNAMCgZo_DCCwQYbvEG1185nH4icnyd-JMUWmP-4OqPNR1k27vL3mTw6AS8cR3lDd8CIdiGCdHPRf2LjDEa00wkTb3u"/>
+<div class="absolute -top-4 -right-4 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="size-7 bg-white text-black rounded-full shadow-lg flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+<button class="size-7 bg-[#261E1E] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-gold hover:text-black transition-colors">
+<span class="material-symbols-outlined text-[16px]">flip_to_front</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Action Bar -->
+<div class="bg-[#181111] border-t border-[#382929] px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-6 z-30">
+<!-- Outfit Summary (Left) -->
+<div class="flex items-center gap-6 w-full md:w-auto overflow-hidden">
+<div class="flex -space-x-3 overflow-hidden p-1">
+<img alt="Thumbnail" class="inline-block size-10 rounded-full ring-2 ring-[#181111] object-cover" data-alt="Thumbnail of blazer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7_mwu_Z7Phwk1ueLt7TRwKMIlH184XTJpIubyS5qru0wlyHKw3Wm9zSC9s5q_e6SOA4quyo7KJaDsi63g8g-a_lvtV01bwCS2h8YDdg2onE7wrR9tZJvYK-aBj1jocVBlMc1VCoojR-CgikSrlcO5zftglaw6CE8IgkW07bb2yCFGd4Sa4jerA3UBu5zLgujRv66B9jyvMAFptrHZ1_8SZFlsvOlMMj_fvZ0sJOnc-OZIwSBBSiPYIAespStcZj15s-ThabdW0PRF"/>
+<img alt="Thumbnail" class="inline-block size-10 rounded-full ring-2 ring-[#181111] object-cover" data-alt="Thumbnail of shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM97puKjOj6zdr50yvhWvKqCJHWSzEzMpCSuhh97Hb2uzip6aQGOZAV8yzRu1vs6Lp1dmGESwUBQMCEbkGGrkmc8q-xh7gx7wKS5jhZkWMFSXEB5jTmuiz_nUhgPVsD-ZLprNzGx8i2FBNLTmwn4zak-sY2ccD049SU60JuuY8byEHoD244C5qUjRCtD4Huj1oJ_5g4883w_Q0zLmIQUsL5eCEpAbtBLfRQbgLr0CDH_G0WaPKlp_-7CblmL2yd_ptOmdyjZb51bE1"/>
+<img alt="Thumbnail" class="inline-block size-10 rounded-full ring-2 ring-[#181111] object-cover" data-alt="Thumbnail of skirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzxxULN-pIiNgWZaUa11fa_EAFuPfDaMfY-wKvNJTi1m8kWD320PxQSL5o_AQeAoDYYjIyoXRg3QOLVS648VziQ_2DvVNUzYNehGB698WDT5uNgX9t2PxeBp7nKhhda1q7dZ2N-8Hq9nD8MWlLEYy2sxTZwfSTMqF8l2bYbKhibwrwLLCkvpGWlKIgtlvZyJNUdY7YzPjMDAXBY_vKOrN1vFQb3q-A6PAopxVB_Ll9c9suaEdZwXSSfMq9Cvq5UCHPcBMJXLeXwyne"/>
+<img alt="Thumbnail" class="inline-block size-10 rounded-full ring-2 ring-[#181111] object-cover" data-alt="Thumbnail of bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXS3b6-cwb3tMpOeRZXgibSCpQdwxzPI-9FZPivpdpoin0hQutyyGHhjuE4kWWIUZjg-c4CWq7YZ-BP5iHtf2HbqVDOnm1fTSvBYUBFw1q-iaWakaKC8uLcERQOhTcJt7DOmidzWhofPv-PU44T89EQo8k56JEX61g8pyIkxHBOCj-d8Lq96ILCTSVpwHGC4XVqAgBgUlads1SBIa71bDkM2Occr4xuIeERJBFMa9fM4VTrb--isEiP4w7ncmAyEM4d3B9UZxJ9Idc"/>
+</div>
+<div class="flex flex-col">
+<span class="text-[#b89d9f] text-xs font-medium">4 Items Selected</span>
+<div class="flex items-baseline gap-2">
+<span class="text-white text-xl font-bold font-display">$2,890</span>
+<span class="text-[#5a4848] text-sm line-through decoration-brand-gold">$3,090</span>
+</div>
+</div>
+</div>
+<!-- Actions (Right) -->
+<div class="flex items-center gap-4 w-full md:w-auto justify-end">
+<!-- Share & Save -->
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-3 rounded-xl border border-[#382929] bg-transparent hover:bg-[#261E1E] text-white text-sm font-semibold transition-colors">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+<span class="hidden sm:inline">Share</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-3 rounded-xl border border-[#382929] bg-transparent hover:bg-[#261E1E] text-white text-sm font-semibold transition-colors">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+<span class="hidden sm:inline">Save Look</span>
+</button>
+</div>
+<!-- Primary Buy Button -->
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-brand-blood text-white shadow-[0_0_20px_rgba(234,42,51,0.3)] hover:shadow-[0_0_25px_rgba(234,42,51,0.5)] transition-all transform hover:-translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<div class="text-left flex flex-col leading-none">
+<span class="text-xs font-medium opacity-90 uppercase tracking-wide">Buy Bundle</span>
+</div>
+</button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

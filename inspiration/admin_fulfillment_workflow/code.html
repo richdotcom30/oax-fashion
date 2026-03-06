@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Admin Fulfillment Workflow</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111418", // Darkened slightly for deep contrast
+                        "surface-dark": "#1d242c", // Slightly lighter for cards/bars
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark mode feeling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111418; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #293038; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3c4753; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- Side Navigation -->
+<aside class="w-[280px] bg-[#111418] border-r border-[#293038] flex flex-col h-full shrink-0">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-[#293038]" data-alt="OAX Fashion abstract logo with minimal geometric shapes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjmE4wfja5sPDLtckyKMh3yyWrMAz2H2m_059iBu5S3rRM-twefSVCzWiiwGB_1xXgiDGUPRw6TUQyWif2lSYfyFr_orIZ_FLxp0KD_6_4O1PK81ZSq6mV9rhSpnzTVMi05A9y2v-2W8j5HgNSo0dnUQuVKiwQLchUSU-8hmFqHE6H48udapctJbK3irsZsxLnjlnZbtbpodNwCdC50bc2iGMqlJmPACAU94JBolsZV41WupOiOBgBcftNM_qfx_5QMmljyOt4Gi17");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-bold leading-normal">OAX FASHION</h1>
+<p class="text-[#9dabb8] text-xs font-normal leading-normal tracking-wide">Admin Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2 px-4 flex-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9dabb8] hover:bg-[#1d242c] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9dabb8] hover:bg-[#1d242c] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">tag</span>
+<p class="text-sm font-medium leading-normal">Products</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9dabb8] hover:bg-[#1d242c] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#197fe6]/10 text-[#197fe6]" href="#">
+<span class="material-symbols-outlined text-[24px] fill-1">local_shipping</span>
+<p class="text-sm font-bold leading-normal">Fulfillment</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9dabb8] hover:bg-[#1d242c] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<p class="text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9dabb8] hover:bg-[#1d242c] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+<div class="p-4 border-t border-[#293038]">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#9dabb8] hover:text-white cursor-pointer">
+<span class="material-symbols-outlined text-[24px]">logout</span>
+<p class="text-sm font-medium leading-normal">Sign Out</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-[#111418] relative overflow-hidden">
+<!-- Top Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#293038] px-8 py-4 bg-[#111418]">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 flex items-center justify-center rounded bg-[#293038]">
+<span class="material-symbols-outlined text-[#197fe6] text-[20px]">inventory_2</span>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-tight">Fulfillment Workflow</h2>
+</div>
+<div class="flex flex-1 justify-end gap-6">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#9dabb8] flex border-none bg-[#1d242c] items-center justify-center pl-3 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#1d242c] focus:border-none h-full placeholder:text-[#9dabb8] px-3 rounded-l-none border-l-0 text-sm font-normal leading-normal" placeholder="Search order #, SKU, customer..." value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#1d242c] hover:bg-[#293038] text-white transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-[#197fe6] rounded-full border-2 border-[#1d242c]"></span>
+</button>
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#1d242c] hover:bg-[#293038] text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+</div>
+<div class="flex items-center gap-2 pl-2 border-l border-[#293038]">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 border border-[#293038]" data-alt="Portrait of admin user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBshfuLhJzD0bw3DQI7EMA2i61MwF8DRLzDpSyVpPjbmvhgkRTrsqjoHuGfL9fOOnYIyRrLBQlKluJsK43jIN08yMAFboKJ-ZQbPyaJ3li9SE450Xi5mP_KZQ1i_p1T_nxsyV-QgBRwmFTwiqfZ2g8ros5rWRjmQZu8QF5Nrsa9pJrBjhTccC_KX1S7-KzIdElnfL8XGWwPWFp6pr4na-0ZXl8GjCu27wIm8jQ3cUi9vDqnu7BA0gjj8rrCDJaZ-YHAxJpylJ0hBIjC");'></div>
+<div class="hidden xl:flex flex-col">
+<span class="text-white text-sm font-medium">Alex Morgan</span>
+<span class="text-[#9dabb8] text-xs">Logistics Manager</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8">
+<div class="max-w-[1400px] mx-auto flex flex-col gap-6">
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col gap-1 rounded-xl p-5 border border-[#293038] bg-[#1d242c]">
+<div class="flex items-center justify-between">
+<p class="text-[#9dabb8] text-sm font-medium leading-normal">Pending Picks</p>
+<span class="material-symbols-outlined text-[#197fe6] text-[20px]">checklist_rtl</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-tight mt-2">12</p>
+<p class="text-[#9dabb8] text-xs mt-1"><span class="text-emerald-500 font-medium">+2</span> from last hour</p>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-5 border border-[#293038] bg-[#1d242c]">
+<div class="flex items-center justify-between">
+<p class="text-[#9dabb8] text-sm font-medium leading-normal">Ready to Pack</p>
+<span class="material-symbols-outlined text-[#197fe6] text-[20px]">package_2</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-tight mt-2">5</p>
+<p class="text-[#9dabb8] text-xs mt-1">Awaiting box selection</p>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-5 border border-[#293038] bg-[#1d242c]">
+<div class="flex items-center justify-between">
+<p class="text-[#9dabb8] text-sm font-medium leading-normal">Labels Generated</p>
+<span class="material-symbols-outlined text-[#197fe6] text-[20px]">label</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-tight mt-2">8</p>
+<p class="text-[#9dabb8] text-xs mt-1">Ready for pickup</p>
+</div>
+<div class="flex flex-col gap-1 rounded-xl p-5 border border-[#293038] bg-[#1d242c]">
+<div class="flex items-center justify-between">
+<p class="text-[#9dabb8] text-sm font-medium leading-normal">Daily Output</p>
+<span class="material-symbols-outlined text-[#197fe6] text-[20px]">bar_chart</span>
+</div>
+<p class="text-white tracking-tight text-3xl font-bold leading-tight mt-2">145</p>
+<p class="text-[#9dabb8] text-xs mt-1"><span class="text-emerald-500 font-medium">98%</span> fulfillment rate</p>
+</div>
+</div>
+<!-- Workflow Content Wrapper -->
+<div class="flex flex-col bg-[#1d242c] border border-[#293038] rounded-xl overflow-hidden shadow-sm">
+<!-- Tabs -->
+<div class="border-b border-[#293038] px-6 bg-[#111418]">
+<div class="flex gap-8 overflow-x-auto">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#9dabb8] hover:text-white py-4 min-w-fit" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">New Orders <span class="ml-2 bg-[#293038] text-white px-2 py-0.5 rounded-full text-xs font-medium">24</span></p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-[#197fe6] text-white py-4 min-w-fit" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide text-[#197fe6]">To Pick <span class="ml-2 bg-[#197fe6] text-white px-2 py-0.5 rounded-full text-xs font-medium">12</span></p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#9dabb8] hover:text-white py-4 min-w-fit" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">To Pack</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#9dabb8] hover:text-white py-4 min-w-fit" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Ready to Ship</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#9dabb8] hover:text-white py-4 min-w-fit" href="#">
+<p class="text-sm font-bold leading-normal tracking-wide">Dispatched</p>
+</a>
+</div>
+</div>
+<!-- Toolbar -->
+<div class="flex flex-wrap items-center justify-between gap-4 px-6 py-4 border-b border-[#293038] bg-[#1d242c]">
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-9 rounded hover:bg-[#293038] text-white transition-colors" title="Print Selection">
+<span class="material-symbols-outlined text-[20px]">print</span>
+</button>
+<button class="flex items-center justify-center size-9 rounded hover:bg-[#293038] text-white transition-colors" title="Export CSV">
+<span class="material-symbols-outlined text-[20px]">description</span>
+</button>
+<div class="h-6 w-px bg-[#293038] mx-1"></div>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded hover:bg-[#293038] text-[#9dabb8] hover:text-white text-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                                    Filter
+                                </button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded hover:bg-[#293038] text-[#9dabb8] hover:text-white text-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+                                    Sort: Oldest First
+                                </button>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[#9dabb8] text-sm mr-2">3 items selected</span>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 bg-[#197fe6] hover:bg-[#166bc2] transition-colors text-white gap-2 text-sm font-bold leading-normal tracking-wide px-4 shadow-lg shadow-[#197fe6]/20">
+<span class="material-symbols-outlined text-[18px] filled">checklist</span>
+<span class="truncate">Generate Pick List</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#293038] bg-[#111418]">
+<th class="p-4 w-12 text-center">
+<input class="rounded border-[#3c4753] bg-[#293038] text-[#197fe6] focus:ring-0 focus:ring-offset-0 size-4" type="checkbox"/>
+</th>
+<th class="p-4 text-xs font-semibold uppercase tracking-wider text-[#9dabb8]">Order ID</th>
+<th class="p-4 text-xs font-semibold uppercase tracking-wider text-[#9dabb8]">Date</th>
+<th class="p-4 text-xs font-semibold uppercase tracking-wider text-[#9dabb8]">Customer</th>
+<th class="p-4 text-xs font-semibold uppercase tracking-wider text-[#9dabb8]">Items</th>
+<th class="p-4 text-xs font-semibold uppercase tracking-wider text-[#9dabb8]">Carrier</th>
+<th class="p-4 text-xs font-semibold uppercase tracking-wider text-[#9dabb8]">Priority</th>
+<th class="p-4 text-xs font-semibold uppercase tracking-wider text-[#9dabb8] text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#293038]">
+<!-- Row 1 -->
+<tr class="group hover:bg-[#293038]/30 transition-colors">
+<td class="p-4 text-center">
+<input checked="" class="rounded border-[#3c4753] bg-[#293038] text-[#197fe6] focus:ring-0 focus:ring-offset-0 size-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<span class="text-white font-medium text-sm">#ORD-8921</span>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white text-sm">Oct 24</span>
+<span class="text-[#9dabb8] text-xs">10:45 AM</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-[#3c4753] flex items-center justify-center text-xs font-bold text-white">EM</div>
+<span class="text-white text-sm">Elena Miles</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded size-10 border border-[#3c4753]" data-alt="Small thumbnail of a beige trench coat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvLkYXzxklZCpjocIjhjbq4BT8l9Y2PemYALmK1u9ijPq4vrBUaHrkU54ufiAljXPOgwkH4alKOB0-m9L1rUDnjgasdDxZgHmMeLjy-zpsxZy6g9i6-SCWOd-CZJSP8DmzU-aC85sEbg_Uw5RXM1RpYEQgYBHnBmDow-To4RCEmFTF5DezBdDFakXX3o8wHvQuKEBo2FWzovp2z1t0s2rBomUVEGbV-ZThTCHBa48j1nupTpbfCaLpmavKf_rnYmGmFedEcca5VZKe");'></div>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">Silk Trench Coat</span>
+<span class="text-[#9dabb8] text-xs">+ 2 other items</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#9dabb8] text-[18px]">local_shipping</span>
+<span class="text-white text-sm">DHL Express</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-amber-500/10 px-2.5 py-0.5 text-xs font-medium text-amber-500 border border-amber-500/20">
+                                                Urgent
+                                            </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#197fe6] hover:text-[#166bc2] font-medium text-sm mr-4">Details</button>
+<button class="bg-[#293038] hover:bg-[#3c4753] text-white px-3 py-1.5 rounded text-xs font-bold transition-colors">Pick</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-[#293038]/30 transition-colors">
+<td class="p-4 text-center">
+<input checked="" class="rounded border-[#3c4753] bg-[#293038] text-[#197fe6] focus:ring-0 focus:ring-offset-0 size-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<span class="text-white font-medium text-sm">#ORD-8920</span>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white text-sm">Oct 24</span>
+<span class="text-[#9dabb8] text-xs">09:12 AM</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-8" data-alt="User avatar of James C" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiIHA7N0KIVHQfBYvKVpD2kNWFkn3K0URCaZShAxceccttwwmfWICz2cW3owsi2KzuW73C3bmMxMf5nl591n4LTJ1xk6IcrIaXpDjhcp1HO9Bts6QgBHc4KSZSliSOmdUj5NW6u-CLOtThBAvlPEw9vrYUkjZC_z4Vdh86wpkxxRvvapXtirfC_3Le82cLv0Et4R14DA_oxO1vkWm5P4Cfw0zt6DysNFXnjthDlwTdppHBpedaktfZNP6FinwlW_O2mrpkNWERuN1K");'></div>
+<span class="text-white text-sm">James Carter</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded size-10 border border-[#3c4753]" data-alt="Small thumbnail of leather boots" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCeYbP73OmOc93MGrSMoQL0LCSIHfzVsYw-De-L40RDi9A1KkTIH8eAJCyvD1hHqs7VGBWeXbr_ds6lqBZGND9Ld855O384XW3b4v8U7EfpYQiJUOScEOkbZTzWzaP_7MEtUwWnhOUXl-uELO4wjl1iu2So7_iwRF8aufNv0KLwYD40z576b1i9m7tWej75IVwyCIeWYMLaSiOHKe2rBmhi7jAmECcFuGCtRCjqHJu_rE8PBc5jA8NO4Jz2TDprE3UlkkxQPb4jnroA");'></div>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">Chelsea Boots</span>
+<span class="text-[#9dabb8] text-xs">Size 42</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#9dabb8] text-[18px]">flight_takeoff</span>
+<span class="text-white text-sm">FedEx Int.</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-[#293038] px-2.5 py-0.5 text-xs font-medium text-[#9dabb8] border border-[#3c4753]">
+                                                Standard
+                                            </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#197fe6] hover:text-[#166bc2] font-medium text-sm mr-4">Details</button>
+<button class="bg-[#293038] hover:bg-[#3c4753] text-white px-3 py-1.5 rounded text-xs font-bold transition-colors">Pick</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-[#293038]/30 transition-colors">
+<td class="p-4 text-center">
+<input checked="" class="rounded border-[#3c4753] bg-[#293038] text-[#197fe6] focus:ring-0 focus:ring-offset-0 size-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<span class="text-white font-medium text-sm">#ORD-8919</span>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white text-sm">Oct 23</span>
+<span class="text-[#9dabb8] text-xs">04:30 PM</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-[#3c4753] flex items-center justify-center text-xs font-bold text-white">SK</div>
+<span class="text-white text-sm">Sarah Klein</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded size-10 border border-[#3c4753]" data-alt="Small thumbnail of silver necklace" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZWrirucT9D043D1ZUvtqEB0IzAZdsyHsaX63xJ9Qo6qjHm0rkr4Vo_tQNeZyfKnRBJycaxNs3w0LwqRSfIKck7CbtBl2rsYPyHul0ds_r8A6xDEYNu4T6rUwKVJBIUpuRJJja6dbdTl3R_qzz2t88aosVKVsP1ZFbWYmBTHPJt1-WPqbv4aHbl7KfEmFmyyhZwOsTNISFrjmVhMhM14BdyTZxU8Z7Wc0_2porTTT8vNRzac2jJOCYahzakAdnx381ILnv3rRHzsnz");'></div>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">Silver Pendant</span>
+<span class="text-[#9dabb8] text-xs">Accessory</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#9dabb8] text-[18px]">local_post_office</span>
+<span class="text-white text-sm">USPS Priority</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-[#293038] px-2.5 py-0.5 text-xs font-medium text-[#9dabb8] border border-[#3c4753]">
+                                                Standard
+                                            </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#197fe6] hover:text-[#166bc2] font-medium text-sm mr-4">Details</button>
+<button class="bg-[#293038] hover:bg-[#3c4753] text-white px-3 py-1.5 rounded text-xs font-bold transition-colors">Pick</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-[#293038]/30 transition-colors">
+<td class="p-4 text-center">
+<input class="rounded border-[#3c4753] bg-[#293038] text-[#197fe6] focus:ring-0 focus:ring-offset-0 size-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<span class="text-white font-medium text-sm">#ORD-8918</span>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white text-sm">Oct 23</span>
+<span class="text-[#9dabb8] text-xs">02:15 PM</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-8" data-alt="User avatar of Michael B" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrgfID-tAw1JyR5fKcfvUwYf0pH9UPbuipTi9t4xXH2F3tg4y7cHKewE8DufK_u1HKDX3yaBWsyB5NP2QhRTptLNPPyaAz4WHlB5BZ1qYJzVd2Yll3Czti5MISWxpRWdl1H7IdBUI4bawphiOMxy-0Da68Kt4Mx4Rv9DY5IMQXOJHBnx5dmILdOstDdt7qmWgrdvUiej2QZK-lvBn7fiab5dESKgKQUloGrhmCTyccQBN3Hnq9kFXQZf90nPpR17Ebrb5WbFyHnk0n");'></div>
+<span class="text-white text-sm">Michael Brown</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded size-10 border border-[#3c4753]" data-alt="Small thumbnail of denim jacket" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAF4U-fv1B6hLK6z-KRL7J1Cmuz6eQcc_f0u9Akm3h1P3sfHtIwYQ9Y_gZVgMMPI-sbcTne5moMJ2LKFS7YTvYbF9LreOjiYBWTK_UBGay34NiAGQiOS9QyubY70Ei2xQew1FJ2FAHSOsgQfYVxzV4OvotCF0i6IN0aOfnLtEc14GS9nUQEDJxsVy3h8M-e8POXnKgS86OlFYTtm3vA2S5TYv2CNkT7N7O0vcQDXqu9CND4i3c4ymfj_KMpKc9d0o2_HosFtefNq7E1");'></div>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">Denim Jacket</span>
+<span class="text-[#9dabb8] text-xs">Size L</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#9dabb8] text-[18px]">local_shipping</span>
+<span class="text-white text-sm">UPS Ground</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-[#293038] px-2.5 py-0.5 text-xs font-medium text-[#9dabb8] border border-[#3c4753]">
+                                                Standard
+                                            </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#197fe6] hover:text-[#166bc2] font-medium text-sm mr-4">Details</button>
+<button class="bg-[#293038] hover:bg-[#3c4753] text-white px-3 py-1.5 rounded text-xs font-bold transition-colors">Pick</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-[#293038]/30 transition-colors">
+<td class="p-4 text-center">
+<input class="rounded border-[#3c4753] bg-[#293038] text-[#197fe6] focus:ring-0 focus:ring-offset-0 size-4" type="checkbox"/>
+</td>
+<td class="p-4">
+<span class="text-white font-medium text-sm">#ORD-8915</span>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white text-sm">Oct 23</span>
+<span class="text-[#9dabb8] text-xs">11:00 AM</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-[#3c4753] flex items-center justify-center text-xs font-bold text-white">LP</div>
+<span class="text-white text-sm">Lara Pires</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded size-10 border border-[#3c4753]" data-alt="Small thumbnail of wool scarf" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtC6iF9aTb76xXEiKlNcWVPXD44xDTGoouzTwC143Grw-j-VVZ0FoGSJy9MtsbLmIjeL2eNpvRZHP5kpdjLxwkIVw3VP84qoYYwSbPtQ-Dy0Mo9o4NVbO7bVDHWjnGZX9hOBJ-MWporWkEX2RS-HdBhcJ39Yqbl70qKgIjHxnycddCswaCrhVJO5OxVcXvJNB5ILgB2Uygq3I2sIlOJ4saIhqXheLS9jH5PcQ6h-uP1OgWwYj1gNCHGZ8EbPkvaiGcEFrMRlpaJDtg");'></div>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">Cashmere Scarf</span>
+<span class="text-[#9dabb8] text-xs">Red</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#9dabb8] text-[18px]">flight_takeoff</span>
+<span class="text-white text-sm">DHL Express</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center rounded-full bg-amber-500/10 px-2.5 py-0.5 text-xs font-medium text-amber-500 border border-amber-500/20">
+                                                Urgent
+                                            </span>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#197fe6] hover:text-[#166bc2] font-medium text-sm mr-4">Details</button>
+<button class="bg-[#293038] hover:bg-[#3c4753] text-white px-3 py-1.5 rounded text-xs font-bold transition-colors">Pick</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer -->
+<div class="flex items-center justify-between px-6 py-4 border-t border-[#293038] bg-[#111418]">
+<p class="text-[#9dabb8] text-sm">Showing <span class="text-white font-medium">1-5</span> of <span class="text-white font-medium">12</span> orders to pick</p>
+<div class="flex gap-2">
+<button class="flex items-center justify-center size-9 rounded bg-[#293038] text-[#9dabb8] hover:text-white disabled:opacity-50">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="flex items-center justify-center size-9 rounded bg-[#293038] text-white hover:bg-[#3c4753]">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Helper/Action Area -->
+<div class="flex justify-between items-center bg-[#1d242c] p-4 rounded-xl border border-[#293038]">
+<div class="flex gap-4 items-center">
+<span class="flex items-center justify-center size-10 rounded-full bg-emerald-500/10 text-emerald-500">
+<span class="material-symbols-outlined">check_circle</span>
+</span>
+<div>
+<p class="text-white text-sm font-medium">System Status</p>
+<p class="text-[#9dabb8] text-xs">All carrier APIs connected successfully (DHL, FedEx, UPS)</p>
+</div>
+</div>
+<button class="text-[#197fe6] text-sm font-medium hover:text-white transition-colors">View Logs</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

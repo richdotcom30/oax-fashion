@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Order Detail View - OAX FASHION</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "surface-dark": "#1e293b",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111921; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111418] flex flex-col transition-all duration-300 hidden md:flex">
+<div class="h-full flex flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<!-- Branding -->
+<div class="flex items-center gap-3 px-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-10 w-10 border border-slate-700" data-alt="OAX Fashion Logo abstract geometric shape" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCop4bc1BTaNaEmIlHKtnKAK6rD0zU8McLgVZuRKLGzmaTPB_3JNa5uTD47Kh3iN443nv5CNgVNkVrS1iDDyvTmReSk-WPPRvP3kbDOBy2EJuB3OHm8FwwIsHCtk0uoLRAuBJcRzt-SmdmU-pe9JIAphLqqy-0ZmW_bZtynARHO3Pa-Vv1zHiKuTSe4MwIGgfpjAVBYX6OZr61Vfm_GKNiN2fVxfrJdqmKV23o0x7_1gZwLZ0HPuM6nA9axhA0kH5UrW40cYZd1yZoV");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-bold leading-normal tracking-wide">OAX FASHION</h1>
+<p class="text-slate-500 dark:text-[#9dabb8] text-xs font-normal leading-normal">Admin Panel</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#293038] transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 dark:bg-[#293038] text-primary dark:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-primary dark:text-white fill-1">shopping_bag</span>
+<p class="text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#293038] transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">sell</span>
+<p class="text-sm font-medium leading-normal">Products</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#293038] transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">group</span>
+<p class="text-sm font-medium leading-normal">Customers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#293038] transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<!-- User Profile Bottom -->
+<div class="flex items-center gap-3 px-3 py-3 border-t border-slate-200 dark:border-slate-800 mt-auto">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-8 w-8" data-alt="Admin user profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhXG0T9whxHswbZkRW6MQWNr52S4Ow1Tq3nkgjLRiKCA8QsGzFLpytqKnDNhvvTqXH7F7jFF24a_aKEcMwiOC7WN_Aa9L-uIK2NKH3TaJ_VXq7NK1f4b2MwWTwLpdO6S1b847cmZ1CPGJqpUvpq49d_eU1JWNWgnIK_WvmJdTmRr5uQV2mIg7V6QJXYcJ5uH8AXpj7KJzQsZOMwM6cLgCSMYsuYWNKwNpBzVkk_KYUwRjtIekeEwDQAYAqQr3-7VMvvkAHaHo6IHRv");'></div>
+<div class="flex flex-col">
+<p class="text-slate-900 dark:text-white text-sm font-medium">Alex Morgan</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs">Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Nav -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#293038] bg-white dark:bg-[#111418] px-6 py-3 z-10 flex-shrink-0">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-slate-500 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-2 text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-primary">local_mall</span>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Order Details</h2>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search -->
+<div class="hidden sm:flex items-center bg-slate-100 dark:bg-[#293038] rounded-lg px-3 py-2 w-64">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">search</span>
+<input class="bg-transparent border-none text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:ring-0 w-full ml-2" placeholder="Search orders, items..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg w-10 h-10 hover:bg-slate-100 dark:hover:bg-[#293038] text-slate-600 dark:text-white transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-[#111418]"></span>
+</button>
+<button class="flex items-center justify-center rounded-lg w-10 h-10 hover:bg-slate-100 dark:hover:bg-[#293038] text-slate-600 dark:text-white transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth">
+<div class="max-w-[1200px] mx-auto flex flex-col gap-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap items-center gap-2 text-sm">
+<a class="text-slate-500 dark:text-[#9dabb8] hover:text-primary transition-colors" href="#">Dashboard</a>
+<span class="text-slate-500 dark:text-[#9dabb8]">/</span>
+<a class="text-slate-500 dark:text-[#9dabb8] hover:text-primary transition-colors" href="#">Orders</a>
+<span class="text-slate-500 dark:text-[#9dabb8]">/</span>
+<span class="text-slate-900 dark:text-white font-medium">Order #ORD-3920</span>
+</div>
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-4">
+<h1 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Order #ORD-3920</h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                                Processing
+                            </span>
+</div>
+<p class="text-slate-500 dark:text-[#9dabb8]">Placed on Oct 24, 2023 at 10:23 AM via Web Store</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#293038] border border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-[#323b45] transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span>Print Invoice</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#293038] border border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-[#323b45] transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">currency_exchange</span>
+<span>Refund</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900 rounded-lg text-red-600 dark:text-red-400 text-sm font-bold hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+<span>Cancel Order</span>
+</button>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Column (Order Details) -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<!-- Order Items Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center bg-slate-50/50 dark:bg-[#1e293b]">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Order Items <span class="text-slate-400 font-normal ml-1">(3)</span></h3>
+<button class="text-primary text-sm font-medium hover:underline">Edit Items</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-slate-50 dark:bg-[#24303f] text-slate-500 dark:text-slate-400">
+<tr>
+<th class="px-6 py-3 font-medium">Product</th>
+<th class="px-6 py-3 font-medium text-center">Price</th>
+<th class="px-6 py-3 font-medium text-center">Qty</th>
+<th class="px-6 py-3 font-medium text-right">Total</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+<!-- Item 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-[#24303f] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-cover bg-center border border-slate-200 dark:border-slate-700 flex-shrink-0" data-alt="Silk Scarf Blue Product Image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5H-zT0Fl8hKMpI3TBSZKduJqxTflfb6Zg4o1CyEH1jcTIPdHjfJHDpnY23GSXe83LXrcMQ1On1HvmOQbQSc_5IhOwc17_ubaWUZic614UbJgG9ZjYzYCUedvF-5gwfG4T8yeIOmn29x_p5YlCHfXXAZ51Kxwp48K2Dkm4LaHcKp4SRN8nrL7OqAuVHg3hi3kHv5jbZaA5CcR7l-EntLWQWluisNVnztWH0xJQrljFnG7n624gF9mleg2wjOlDhoGBYJY66-lb5WV8");'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Midnight Silk Scarf</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Variant: Royal Blue</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">SKU: OAX-SF-BL-001</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-300">$150.00</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-300">1</td>
+<td class="px-6 py-4 text-right font-medium text-slate-900 dark:text-white">$150.00</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-[#24303f] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-cover bg-center border border-slate-200 dark:border-slate-700 flex-shrink-0" data-alt="Leather Belt Black Product Image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiUz9ZdFBK_IRtpu1FNtefSkuTiwKxGCza0LV0lS_iq6SP4OhEJ17VMePIInIsKvffVpDyPgho0tVNtMvGgbq0tH_DBU5_bz_K_c646eA6PfoMyZgqEoPKGtUyozMwpjayQwIes9xlTxg3NrLGs8MwVwN5G045GBqHN2BXDAKn14y98iL9MM1WiEAqhJfQVPyYAzVKPUw-xdQsZD-tpVnIE6dNdFLiQWepu5ShuB0agRueQda-PxEgx2pWdHI2GqXOtD2b36VYTk9Q");'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Classic Leather Belt</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Variant: Obsidian Black / L</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">SKU: OAX-BT-BK-003</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-300">$250.00</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-300">1</td>
+<td class="px-6 py-4 text-right font-medium text-slate-900 dark:text-white">$250.00</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-[#24303f] transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-cover bg-center border border-slate-200 dark:border-slate-700 flex-shrink-0" data-alt="Gold Chain Necklace Product Image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVWymfFNAXunk93Xjl8x0SPRI_rMuYOhMYgLjxBHs3T_jJJhFOp6k2Sb0rAAstanPTUNhoyO78ZAcZEl7z88sxGnSfcbCD1Lx8facnc5_pFLgJqAMv3WHjDbX4-hL67Fft93gMYI3i4NTTPKYJE7t0RBvPipXcPrtVb_eszlY4-LR4ahEOoPjv-VGtuIGLs9rKH74NxFbXpAy7jUjCXnL-RH28eT9V0xv6r6_dSuw4fgZlejkgRpvvf3ttVLNM-1rIpC9LPC-DouPF");'></div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Gold Link Chain</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Variant: 18k Gold</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">SKU: OAX-JW-GL-012</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-300">$1,200.00</td>
+<td class="px-6 py-4 text-center text-slate-600 dark:text-slate-300">1</td>
+<td class="px-6 py-4 text-right font-medium text-slate-900 dark:text-white">$1,200.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-slate-50 dark:bg-[#24303f] border-t border-slate-200 dark:border-slate-700 flex flex-col gap-2">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500 dark:text-slate-400">Subtotal</span>
+<span class="text-slate-900 dark:text-white font-medium">$1,600.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500 dark:text-slate-400">Shipping (Express)</span>
+<span class="text-slate-900 dark:text-white font-medium">$25.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500 dark:text-slate-400">Tax</span>
+<span class="text-slate-900 dark:text-white font-medium">$128.00</span>
+</div>
+<div class="flex justify-between text-base font-bold pt-3 border-t border-slate-200 dark:border-slate-600 mt-1">
+<span class="text-slate-900 dark:text-white">Total Paid</span>
+<span class="text-primary">$1,753.00</span>
+</div>
+</div>
+</div>
+<!-- Order Timeline -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-6">Order History</h3>
+<div class="relative pl-4 border-l-2 border-slate-200 dark:border-slate-700 space-y-8">
+<!-- Step 1 -->
+<div class="relative pl-6">
+<div class="absolute -left-[23px] top-0 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-700 border-2 border-slate-50 dark:border-[#1e293b]"></div>
+<div class="flex flex-col">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Payment Confirmed</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Oct 24, 2023 at 10:25 AM</p>
+</div>
+</div>
+<!-- Step 2 (Active) -->
+<div class="relative pl-6">
+<div class="absolute -left-[23px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-slate-50 dark:border-[#1e293b] ring-2 ring-primary/20"></div>
+<div class="flex flex-col">
+<p class="text-sm font-bold text-primary">Processing</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Oct 24, 2023 at 11:30 AM</p>
+<p class="text-sm text-slate-600 dark:text-slate-300 mt-2 bg-slate-50 dark:bg-[#24303f] p-2 rounded">
+                                            Order is being packed at Warehouse C.
+                                        </p>
+</div>
+</div>
+<!-- Step 3 (Future) -->
+<div class="relative pl-6 opacity-50">
+<div class="absolute -left-[23px] top-0 w-4 h-4 rounded-full bg-transparent border-2 border-slate-300 dark:border-slate-600"></div>
+<div class="flex flex-col">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Shipped</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Pending...</p>
+</div>
+</div>
+<!-- Step 4 (Future) -->
+<div class="relative pl-6 opacity-50">
+<div class="absolute -left-[23px] top-0 w-4 h-4 rounded-full bg-transparent border-2 border-slate-300 dark:border-slate-600"></div>
+<div class="flex flex-col">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Delivered</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Pending...</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Internal Notes -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-4">Internal Notes</h3>
+<div class="flex flex-col gap-4">
+<div class="flex gap-4 p-4 bg-slate-50 dark:bg-[#24303f] rounded-lg">
+<div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white text-xs font-bold shrink-0">JD</div>
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between items-center">
+<span class="text-sm font-bold text-slate-900 dark:text-white">Jane Doe (Support)</span>
+<span class="text-xs text-slate-400">2 hours ago</span>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300">Customer called to verify sizing on the belt. Confirmed Large is appropriate.</p>
+</div>
+</div>
+<div class="mt-2">
+<label class="sr-only">Add Note</label>
+<div class="relative">
+<textarea class="w-full bg-slate-50 dark:bg-[#111418] border border-slate-200 dark:border-slate-700 rounded-lg p-3 text-sm text-slate-900 dark:text-white focus:ring-1 focus:ring-primary focus:border-primary placeholder-slate-400" placeholder="Type an internal note..." rows="3"></textarea>
+<button class="absolute bottom-2 right-2 p-1.5 bg-primary text-white rounded-md hover:bg-blue-600 transition-colors">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Customer & Meta) -->
+<div class="flex flex-col gap-6">
+<!-- Customer Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Customer</h3>
+<a class="text-primary text-sm hover:underline" href="#">View Profile</a>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-14 h-14 rounded-full bg-cover bg-center border-2 border-slate-100 dark:border-slate-700" data-alt="Customer Sarah Jenkins profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlE-zvEOUABSjnc79qb3CbtknR2fFp2PWGx-fUR22rdXpRfkHvr8OWLtXcYCl1FRQFBb0NF7uPE4kb-Dtc_na3CV11wlw_YRnPk8tkWv9LktHYZ8EKbm6EQ0REpVMfiXyxcgEqjq2-IsPN7p0bvWPS0KJGdCRtEZTH2soURpuv5oMPgrMEdFyAC5AZUosxFfgdOKrNRcXM_Y3i7SgSXFsgKHmNy-2ZhDVA8MoEks6axP87-th6Tsv-gBI2H_PzL7xgZ-Pd06BYiLjz");'></div>
+<div>
+<p class="text-lg font-bold text-slate-900 dark:text-white">Sarah Jenkins</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Customer since 2021</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-[#24303f] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 text-[18px]">mail</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-xs text-slate-500 dark:text-slate-400">Email</p>
+<a class="text-sm text-primary hover:underline truncate" href="mailto:sarah.j@example.com">sarah.j@example.com</a>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-[#24303f] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 text-[18px]">call</span>
+</div>
+<div class="flex flex-col">
+<p class="text-xs text-slate-500 dark:text-slate-400">Phone</p>
+<p class="text-sm text-slate-900 dark:text-white">+1 (555) 123-4567</p>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700 grid grid-cols-2 gap-4">
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400">Total Orders</p>
+<p class="text-lg font-bold text-slate-900 dark:text-white">12</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400">Lifetime Value</p>
+<p class="text-lg font-bold text-slate-900 dark:text-white">$8,450</p>
+</div>
+</div>
+</div>
+<!-- Shipping Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-base font-bold text-slate-900 dark:text-white">Shipping &amp; Fulfillment</h3>
+<span class="material-symbols-outlined text-slate-400">local_shipping</span>
+</div>
+<div class="mb-4">
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-1">Shipping Address</p>
+<p class="text-sm text-slate-900 dark:text-white leading-relaxed">
+                                    123 Fashion Blvd, Suite 400<br/>
+                                    Beverly Hills, CA 90210<br/>
+                                    United States
+                                </p>
+</div>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-700">
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Tracking Information</p>
+<div class="flex flex-col gap-2">
+<select class="w-full bg-slate-50 dark:bg-[#111418] border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary">
+<option>FedEx Express</option>
+<option>DHL International</option>
+<option>UPS Ground</option>
+</select>
+<div class="flex gap-2">
+<input class="flex-1 bg-slate-50 dark:bg-[#111418] border border-slate-200 dark:border-slate-700 rounded-lg p-2.5 text-sm text-slate-900 dark:text-white focus:ring-primary focus:border-primary placeholder-slate-400" placeholder="Enter Tracking Number" type="text"/>
+<button class="bg-primary hover:bg-blue-600 text-white p-2.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[20px]">check</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Payment Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<h3 class="text-base font-bold text-slate-900 dark:text-white mb-4">Payment Info</h3>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-7 bg-slate-100 dark:bg-white rounded border border-slate-200 flex items-center justify-center">
+<img alt="Visa Logo" class="h-3 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLhWVlljh2U5ZLJ3Dl-ybfHS0iQ4kXs7hpyeOScUhzTopPDnAAcHehb2ac2I_dng1tzqrKztx1L7c5R33o0WoBbYtXml6MfJowOCKCPONXftk7XDCL0fFHgO7zfhcuwAPakEtfgRalISsfYbI3a0Up9g5tqtSr01lhu9T6zksSMQmazAxDWW51xnaOdJoQ770579q5zsKnyEW2Yjk0qS8B7pLjhIsuFbPq_x0ihgWtlRN9bd7GOtkbBrxznOZLBLu8bs5K8zg7hkGX"/>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-medium text-slate-900 dark:text-white">Visa ending in 4242</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Expires 12/25</p>
+</div>
+</div>
+<div class="flex justify-between items-center text-sm pt-4 border-t border-slate-200 dark:border-slate-700">
+<span class="text-slate-500 dark:text-slate-400">Transaction ID</span>
+<span class="font-mono text-xs text-slate-700 dark:text-slate-300">tx_1N2M3X4Y5Z</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

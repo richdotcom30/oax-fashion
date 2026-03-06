@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX Fashion - Admin Marketing Tools</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "surface-dark": "#1f2937",
+                        "card-dark": "#293038",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-hidden antialiased">
+<div class="flex h-screen w-full">
+<!-- SideNavBar -->
+<div class="hidden lg:flex w-64 flex-col border-r border-[#293038] bg-[#111418] shrink-0">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex gap-3 items-center mb-6 px-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-white/10" data-alt="OAX Fashion Logo - Minimalist white abstract shape on black" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAk4lfK6HB_gLcNfWCXCmVvTeWdkYRKzcb4D9qnid81TDr9y1qvfw29y_M0gVVE-n5cCl1kDBpgRQvGD8PDoKx1S0UTK7PXLc2_HB1uYNcey_mFjaKEZVp587CgT6Gde8eNfHsTKfhaXDZljguzpivHsEXBYiCQOSHpSDkTG5UW8FQHQcWiqruIBqgSt0R8TapDY5rEiaZA7eT6x8621aVO9CRVGpGOBgDQKhqoza1FcKTD6jpQAhYV-AFtcNk-04WqogO_3Tqw0JaI");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal tracking-wide">OAX FASHION</h1>
+<p class="text-[#9dabb8] text-sm font-normal leading-normal">Admin Dashboard</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#293038] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">inventory_2</span>
+<p class="text-[#9dabb8] group-hover:text-white text-sm font-medium leading-normal">Products</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#293038] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">shopping_cart</span>
+<p class="text-[#9dabb8] group-hover:text-white text-sm font-medium leading-normal">Orders</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#293038] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">group</span>
+<p class="text-[#9dabb8] group-hover:text-white text-sm font-medium leading-normal">Customers</p>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#293038] text-white ring-1 ring-white/5" href="#">
+<span class="material-symbols-outlined text-primary fill-1">campaign</span>
+<p class="text-white text-sm font-medium leading-normal">Marketing</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#293038] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#9dabb8] group-hover:text-white">settings</span>
+<p class="text-[#9dabb8] group-hover:text-white text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="px-3 py-2">
+<a class="flex items-center gap-3 text-[#9dabb8] hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:rotate-180 transition-transform">logout</span>
+<p class="text-sm font-medium">Log Out</p>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col h-full overflow-y-auto bg-background-light dark:bg-background-dark relative">
+<div class="flex-1 max-w-[1400px] w-full mx-auto p-4 md:p-8 flex flex-col gap-6">
+<!-- Header Section with Image -->
+<div class="rounded-xl overflow-hidden relative min-h-[180px] flex items-end bg-[#111418] shadow-lg">
+<div class="absolute inset-0 bg-cover bg-center opacity-50" data-alt="Dark abstract luxury background with blue gradients" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPVr32IPVswZTUa5Mf0YJZfdSQW-lAwqWcde-z3YJyiLSvj0elCd37TFTNd5kizwbYZMsjnd5CK63aN9mQc1VeirdT9750HUkSBd6hp_k_EbFNonhjfJOKwPhWESBWWBA3RZiwU5ePZOeOvSwNwyiU4w2C5tR4JJJdSAdkB2YGPUslIbKEk873KDwORzk0lrtRX_C8r_81hiOb1oTY4J9pRBEeabdIGlCoWFSJULbXoRcW_yXDpaBdrjdb20YPIy26TBwuZlstPPzD");'></div>
+<div class="relative z-10 p-6 w-full flex flex-col md:flex-row justify-between items-end gap-4">
+<div class="mb-2 md:mb-0">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-white tracking-wider uppercase">Admin Tools</span>
+</div>
+<h2 class="text-white text-3xl font-bold tracking-tight">Marketing Overview</h2>
+<p class="text-gray-300 mt-1 max-w-lg text-sm md:text-base">Track performance, manage campaigns, and engage your audience.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex items-center gap-2 bg-[#111921]/60 backdrop-blur-md hover:bg-[#111921] text-white px-4 py-2.5 rounded-lg border border-white/10 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">calendar_today</span>
+<span class="text-sm font-medium">Last 30 Days</span>
+</button>
+<button class="sm:hidden bg-primary text-white p-2 rounded-lg shadow-lg">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col gap-3 rounded-xl p-5 bg-card-dark border border-white/5 shadow-sm hover:border-white/10 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-gray-400 text-sm font-medium">Revenue from Marketing</p>
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-xl">payments</span>
+</div>
+</div>
+<div>
+<p class="text-white text-2xl font-bold tracking-tight">$42,500</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[#0bda5b] text-sm">trending_up</span>
+<p class="text-[#0bda5b] text-xs font-bold">+15%</p>
+<span class="text-gray-500 text-xs ml-1">vs last month</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl p-5 bg-card-dark border border-white/5 shadow-sm hover:border-white/10 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-gray-400 text-sm font-medium">Email Open Rate</p>
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-xl">mark_email_read</span>
+</div>
+</div>
+<div>
+<p class="text-white text-2xl font-bold tracking-tight">24.8%</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[#0bda5b] text-sm">trending_up</span>
+<p class="text-[#0bda5b] text-xs font-bold">+2.1%</p>
+<span class="text-gray-500 text-xs ml-1">vs last month</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl p-5 bg-card-dark border border-white/5 shadow-sm hover:border-white/10 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-gray-400 text-sm font-medium">Cart Recovery Rate</p>
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-xl">shopping_cart_checkout</span>
+</div>
+</div>
+<div>
+<p class="text-white text-2xl font-bold tracking-tight">12.3%</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[#0bda5b] text-sm">trending_up</span>
+<p class="text-[#0bda5b] text-xs font-bold">+0.5%</p>
+<span class="text-gray-500 text-xs ml-1">vs last month</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 rounded-xl p-5 bg-card-dark border border-white/5 shadow-sm hover:border-white/10 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-gray-400 text-sm font-medium">Active Discount Usage</p>
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-xl">local_activity</span>
+</div>
+</div>
+<div>
+<p class="text-white text-2xl font-bold tracking-tight">1,240</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[#fa6238] text-sm">trending_down</span>
+<p class="text-[#fa6238] text-xs font-bold">-1.2%</p>
+<span class="text-gray-500 text-xs ml-1">vs last month</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="@container">
+<div class="flex items-center justify-between mb-4 px-1">
+<h3 class="text-white text-lg font-bold">Quick Actions</h3>
+</div>
+<div class="grid grid-cols-1 @md:grid-cols-2 @2xl:grid-cols-4 gap-4">
+<button class="flex items-center gap-4 p-4 rounded-xl bg-card-dark hover:bg-surface-dark border border-white/5 hover:border-primary/30 transition-all group text-left shadow-sm">
+<div class="bg-primary/20 p-3 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">mark_email_unread</span>
+</div>
+<div>
+<p class="text-white font-semibold text-sm">Create Email</p>
+<p class="text-gray-400 text-xs mt-0.5">Design new campaign</p>
+</div>
+</button>
+<button class="flex items-center gap-4 p-4 rounded-xl bg-card-dark hover:bg-surface-dark border border-white/5 hover:border-primary/30 transition-all group text-left shadow-sm">
+<div class="bg-primary/20 p-3 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">loyalty</span>
+</div>
+<div>
+<p class="text-white font-semibold text-sm">New Discount</p>
+<p class="text-gray-400 text-xs mt-0.5">Generate codes</p>
+</div>
+</button>
+<button class="flex items-center gap-4 p-4 rounded-xl bg-card-dark hover:bg-surface-dark border border-white/5 hover:border-primary/30 transition-all group text-left shadow-sm">
+<div class="bg-primary/20 p-3 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">segment</span>
+</div>
+<div>
+<p class="text-white font-semibold text-sm">Segments</p>
+<p class="text-gray-400 text-xs mt-0.5">Manage audiences</p>
+</div>
+</button>
+<button class="flex items-center gap-4 p-4 rounded-xl bg-card-dark hover:bg-surface-dark border border-white/5 hover:border-primary/30 transition-all group text-left shadow-sm">
+<div class="bg-primary/20 p-3 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">newspaper</span>
+</div>
+<div>
+<p class="text-white font-semibold text-sm">Newsletter</p>
+<p class="text-gray-400 text-xs mt-0.5">Subscriber settings</p>
+</div>
+</button>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Revenue Chart -->
+<div class="bg-card-dark p-6 rounded-xl border border-white/5 shadow-sm">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-gray-400 text-sm font-medium mb-1">Revenue over Time</h3>
+<p class="text-white text-2xl font-bold">$125k <span class="text-gray-500 text-lg font-normal">total</span></p>
+</div>
+<div class="flex items-center gap-2 text-[#0bda5b] bg-[#0bda5b]/10 px-2 py-1 rounded text-sm font-medium">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> 12%
+                        </div>
+</div>
+<!-- Reuse provided SVG chart structure but constrained -->
+<div class="h-[200px] w-full overflow-hidden relative">
+<svg fill="none" height="100%" preserveaspectratio="none" viewbox="0 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear_1131_5935" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#197fe6" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#197fe6" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z" fill="url(#paint0_linear_1131_5935)"></path>
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#197fe6" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-4 text-[#9dabb8] text-xs font-medium px-2">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+<!-- Engagement Chart (Bar) -->
+<div class="bg-card-dark p-6 rounded-xl border border-white/5 shadow-sm flex flex-col">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-gray-400 text-sm font-medium mb-1">Email Engagement</h3>
+<p class="text-white text-2xl font-bold">28% <span class="text-gray-500 text-lg font-normal">avg open</span></p>
+</div>
+<div class="flex items-center gap-2 text-[#0bda5b] bg-[#0bda5b]/10 px-2 py-1 rounded text-sm font-medium">
+<span class="material-symbols-outlined text-sm">arrow_upward</span> 5%
+                        </div>
+</div>
+<div class="flex-1 flex items-end justify-between gap-4 px-4 pb-2">
+<!-- Bars -->
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-[#111921] rounded-t-sm h-32 relative group cursor-pointer">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm h-[40%] group-hover:bg-primary/80 transition-all"></div>
+</div>
+<span class="text-[#9dabb8] text-xs font-medium">Camp A</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-[#111921] rounded-t-sm h-32 relative group cursor-pointer">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm h-[65%] group-hover:bg-primary/80 transition-all"></div>
+</div>
+<span class="text-[#9dabb8] text-xs font-medium">Camp B</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-[#111921] rounded-t-sm h-32 relative group cursor-pointer">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm h-[80%] group-hover:bg-primary/80 transition-all"></div>
+</div>
+<span class="text-[#9dabb8] text-xs font-medium">Camp C</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-full">
+<div class="w-full bg-[#111921] rounded-t-sm h-32 relative group cursor-pointer">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-sm h-[55%] group-hover:bg-primary/80 transition-all"></div>
+</div>
+<span class="text-[#9dabb8] text-xs font-medium">Camp D</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity & Subscribers -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<!-- Recent Discounts Table -->
+<div class="lg:col-span-2 bg-card-dark rounded-xl border border-white/5 flex flex-col shadow-sm">
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<h3 class="text-white font-bold">Recent Campaigns &amp; Discounts</h3>
+<button class="text-primary text-sm font-medium hover:text-white transition-colors">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="text-[#9dabb8] text-xs uppercase bg-[#111921]/50">
+<tr>
+<th class="px-6 py-3 font-medium">Name</th>
+<th class="px-6 py-3 font-medium">Type</th>
+<th class="px-6 py-3 font-medium">Status</th>
+<th class="px-6 py-3 font-medium text-right">Performance</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<p class="text-white text-sm font-medium">Summer Flash Sale</p>
+<p class="text-[#9dabb8] text-xs mt-0.5">Created 2 hours ago</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
+<span class="material-symbols-outlined text-[14px]">mail</span> Email
+                                        </span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-[#0bda5b]/10 text-[#0bda5b] border border-[#0bda5b]/20">
+                                            Sent
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<p class="text-white text-sm font-medium">28% Open</p>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<p class="text-white text-sm font-medium">WELCOME10</p>
+<p class="text-[#9dabb8] text-xs mt-0.5">Code: WELCOME10</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+<span class="material-symbols-outlined text-[14px]">local_offer</span> Discount
+                                        </span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/20">
+                                            Active
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<p class="text-white text-sm font-medium">145 Uses</p>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4">
+<p class="text-white text-sm font-medium">Abandoned Cart Recovery</p>
+<p class="text-[#9dabb8] text-xs mt-0.5">Auto-flow</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-orange-500/10 text-orange-400 border border-orange-500/20">
+<span class="material-symbols-outlined text-[14px]">autorenew</span> Auto
+                                        </span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/20">
+                                            Running
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<p class="text-white text-sm font-medium">12.3% Recov.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Subscriber Snapshot -->
+<div class="bg-card-dark rounded-xl border border-white/5 flex flex-col shadow-sm">
+<div class="p-6 border-b border-white/5">
+<h3 class="text-white font-bold">New Subscribers</h3>
+<p class="text-gray-400 text-sm mt-1">Recent newsletter signups</p>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm ring-1 ring-white/5">JS</div>
+<div>
+<p class="text-white text-sm font-medium group-hover:text-primary transition-colors">Jane Smith</p>
+<p class="text-gray-500 text-xs">jane.s@example.com</p>
+</div>
+</div>
+<span class="text-xs text-gray-500">2m ago</span>
+</div>
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors cursor-pointer group">
+<div class="flex items-center justify-center size-10 rounded-full bg-purple-500/20 text-purple-400 font-bold text-sm ring-1 ring-white/5">MR</div>
+<div>
+<p class="text-white text-sm font-medium group-hover:text-primary transition-colors">Mark Robinson</p>
+<p class="text-gray-500 text-xs">mark.rob@test.com</p>
+</div>
+<span class="text-xs text-gray-500">15m ago</span>
+</div>
+<div class="flex items-center justify-between p-3 hover:bg-white/5 rounded-lg transition-colors cursor-pointer group">
+<div class="flex items-center justify-center size-10 rounded-full bg-orange-500/20 text-orange-400 font-bold text-sm ring-1 ring-white/5">AL</div>
+<div>
+<p class="text-white text-sm font-medium group-hover:text-primary transition-colors">Anna Lee</p>
+<p class="text-gray-500 text-xs">anna.lee@demo.co</p>
+</div>
+<span class="text-xs text-gray-500">1h ago</span>
+</div>
+</div>
+<div class="p-4 mt-auto border-t border-white/5">
+<button class="w-full py-2.5 rounded-lg border border-white/10 text-white text-sm font-medium hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">group</span>
+                            Manage Subscribers
+                        </button>
+</div>
+</div>
+</div>
+<div class="text-center text-[#9dabb8] text-xs py-4">
+                © 2024 OAX Fashion. Admin Panel v2.0
+            </div>
+</div>
+</div>
+</div>
+</body></html>

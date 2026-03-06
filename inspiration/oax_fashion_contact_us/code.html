@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Contact Us</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111", // Keeping the dark theme requested
+                        "oax-dark": "#181111",
+                        "oax-panel": "#261c1c",
+                        "oax-border": "#533c3d",
+                        "oax-gold": "#D4AF37",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for a cleaner dark look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #181111; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #382929; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #533c3d; 
+        }
+        
+        /* Map grayscale filter */
+        .map-grayscale {
+            filter: grayscale(100%) invert(90%) contrast(150%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-oax-dark text-white font-sans antialiased overflow-x-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<!-- Top Navigation -->
+<header class="flex-none flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#382929] px-10 py-4 bg-oax-dark z-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">diamond</span>
+</div>
+<h2 class="text-white text-xl font-display font-bold leading-tight tracking-[-0.015em] italic">OAX FASHION</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal font-sans" href="#">Shop</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal font-sans" href="#">Collections</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal font-sans" href="#">About</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal font-sans" href="#">Journal</a>
+<a class="text-white text-primary text-sm font-bold leading-normal font-sans" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#b89d9f] flex border-none bg-[#382929] items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#382929] focus:border-none h-full placeholder:text-[#b89d9f] px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal font-sans" placeholder="Search" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex md:hidden cursor-pointer items-center justify-center rounded-lg size-10 bg-[#382929] text-white hover:bg-[#533c3d] transition-colors">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg size-10 bg-[#382929] text-white hover:bg-[#533c3d] transition-colors">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg size-10 bg-[#382929] text-white hover:bg-[#533c3d] transition-colors">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Split -->
+<main class="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
+<!-- Left Column: Visual Storytelling -->
+<div class="relative w-full lg:w-1/2 h-64 lg:h-full shrink-0">
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat" data-alt="High fashion model in dark luxurious editorial photography with dramatic lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQYOY3xjvb8BkSmk528fsbVKGcwSiLQ6-4w_0sUGW_df7ZuFFgD7BM_rVxSIh8XYVbeyND_-jhGAnGejqGTjXODW3VINMT04O_aJjDqJJK3OB-TUvactv9gAZtd-z4vSZO1vqNpGCl3FK_dMZ0FOmu3fcUXMX4DFtTHoFNk-4IecHiydiZqhHLkbpypHEVla19BG7FRPsJZTvBHmY0xxdIpYHkiUtn99A0PT5pxBqLezsrKNMHUHwyy9AqxYWZhDSFX-ndydVgdVDZ");'>
+<!-- Overlay for subtle darkening -->
+<div class="absolute inset-0 bg-black/30 mix-blend-multiply"></div>
+</div>
+<!-- Floating Quote -->
+<div class="absolute bottom-10 left-10 right-10 hidden lg:block">
+<p class="font-display text-4xl italic font-light text-white/90 leading-tight drop-shadow-md">
+                        "Luxury is in each detail."
+                     </p>
+</div>
+</div>
+<!-- Right Column: Functional Contact Area -->
+<div class="flex-1 overflow-y-auto bg-oax-dark relative w-full lg:w-1/2">
+<div class="p-6 md:p-12 max-w-2xl mx-auto flex flex-col gap-10">
+<!-- Header Section -->
+<div class="flex flex-col gap-3">
+<h1 class="text-white font-display text-4xl md:text-5xl font-medium italic leading-tight tracking-tight">
+                            Speak with a Stylist
+                        </h1>
+<p class="text-[#b89d9f] text-base md:text-lg font-sans font-light leading-relaxed max-w-md">
+                            Experience our dedicated concierge service. We are here to assist with sizing, styling, order inquiries, and private appointments.
+                        </p>
+<div class="h-1 w-20 bg-primary mt-2 rounded-full"></div>
+</div>
+<!-- Contact Details Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-4 p-5 rounded-xl bg-oax-panel border border-oax-border/30 hover:border-primary/50 transition-colors group">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined">mail</span>
+<h3 class="font-display font-bold text-lg text-white">Email Us</h3>
+</div>
+<div class="flex flex-col gap-1">
+<a class="text-[#dcdcdc] font-sans text-sm hover:text-white transition-colors" href="mailto:concierge@oaxfashion.com">concierge@oaxfashion.com</a>
+<span class="text-[#888] text-xs">Response within 2 hours</span>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-5 rounded-xl bg-oax-panel border border-oax-border/30 hover:border-primary/50 transition-colors group">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined">call</span>
+<h3 class="font-display font-bold text-lg text-white">VIP Line</h3>
+</div>
+<div class="flex flex-col gap-1">
+<a class="text-[#dcdcdc] font-sans text-sm hover:text-white transition-colors" href="tel:+12125550199">+1 (212) 555-0199</a>
+<span class="text-[#888] text-xs">Mon-Sat: 10am - 8pm EST</span>
+</div>
+</div>
+</div>
+<!-- Contact Form -->
+<form class="flex flex-col gap-6">
+<div class="flex flex-col md:flex-row gap-6">
+<label class="flex flex-col flex-1 gap-2">
+<span class="text-white text-sm font-medium font-sans">Full Name</span>
+<input class="form-input w-full rounded-lg text-white placeholder-[#6d5456] focus:outline-0 focus:ring-1 focus:ring-primary border border-oax-border bg-oax-panel h-12 px-4 text-base font-normal transition-all" placeholder="Jane Doe" type="text"/>
+</label>
+<label class="flex flex-col flex-1 gap-2">
+<span class="text-white text-sm font-medium font-sans">Email Address</span>
+<input class="form-input w-full rounded-lg text-white placeholder-[#6d5456] focus:outline-0 focus:ring-1 focus:ring-primary border border-oax-border bg-oax-panel h-12 px-4 text-base font-normal transition-all" placeholder="jane@example.com" type="email"/>
+</label>
+</div>
+<label class="flex flex-col gap-2">
+<span class="text-white text-sm font-medium font-sans">Topic</span>
+<div class="relative">
+<select class="form-select w-full rounded-lg text-white focus:outline-0 focus:ring-1 focus:ring-primary border border-oax-border bg-oax-panel h-12 px-4 text-base font-normal appearance-none transition-all cursor-pointer">
+<option>General Inquiry</option>
+<option>Order Status</option>
+<option>Styling Advice</option>
+<option>Returns &amp; Exchanges</option>
+<option>Press &amp; Partnerships</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-white text-sm font-medium font-sans">Message</span>
+<textarea class="form-textarea w-full rounded-lg text-white placeholder-[#6d5456] focus:outline-0 focus:ring-1 focus:ring-primary border border-oax-border bg-oax-panel p-4 text-base font-normal resize-none transition-all" placeholder="How can we assist you today?" rows="4"></textarea>
+</label>
+<button class="mt-2 flex w-full md:w-auto self-start cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary hover:bg-red-700 transition-all text-white text-base font-bold tracking-wide shadow-lg shadow-red-900/20" type="button">
+                            Send Message
+                        </button>
+</form>
+<!-- Location / Map Section -->
+<div class="pt-8 border-t border-[#382929]">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-white font-display text-xl font-bold italic mb-1">Visit our Flagship</h3>
+<p class="text-[#b89d9f] font-sans text-sm">123 Fashion Ave, SoHo<br/>New York, NY 10012</p>
+</div>
+<div class="flex gap-3">
+<a class="text-[#b89d9f] hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">pin_drop</span></a>
+<a class="text-[#b89d9f] hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+<!-- Map Placeholder -->
+<div class="w-full aspect-[21/9] bg-oax-panel rounded-lg overflow-hidden relative border border-[#382929] group/map cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover/map:opacity-80 transition-opacity map-grayscale" data-alt="Map showing location of OAX Fashion flagship store in New York" data-location="New York, NY" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDG3HCtCG2zhgJRRdxN2V_HrzLb96q5fK5oE-Hdy2-KPmuMrHXhcwLiIqmMwkZGMwnzCb5z_tj9mt5Nv9D4J7EMUB8CLfY7KhOr-T8c0_iAAMNsyYfDa747GQPzhkRIr31-Ve0ps-NZICaRW44GUaGd14RdCzdRB7DKcNnn5rejnF95U4CsnmOZ4svViyRNrvwVY54cAdRiqwF8QAMozGNyUqO8BVpbtIUAk_4hMGUn43myIe1om08sxDuuUckXNfvRpgh8NfllMGj6");'>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-10 bg-primary/90 rounded-full flex items-center justify-center shadow-lg shadow-black/50 animate-bounce">
+<span class="material-symbols-outlined text-white text-xl">storefront</span>
+</div>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-[10px] text-white/70 font-sans">
+                                    Map data ©2024
+                                </div>
+</div>
+</div>
+</div>
+<!-- Footer Socials (Minimal) -->
+<div class="flex justify-center gap-8 py-4 opacity-50 hover:opacity-100 transition-opacity">
+<a class="text-white hover:text-primary transition-colors text-sm font-sans uppercase tracking-widest" href="#">Instagram</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-sans uppercase tracking-widest" href="#">Pinterest</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-sans uppercase tracking-widest" href="#">TikTok</a>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

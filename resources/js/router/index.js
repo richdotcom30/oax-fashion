@@ -1,0 +1,163 @@
+import { createRouter, createWebHistory } from 'vue-router';
+
+// Customer Pages
+import Home from '../pages/Home.vue';
+import Shop from '../pages/Shop.vue';
+import ProductDetail from '../pages/ProductDetail.vue';
+import Cart from '../pages/Cart.vue';
+import Checkout from '../pages/Checkout.vue';
+import OrderConfirmation from '../pages/OrderConfirmation.vue';
+import AccountDashboard from '../pages/AccountDashboard.vue';
+import OrderHistory from '../pages/OrderHistory.vue';
+import Wishlist from '../pages/Wishlist.vue';
+import About from '../pages/About.vue';
+import Collections from '../pages/Collections.vue';
+import Lookbook from '../pages/Lookbook.vue';
+import Contact from '../pages/Contact.vue';
+import LoyaltyProgram from '../pages/LoyaltyProgram.vue';
+import AccountSettings from '../pages/AccountSettings.vue';
+import VirtualTryOn from '../pages/VirtualTryOn.vue';
+import PersonalStylist from '../pages/PersonalStylist.vue';
+import StyleProfile from '../pages/StyleProfile.vue';
+import OutfitBuilder from '../pages/OutfitBuilder.vue';
+
+// Admin Pages
+import AdminDashboard from '../pages/admin/Dashboard.vue';
+import AdminProducts from '../pages/admin/Products.vue';
+import AdminOrders from '../pages/admin/Orders.vue';
+import AdminCustomers from '../pages/admin/Customers.vue';
+
+const routes = [
+    // Customer Routes
+    {
+        path: '/',
+        name: 'home',
+        component: Home,
+    },
+    {
+        path: '/shop',
+        name: 'shop',
+        component: Shop,
+    },
+    {
+        path: '/collections',
+        name: 'collections',
+        component: Collections,
+    },
+    {
+        path: '/product/:slug',
+        name: 'product',
+        component: ProductDetail,
+    },
+    {
+        path: '/cart',
+        name: 'cart',
+        component: Cart,
+    },
+    {
+        path: '/checkout',
+        name: 'checkout',
+        component: Checkout,
+    },
+    {
+        path: '/order-confirmation',
+        name: 'order-confirmation',
+        component: OrderConfirmation,
+    },
+    {
+        path: '/account',
+        name: 'account',
+        component: AccountDashboard,
+    },
+    {
+        path: '/account/orders',
+        name: 'order-history',
+        component: OrderHistory,
+    },
+    {
+        path: '/account/wishlist',
+        name: 'wishlist',
+        component: Wishlist,
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: About,
+    },
+    {
+        path: '/lookbook',
+        name: 'lookbook',
+        component: Lookbook,
+    },
+    {
+        path: '/contact',
+        name: 'contact',
+        component: Contact,
+    },
+    {
+        path: '/loyalty',
+        name: 'loyalty',
+        component: LoyaltyProgram,
+    },
+    {
+        path: '/account/settings',
+        name: 'account-settings',
+        component: AccountSettings,
+    },
+    {
+        path: '/virtual-try-on',
+        name: 'virtual-try-on',
+        component: VirtualTryOn,
+    },
+    {
+        path: '/personal-stylist',
+        name: 'personal-stylist',
+        component: PersonalStylist,
+    },
+    {
+        path: '/style-profile',
+        name: 'style-profile',
+        component: StyleProfile,
+    },
+    {
+        path: '/outfit-builder',
+        name: 'outfit-builder',
+        component: OutfitBuilder,
+    },
+    
+    // Admin Routes
+    {
+        path: '/admin',
+        name: 'admin-dashboard',
+        component: AdminDashboard,
+    },
+    {
+        path: '/admin/products',
+        name: 'admin-products',
+        component: AdminProducts,
+    },
+    {
+        path: '/admin/orders',
+        name: 'admin-orders',
+        component: AdminOrders,
+    },
+    {
+        path: '/admin/customers',
+        name: 'admin-customers',
+        component: AdminCustomers,
+    },
+];
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        } else {
+            return { top: 0 };
+        }
+    },
+});
+
+export default router;

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX Admin - Returns &amp; Exchanges</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "card-dark": "#182029",
+                        "border-dark": "#2b3441",
+                        "subtle-text": "#9dabb8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for dark theme sophistication */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111921; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2b3441; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3c4753; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden h-screen flex">
+<!-- Sidebar -->
+<aside class="w-72 flex-shrink-0 flex flex-col bg-[#111418] border-r border-border-dark hidden lg:flex">
+<div class="flex items-center gap-3 p-6 pb-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border border-white/10" data-alt="OAX Fashion Logo abstract geometric shape" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkDH8Bq0fvXnNglplH7s0TSCNYUT8J1mezyjnYtorFCKGtGUWywyg1IKD8j1nXTpklOegL_7EE4F_SAZXsU7icVDVTqA8gIwzjg0IZtAZh9rWJuFCA9FIdmvjqCgIyk_OTKqgTqu-GRikxY6HhuJrOKK0-UDP7952DISzluNipJiaUBI7ZejmWNgeH9Jd7ZoEGQj41p-mnHEpa3swTOhZ6FwrGr1oUUDuk7Pf3eeITjX7g7rn1GcKUnCe4Ca0KurCFfXIdMGbhdUGx");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-bold leading-normal tracking-wide">OAX FASHION</h1>
+<p class="text-subtle-text text-xs font-normal leading-normal">Admin Panel</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-6">
+<!-- Main Group -->
+<div class="flex flex-col gap-1">
+<p class="px-3 text-xs font-semibold text-subtle-text uppercase tracking-wider mb-2">Main</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-subtle-text hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-subtle-text hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined text-[22px] fill-1">autorenew</span>
+<span class="text-sm font-medium">Returns &amp; Exchanges</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-subtle-text hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-subtle-text hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<span class="text-sm font-medium">Customers</span>
+</a>
+</div>
+<!-- Content Group -->
+<div class="flex flex-col gap-1">
+<p class="px-3 text-xs font-semibold text-subtle-text uppercase tracking-wider mb-2">Content</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-subtle-text hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">style</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-subtle-text hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">campaign</span>
+<span class="text-sm font-medium">Marketing</span>
+</a>
+</div>
+</div>
+<div class="p-4 border-t border-border-dark">
+<div class="flex items-center gap-3 px-2 py-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-9" data-alt="Profile picture of the admin user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVQ2vhL5OKdTxR63zERtc_j3UNLjgqXl6p1t7dEatK-51rqoBZpXisDgmRm2PbsfI9vHce5ztjXUTpK7YNXn_6uOGbNLNDthKi3hjwyzwCOFbI5vaansndELQGmKrz2tLYRU9qEL036VDdaLyH_GN8hXVOE6QUYTUiRDi3rG6gZns3x8-sumYWVYhSL3Vw5ncSbcnpFfJYJR4fvNtCIsWGeSSeWxqX_Eb4BFdjZmMZoFYKmMLuKqEwCF8NJQ43vyVDF2czcZiK3L4i");'></div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-medium leading-none">Alex Morgan</p>
+<p class="text-subtle-text text-xs font-normal leading-normal mt-1">Super Admin</p>
+</div>
+<button class="ml-auto text-subtle-text hover:text-white">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full relative overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="flex-shrink-0 flex items-center justify-between border-b border-border-dark px-6 py-4 bg-[#111418]/80 backdrop-blur-md z-20">
+<div class="flex items-center gap-4">
+<button class="lg:hidden text-subtle-text">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="text-lg font-bold text-white tracking-tight">Returns &amp; Exchanges</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-subtle-text text-[20px]">search</span>
+<input class="bg-card-dark border border-border-dark text-white text-sm rounded-lg pl-10 pr-4 py-2 w-64 focus:outline-none focus:border-primary placeholder-subtle-text/70 transition-all" placeholder="Search orders, RMA..." type="text"/>
+</div>
+<button class="relative p-2 text-subtle-text hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border border-[#111418]"></span>
+</button>
+<button class="p-2 text-subtle-text hover:text-white transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Body -->
+<div class="flex-1 overflow-y-auto overflow-x-hidden p-6 lg:p-8 custom-scrollbar">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm text-subtle-text mb-6">
+<a class="hover:text-primary transition-colors" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Orders</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-white font-medium">Returns &amp; Exchanges</span>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<!-- Stat Card 1 -->
+<div class="bg-card-dark border border-border-dark rounded-xl p-5 shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<p class="text-subtle-text text-sm font-medium">Pending Requests</p>
+<span class="material-symbols-outlined text-amber-500 bg-amber-500/10 p-1.5 rounded-lg text-[20px]">pending_actions</span>
+</div>
+<p class="text-white text-2xl font-bold tracking-tight">12</p>
+<p class="text-emerald-500 text-xs font-medium mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +2 since yesterday
+                    </p>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-card-dark border border-border-dark rounded-xl p-5 shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<p class="text-subtle-text text-sm font-medium">Approved Today</p>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-1.5 rounded-lg text-[20px]">check_circle</span>
+</div>
+<p class="text-white text-2xl font-bold tracking-tight">5</p>
+<p class="text-emerald-500 text-xs font-medium mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12% from avg
+                    </p>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-card-dark border border-border-dark rounded-xl p-5 shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<p class="text-subtle-text text-sm font-medium">Refunded (Mo)</p>
+<span class="material-symbols-outlined text-emerald-500 bg-emerald-500/10 p-1.5 rounded-lg text-[20px]">attach_money</span>
+</div>
+<p class="text-white text-2xl font-bold tracking-tight">$12,450</p>
+<p class="text-subtle-text text-xs font-medium mt-1">158 items processed</p>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-card-dark border border-border-dark rounded-xl p-5 shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<p class="text-subtle-text text-sm font-medium">Avg. Process Time</p>
+<span class="material-symbols-outlined text-purple-500 bg-purple-500/10 p-1.5 rounded-lg text-[20px]">schedule</span>
+</div>
+<p class="text-white text-2xl font-bold tracking-tight">1.2 Days</p>
+<p class="text-emerald-500 text-xs font-medium mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_down</span> -0.5 days faster
+                    </p>
+</div>
+</div>
+<!-- Toolbar -->
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+<div class="flex items-center gap-2 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0">
+<button class="px-4 py-2 rounded-lg bg-primary/20 text-primary text-sm font-medium whitespace-nowrap border border-primary/20">All Returns</button>
+<button class="px-4 py-2 rounded-lg text-subtle-text hover:text-white text-sm font-medium whitespace-nowrap hover:bg-white/5 transition-colors">Pending (12)</button>
+<button class="px-4 py-2 rounded-lg text-subtle-text hover:text-white text-sm font-medium whitespace-nowrap hover:bg-white/5 transition-colors">Approved</button>
+<button class="px-4 py-2 rounded-lg text-subtle-text hover:text-white text-sm font-medium whitespace-nowrap hover:bg-white/5 transition-colors">Rejected</button>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<div class="relative w-full sm:w-48">
+<select class="w-full bg-card-dark border border-border-dark text-white text-sm rounded-lg px-3 py-2 pr-8 focus:outline-none focus:border-primary appearance-none cursor-pointer">
+<option>Filter by Reason</option>
+<option>Too Small</option>
+<option>Too Large</option>
+<option>Damaged</option>
+<option>Changed Mind</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-subtle-text text-[18px] pointer-events-none">expand_more</span>
+</div>
+<button class="flex items-center gap-2 px-3 py-2 bg-card-dark border border-border-dark rounded-lg text-subtle-text hover:text-white hover:border-white/30 transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span class="text-sm font-medium hidden sm:inline">Filter</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-2 bg-card-dark border border-border-dark rounded-lg text-subtle-text hover:text-white hover:border-white/30 transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</div>
+<!-- Main Content Area: Split View -->
+<div class="flex flex-col xl:flex-row gap-6 h-[700px]">
+<!-- Table Section -->
+<div class="flex-1 bg-card-dark border border-border-dark rounded-xl flex flex-col overflow-hidden shadow-sm">
+<div class="overflow-x-auto custom-scrollbar flex-1">
+<table class="w-full text-left border-collapse">
+<thead class="bg-[#151a21] sticky top-0 z-10">
+<tr>
+<th class="p-4 text-xs font-semibold text-subtle-text uppercase tracking-wider border-b border-border-dark w-[50px]">
+<input class="rounded bg-background-dark border-border-dark text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</th>
+<th class="p-4 text-xs font-semibold text-subtle-text uppercase tracking-wider border-b border-border-dark">RMA / Date</th>
+<th class="p-4 text-xs font-semibold text-subtle-text uppercase tracking-wider border-b border-border-dark">Customer / Order</th>
+<th class="p-4 text-xs font-semibold text-subtle-text uppercase tracking-wider border-b border-border-dark">Items</th>
+<th class="p-4 text-xs font-semibold text-subtle-text uppercase tracking-wider border-b border-border-dark">Reason</th>
+<th class="p-4 text-xs font-semibold text-subtle-text uppercase tracking-wider border-b border-border-dark text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-dark">
+<!-- Row 1 (Active) -->
+<tr class="bg-primary/5 hover:bg-primary/10 transition-colors cursor-pointer group border-l-4 border-l-primary">
+<td class="p-4">
+<input class="rounded bg-background-dark border-border-dark text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-medium text-sm">RMA-2023-001</span>
+<span class="text-subtle-text text-xs">Oct 24, 2023</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBpPbn1gAYCSoInkFERmc8WpPHdbrtIos0RWM45XxgAtcWVySFwaVh-NFY_jvU0PB_EBn_sQT-fJUUq1TczvbjRerrMlYBRW8xGKtxhD27fSluVYkeU8YZRf3aGsxZzInktld6INiRO8ygOlGL0IJuI8GvUdI4K1CgOW6bOzAL0t3fC6JGwaZkEU66wnhJqi8Ag8T5AJjXsIMX_g1xSUvsFuBBE42pyD0u6B9YFZT8iq1VUuy_igceGUCrA1fU19swvBGui4LcRgVxm");'></div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">John Doe</span>
+<a class="text-primary text-xs hover:underline" href="#">Order #4922</a>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="size-10 rounded bg-cover bg-center border border-border-dark" data-alt="Silk Blouse Thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDolI13wimaiKrz7cfO2u4-_mbgSR1-LX0zhgjIAtjgdbN3bxgRZc1Y6AHGObD00max3c2HuYEDQPxWfNqoYbO--O4CyxaDfYZyZrl8GQlKsKw4hC2yhM4KPvUfrlC9Sc0lbmKfiHHwviZFI0JCHoQqt0P5QLFN387cAJZYT9NZR7St7DBvLZ-F2H02xAf6RsbNU0coDbHec3RIAXop19ej_9oHoL6O_9pq4SOa6v80Sdn-R9JdVf5BN1MOyb8sXazfERVefl0YsnKg");'></div>
+<div class="flex flex-col">
+<span class="text-white text-sm truncate w-32">Silk Blouse</span>
+<span class="text-subtle-text text-xs">Black / M</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="text-subtle-text text-sm">Fit too small</span>
+</td>
+<td class="p-4 text-right">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-500 border border-amber-500/20">
+<span class="size-1.5 rounded-full bg-amber-500"></span>
+                                            Pending
+                                        </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors cursor-pointer group border-l-4 border-l-transparent">
+<td class="p-4">
+<input class="rounded bg-background-dark border-border-dark text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-medium text-sm">RMA-2023-089</span>
+<span class="text-subtle-text text-xs">Oct 23, 2023</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSThwi9XEIuvDSELVKHePj1-zW7M1q-ixNvuPit_9M0Ivs98iajRbYBUdiPa1uKHsW1btMWh5d99f1ybPYphUSC4ETRLxUb3l1KycEsMDW_OCL0gtocHSv4bBGMytd6NiEKWEw05r2FrRFl7GwqwIwQYqCujnaejkvWQMp74U3IxQSrNxz-u1B9FkR9svLJ1jc4yPczjMDBlvMabHTN-GZzAKe2PC-p0soiPb2fBZTMWK1GnJZZaYF6KjotjoSE5e15cz4gS2hEvxx");'></div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">Sarah Smith</span>
+<a class="text-primary text-xs hover:underline" href="#">Order #4850</a>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="size-10 rounded bg-cover bg-center border border-border-dark" data-alt="Leather Handbag Thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8S6No8JPefN7Pfypy7k0HAGnsZif6N7P4A-Sx5leXt5hz2AxCWzpMWkh9qXokJyYYTHgI-J1kTZOHV47WX0LNwlOqnaVxqZHHdzf-HqyD0f-GElCi9EKIjIKjSMR9d7VW3U6sPghjXxcksE_GAMy-MBUYzhgjjA-WjGRpSd4bSbLLPqt-rNkIWkLjDAEUfj2sqG1cr6ZOEZTMeKhAUQOBC7N5AQNDmDgrybbvIi6QWAGPu2iByS7bP_eTFGmRHk9fNbZgixJkrE5d");'></div>
+<div class="flex flex-col">
+<span class="text-white text-sm truncate w-32">Leather Bag</span>
+<span class="text-subtle-text text-xs">Tan / OS</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="text-subtle-text text-sm">Defective</span>
+</td>
+<td class="p-4 text-right">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+<span class="size-1.5 rounded-full bg-emerald-500"></span>
+                                            Approved
+                                        </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors cursor-pointer group border-l-4 border-l-transparent">
+<td class="p-4">
+<input class="rounded bg-background-dark border-border-dark text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-medium text-sm">RMA-2023-072</span>
+<span class="text-subtle-text text-xs">Oct 22, 2023</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBms2cTQOlP5RHqPVMICqp4JINtLAodH9-516N2xqJzhdX_4CTUapVlDON_nkUecBH5DyyIt-TLg-SdqQkhxJ9ugPjF4iv-YUG70wiePRm0przGP17KP66W7hrta_hqOF9zlDqoKcd4PGHr-uBvDbSzhxXgI8Cu5ZmVviVqNfk9EKhPsx3gx5aCEKOe-dwfeAzDdBY-DUyK5dYcfA3u6V6AI-GVVnz8A9969kANpid3j9fhhQpkHXXymXvw2TVz9uiQFOWD3AUJft0L");'></div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">Mike Chen</span>
+<a class="text-primary text-xs hover:underline" href="#">Order #4910</a>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="size-10 rounded bg-cover bg-center border border-border-dark" data-alt="Cashmere Scarf Thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpxCnItWO_wD-xUnii6m6vUhxU-ep8oPbgTuY2bwgyJeDDA6V8h8s0sGsrk_DJIHjnZK9A89i6znsmnaFuQc6evxH6Hej9WLJMBkEjgjJsbV7cKjZw0iCjvdThDRb7PGi-sllehrYVKDemG_ydPdguS3HoqESH2ynNBcVvchC7kiRiId4xOJ8f1Alp13oJWc7n5NMKp97QRMcMDkc1_VsKHNR8Q6pTNwakPk1jiotFeRuv8x1iIrQR_es-NX7iu1ojPIW3CHYybKvQ");'></div>
+<div class="flex flex-col">
+<span class="text-white text-sm truncate w-32">Cashmere Scarf</span>
+<span class="text-subtle-text text-xs">Grey / OS</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="text-subtle-text text-sm">Changed Mind</span>
+</td>
+<td class="p-4 text-right">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-500 border border-red-500/20">
+<span class="size-1.5 rounded-full bg-red-500"></span>
+                                            Rejected
+                                        </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/5 transition-colors cursor-pointer group border-l-4 border-l-transparent">
+<td class="p-4">
+<input class="rounded bg-background-dark border-border-dark text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-medium text-sm">RMA-2023-066</span>
+<span class="text-subtle-text text-xs">Oct 21, 2023</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="User Avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAyFJVLCzQNVlfMP1VmgrnFSMOGoraHUQlxzzCANTkq6-Xl1qym5YaRK9XrMJOZSua4gZraXC9ZJhf_JnrbPs_hEC5ci2L7UzKR7faWu6HU-f6WFCymWS1-62_CkoxOAUYuSUNFzoSaG_3cUJhlHJjfMmwLGAdHxYlQkOZltle42mxzxuulmnp_5yr0ySm1VZy3GxC-mIorzpYugGvzqcFy3EP_bJGicaEv1p0h5YDWVxDH4oq47GSLIW5xRItT6q24jlFUS9RZHtwd");'></div>
+<div class="flex flex-col">
+<span class="text-white text-sm font-medium">Elena G.</span>
+<a class="text-primary text-xs hover:underline" href="#">Order #4901</a>
+</div>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="size-10 rounded bg-cover bg-center border border-border-dark" data-alt="Evening Gown Thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXrOr5lwZSD49HEnrwRfpuVAJk9GJsckipJuobZlnO1UGmqruOS0PGi1UvwJYMpJvTj35AzuHwLN2kOKqMTZA01G2AlNaxAsfFPhDV9qinEkRDSCpCN6xIslEF8j2OwEpSTDXQx5AuBYC5NjeUke8nbPmj6aswg8mbqGEtZMr1YkHGdurfEuXUHe31kzNm-VKUT1z6rcAu1EPtyb2RYTqV7R2EnoK9z-LHePmXI6Dyi091Y_dhe6ixA_jb7gMdHsv-YjQ_EXNf6lHx");'></div>
+<div class="flex flex-col">
+<span class="text-white text-sm truncate w-32">Evening Gown</span>
+<span class="text-subtle-text text-xs">Red / S</span>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="text-subtle-text text-sm">Fit too large</span>
+</td>
+<td class="p-4 text-right">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-500 border border-blue-500/20">
+<span class="size-1.5 rounded-full bg-blue-500"></span>
+                                            Refunded
+                                        </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-border-dark flex justify-between items-center">
+<span class="text-xs text-subtle-text">Showing 1-4 of 12 pending returns</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-medium text-subtle-text hover:text-white disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 text-xs font-medium text-subtle-text hover:text-white">Next</button>
+</div>
+</div>
+</div>
+<!-- Action Panel (Detail View) -->
+<div class="w-full xl:w-[420px] bg-card-dark border border-border-dark rounded-xl flex flex-col flex-shrink-0 shadow-lg relative overflow-hidden">
+<!-- Panel Header -->
+<div class="p-6 border-b border-border-dark flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-lg font-bold text-white">RMA-2023-001</h3>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Pending</span>
+</div>
+<p class="text-xs text-subtle-text">Requested on Oct 24 • 2 days ago</p>
+</div>
+<button class="text-subtle-text hover:text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6 custom-scrollbar">
+<!-- Customer Insight -->
+<div class="flex items-center gap-4 mb-6 pb-6 border-b border-border-dark border-dashed">
+<div class="size-12 rounded-full bg-cover bg-center" data-alt="Customer John Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB85Y3br7tYPaV7Pvta-aHwNpdHZHfuWCgryuITqZcctVw82XhSHzKc3bOWOwoc4ZNY9eEujOzHP3KaNJPgeL8CF5atMqxHpwM95FwGuE3kvelb7KiKcGAEPgaE4AmDY3OzbMimKYSRYFy2-X92NeLghzxS49sgC4flbL_FX7hixpB915aUT6DENaI0nZ93zGJw1wIC8JKypmxp4hSQlyn8teDObuod6fYyEJSxN8Aer6inj4Im6z09B3TfDqdmH0rSv-O7UK7v9sF7");'></div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="text-sm font-semibold text-white">John Doe</p>
+<a class="text-xs text-primary hover:underline" href="#">View Profile</a>
+</div>
+<div class="flex gap-4 mt-1">
+<div>
+<p class="text-[10px] text-subtle-text uppercase">LTV</p>
+<p class="text-xs font-medium text-emerald-500">$4,250</p>
+</div>
+<div>
+<p class="text-[10px] text-subtle-text uppercase">Returns</p>
+<p class="text-xs font-medium text-amber-500">2 (5%)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Inspection -->
+<div class="mb-6">
+<h4 class="text-xs font-semibold text-subtle-text uppercase tracking-wider mb-3">Item Inspection</h4>
+<div class="bg-background-dark/50 rounded-lg p-3 border border-border-dark mb-4 flex gap-3">
+<div class="size-16 rounded bg-cover bg-center border border-border-dark flex-shrink-0" data-alt="Silk Blouse Product Image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAps_S5tNvDSF3XQBjjkBYmC1JVMYyltztGueQFVmaQZpApvceDlhUn1UW_5AgVK-tcFmfTnXOQ_x8Lgl6RjTrRtP_6q_6sIFQ6zdrlbSi3Wo_xsPYej1rYvr2vO0uUntq99K83iSQXA2aOOeYpyjBgIPnujF9dDHk5J8IQ1vUmACHFMQLGycXp1--0JuXws6y4nSj9F5EtViChJcyJtnz45n6znOcBJrJ48WBW4tJbELWfHPm1kms64D5rC57irTSm7H-yGzu8f3Xy");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-sm font-medium text-white">Silk Blouse</p>
+<p class="text-xs text-subtle-text">SKU: SB-BLK-M</p>
+<p class="text-xs text-white mt-1">$240.00</p>
+</div>
+</div>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg border border-border-dark bg-[#111418] cursor-pointer hover:border-white/20 transition-colors">
+<span class="text-sm text-subtle-text">Tags Attached</span>
+<input checked="" class="rounded bg-background-dark border-border-dark text-primary focus:ring-0" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg border border-border-dark bg-[#111418] cursor-pointer hover:border-white/20 transition-colors">
+<span class="text-sm text-subtle-text">Unworn / Original Condition</span>
+<input checked="" class="rounded bg-background-dark border-border-dark text-primary focus:ring-0" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg border border-border-dark bg-[#111418] cursor-pointer hover:border-white/20 transition-colors">
+<span class="text-sm text-subtle-text">Free of Damage/Stains</span>
+<input class="rounded bg-background-dark border-border-dark text-primary focus:ring-0" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Action Type Toggle -->
+<div class="mb-6">
+<div class="bg-[#111418] p-1 rounded-lg flex border border-border-dark mb-4">
+<button class="flex-1 py-1.5 text-xs font-medium rounded text-white bg-primary shadow-sm">Refund</button>
+<button class="flex-1 py-1.5 text-xs font-medium rounded text-subtle-text hover:text-white">Exchange</button>
+</div>
+<!-- Inventory Control -->
+<div class="flex items-center justify-between mb-4">
+<div>
+<p class="text-sm font-medium text-white">Restock Item</p>
+<p class="text-xs text-subtle-text">Add back to active inventory</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-border-dark peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Financials -->
+<div class="bg-[#111418] rounded-lg p-4 border border-border-dark">
+<div class="flex justify-between mb-2">
+<span class="text-xs text-subtle-text">Item Value</span>
+<span class="text-xs font-medium text-white">$240.00</span>
+</div>
+<div class="flex justify-between mb-2">
+<span class="text-xs text-subtle-text">Shipping Refund</span>
+<span class="text-xs font-medium text-white">$15.00</span>
+</div>
+<div class="flex justify-between mb-3 items-center">
+<span class="text-xs text-subtle-text">Restocking Fee</span>
+<div class="flex items-center gap-2">
+<span class="text-xs text-red-400">-</span>
+<input class="w-16 h-6 text-xs text-right bg-background-dark border border-border-dark rounded focus:border-primary text-red-400" type="text" value="$0.00"/>
+</div>
+</div>
+<div class="border-t border-border-dark my-2"></div>
+<div class="flex justify-between">
+<span class="text-sm font-bold text-white">Total Refund</span>
+<span class="text-sm font-bold text-emerald-500">$255.00</span>
+</div>
+</div>
+</div>
+<!-- Notify Checkbox -->
+<label class="flex items-center gap-2 mb-2 cursor-pointer">
+<input checked="" class="rounded bg-background-dark border-border-dark text-primary focus:ring-0 size-4" type="checkbox"/>
+<span class="text-xs text-subtle-text">Notify customer via email upon approval</span>
+</label>
+</div>
+<!-- Fixed Footer Actions -->
+<div class="p-4 border-t border-border-dark bg-[#111418] flex gap-3">
+<button class="flex-1 px-4 py-2.5 rounded-lg bg-red-500/10 text-red-500 hover:bg-red-500/20 text-sm font-medium transition-colors border border-red-500/20">Reject</button>
+<button class="flex-[2] px-4 py-2.5 rounded-lg bg-primary hover:bg-blue-600 text-white text-sm font-medium shadow-lg shadow-blue-900/20 transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                            Approve Refund
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

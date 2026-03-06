@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OAX FASHION - Velvet Midnight Gown</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d41111",
+                        "primary-dark": "#8B0000",
+                        "accent-gold": "#D4AF37",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181111", // Keeping consistent with provided component base
+                        "surface-dark": "#221010",
+                        "text-subtle": "#b99d9d",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for gallery */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden antialiased selection:bg-primary selection:text-white">
+<!-- Top Navbar -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#392828] bg-[#181111]/95 backdrop-blur-md px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined text-[32px]">diamond</span>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-wider font-display">OAX FASHION</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Women</a>
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Men</a>
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Accessories</a>
+<a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Collections</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<label class="hidden xl:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full group focus-within:ring-1 ring-primary/50 transition-all">
+<div class="text-[#b99d9d] flex border-none bg-[#392828] items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#392828] focus:border-none h-full placeholder:text-[#b99d9d] px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search..." value=""/>
+</div>
+</label>
+<div class="flex gap-3">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 hover:bg-[#392828] text-white transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 hover:bg-[#392828] text-white transition-colors relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1.5 right-1.5 size-2 bg-primary rounded-full"></span>
+</button>
+<button class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold tracking-wide shadow-[0_0_15px_rgba(212,17,17,0.3)]">
+<span class="truncate">Log In</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Layout -->
+<main class="flex flex-col w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-6">
+<!-- Breadcrumbs -->
+<nav class="flex flex-wrap items-center gap-2 text-sm mb-6 text-text-subtle">
+<a class="hover:text-white transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-white transition-colors" href="#">Women</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-white transition-colors" href="#">Dresses</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-white font-medium">Evening Gowns</span>
+</nav>
+<div class="flex flex-col lg:flex-row gap-12 xl:gap-20">
+<!-- Left: Gallery Section -->
+<div class="w-full lg:w-3/5 flex flex-col-reverse md:flex-row gap-4 h-fit sticky top-24">
+<!-- Thumbnails (Vertical on desktop, horizontal on mobile) -->
+<div class="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto md:max-h-[80vh] hide-scrollbar w-full md:w-24 shrink-0">
+<button class="aspect-[3/4] w-20 md:w-full rounded-lg overflow-hidden border-2 border-primary ring-2 ring-primary/20 bg-surface-dark">
+<img alt="Model wearing dark red velvet gown front view" class="w-full h-full object-cover" data-alt="Model wearing dark red velvet gown front view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUlITy5E0g90Nq-Kw9vM1ngfjdp7j5BUEMfNffNjMxmqBzg1p8n5mF6YE5k70XRvCeiS1TnOnBJFudaYGuDoi2Qe8rzLjUg1VOYGlft6FP9DLbUnrHUhr7xwD5Le_oo6hQCgTkHbbEYx92g47dFaGyUtWb8-qVoYvpedUzJ2pl-NoFK-R9g1zVZzLSSFZ3a2s6vcoxV2yJR-KZvxJYOZX3qnBSTXRcALXVeTv7TFVDQeEOtVAHEhMPzwYIhDVzDTvHVe-Z1xuor-wR"/>
+</button>
+<button class="aspect-[3/4] w-20 md:w-full rounded-lg overflow-hidden border border-[#392828] opacity-70 hover:opacity-100 hover:border-text-subtle transition-all bg-surface-dark">
+<img alt="Close up of velvet fabric texture and details" class="w-full h-full object-cover" data-alt="Close up of velvet fabric texture and details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcxLiKAo-SqI9anJLDtQ2ceyWAxtYcce1eNDezDgWEE-CBwhkfWWQMbm0JsJA-HDDi5bmxecuJknzrt_XtnTa0CsfU_t-VsV8WReCM80VX0nCE3eSXu2A4LQ4OSWSTbygCtes0VjzipWJDwsHOrqrtsDSL6MI8rpuGbdfTlWUwTfZY7-wRLBGG3EAqIbpg2Gwihvl7fDnqn8l04TofqkdQm-7LH8lzwjozFGEp7VEiOGwAHd4FKlZO0eISwjzRVgVx1ZLH7vOzCyvM"/>
+</button>
+<button class="aspect-[3/4] w-20 md:w-full rounded-lg overflow-hidden border border-[#392828] opacity-70 hover:opacity-100 hover:border-text-subtle transition-all bg-surface-dark">
+<img alt="Model in gown walking away back view" class="w-full h-full object-cover" data-alt="Model in gown walking away back view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB31dodaPhKVj9dbQ8YOjKeMgXagMB8RUOAEIyV2xD2bHN0f0YlxdcSasa60B9aFP_3Vcg1aatz8s4OjBVCRi15tr8rlwp-Y6-gk-gYhi7npPCHOgm8PJAX4HusP8NIeSDbmxbaMO6jRvoBDRl6Ymws0MHiDiTjcz1YG0OKm06kNUCw874FKFIdPflCXVFNXv2-SsEXUPCLaybazIip_AwW045P53vXLgxQfbM39XCfQPyBe1AShCppvLcmOT8VasOgTZN5_HedgyMY"/>
+</button>
+<button class="aspect-[3/4] w-20 md:w-full rounded-lg overflow-hidden border border-[#392828] opacity-70 hover:opacity-100 hover:border-text-subtle transition-all bg-surface-dark">
+<img alt="Lifestyle shot of dress at evening event" class="w-full h-full object-cover" data-alt="Lifestyle shot of dress at evening event" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRHOZAF78KrsJlsm3-ispnL5B5DNVIjj1s3sjiNHR7hPF-wujhonf8IAi_sksgjASH4jQ-qZ4qerhpoKwq5Ls-acSJNbzB_CYfirpc7v3KP58kl7hnbSXvPRq5wuujCFdouR0qhJMx4Tz05jOVY86R0ZX7gqD62WhIEDhQRpAv3eQklX6gsOYDPO46Wcp6NUL7KeUmIOf1zamfN7p-T6m9hVmooL4zgTBvZkaBSVenYZQ58hZtbreACO07zK1RFeC3yvSVoT_VjgxX"/>
+</button>
+</div>
+<!-- Main Image -->
+<div class="relative flex-1 rounded-xl overflow-hidden bg-surface-dark group">
+<img alt="Elegant dark red velvet evening gown main view" class="w-full h-full object-cover aspect-[3/4] group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Elegant dark red velvet evening gown main view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrR47-RQRcAeyW4P8Sy3G_iN2OUsr_IRfNsZ_SRalNiWKJUhu3zyjzMOJ085btW_ddaarGeXZTomWUofxj4oXhhBSmjda-3mptybqh8DDqaQnSvcLP3mwD8ldlFzO5RdJ1EOhwS9LpxL9s7KV53f7UMG3gannQZ190FT2khfaSPDV_kRLG4gfwAzwm_z90Fm152tqUdsd1TTATvKPqq82mk4i6bx5NBLwYXoeD28iOLMgXKIZ2_452tZeWSWCsolGv7GTui2syM8mq"/>
+<button class="absolute top-4 right-4 flex items-center gap-2 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-bold hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-sm">view_in_ar</span>
+                        View in AR
+                    </button>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">BEST SELLER</span>
+</div>
+</div>
+</div>
+<!-- Right: Product Info & Actions -->
+<div class="w-full lg:w-2/5 flex flex-col gap-6">
+<!-- Header Info -->
+<div class="border-b border-[#392828] pb-6">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-text-subtle uppercase tracking-widest text-xs font-bold mb-2">OAX Collection</h3>
+<h1 class="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-2 leading-tight">Velvet Midnight Gown</h1>
+</div>
+<button class="text-text-subtle hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">favorite</span>
+</button>
+</div>
+<div class="flex items-center gap-4 mt-2">
+<div class="flex items-center gap-1 text-accent-gold">
+<span class="material-symbols-outlined text-lg fill-current">star</span>
+<span class="material-symbols-outlined text-lg fill-current">star</span>
+<span class="material-symbols-outlined text-lg fill-current">star</span>
+<span class="material-symbols-outlined text-lg fill-current">star</span>
+<span class="material-symbols-outlined text-lg fill-current">star_half</span>
+<span class="text-sm font-medium ml-1 text-white">(124 Reviews)</span>
+</div>
+<span class="w-1 h-1 bg-text-subtle rounded-full"></span>
+<span class="text-sm text-green-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span> In Stock
+                        </span>
+</div>
+<div class="mt-4 flex items-end gap-3">
+<p class="text-3xl font-bold text-white">$895.00</p>
+<p class="text-lg text-text-subtle line-through mb-1">$1,200.00</p>
+<span class="text-primary text-sm font-bold mb-1.5 ml-1">-25%</span>
+</div>
+</div>
+<!-- Color Selection -->
+<div>
+<span class="text-sm font-bold text-white mb-3 block">Color: <span class="font-normal text-text-subtle">OAX Blood</span></span>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full bg-[#8B0000] ring-2 ring-offset-2 ring-offset-background-dark ring-primary shadow-lg"></button>
+<button class="w-10 h-10 rounded-full bg-black ring-1 ring-[#392828] hover:ring-white transition-all"></button>
+<button class="w-10 h-10 rounded-full bg-[#1e293b] ring-1 ring-[#392828] hover:ring-white transition-all"></button>
+</div>
+</div>
+<!-- Size Selection -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-bold text-white">Size: <span class="font-normal text-text-subtle">M</span></span>
+<button class="text-xs text-text-subtle underline hover:text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">straighten</span> Size Guide
+                        </button>
+</div>
+<div class="grid grid-cols-6 gap-2">
+<button class="h-10 border border-[#392828] rounded-md text-sm font-medium hover:border-white transition-colors text-text-subtle disabled:opacity-30 disabled:cursor-not-allowed">XS</button>
+<button class="h-10 border border-[#392828] rounded-md text-sm font-medium hover:border-white transition-colors text-white">S</button>
+<button class="h-10 border border-primary bg-primary/10 rounded-md text-sm font-bold text-white relative">
+                            M
+                        </button>
+<button class="h-10 border border-[#392828] rounded-md text-sm font-medium hover:border-white transition-colors text-white">L</button>
+<button class="h-10 border border-[#392828] rounded-md text-sm font-medium text-text-subtle opacity-50 relative overflow-hidden cursor-not-allowed" disabled="">
+                            XL
+                            <span class="absolute inset-0 flex items-center justify-center">
+<div class="w-[120%] h-[1px] bg-[#392828] rotate-[-25deg]"></div>
+</span>
+</button>
+</div>
+<a class="text-xs text-text-subtle mt-2 inline-block hover:text-white transition-colors" href="#">Not sure about your size?</a>
+</div>
+<!-- Add to Cart Actions -->
+<div class="flex flex-col gap-3 mt-2">
+<div class="flex gap-4 h-12">
+<!-- Quantity -->
+<div class="flex items-center border border-[#392828] rounded-lg w-32 justify-between px-3 bg-surface-dark">
+<button class="text-text-subtle hover:text-white transition-colors disabled:opacity-30">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-medium">1</span>
+<button class="text-text-subtle hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<!-- Add to Cart Button -->
+<button class="flex-1 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition-all shadow-[0_4px_20px_rgba(212,17,17,0.4)] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">shopping_bag</span>
+                            Add to Cart
+                        </button>
+</div>
+<button class="w-full h-12 border border-white/20 hover:border-white bg-transparent text-white font-bold rounded-lg transition-colors uppercase tracking-wider text-sm">
+                        Buy Now
+                    </button>
+</div>
+<!-- Shipping Info -->
+<div class="bg-[#221010] rounded-lg p-4 flex items-center gap-3 border border-[#392828]">
+<div class="size-10 rounded-full bg-[#392828] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Free Express Delivery</span>
+<span class="text-xs text-text-subtle">Order within 4h 32m to receive by <span class="text-white font-medium">Friday, Oct 24</span></span>
+</div>
+</div>
+<!-- Accordions -->
+<div class="flex flex-col divide-y divide-[#392828] border-t border-b border-[#392828] mt-4">
+<details class="group py-4 cursor-pointer" open="">
+<summary class="flex justify-between items-center font-medium list-none">
+<span>Description</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="text-text-subtle text-sm mt-3 leading-relaxed">
+                            Crafted from premium Italian velvet, this midnight gown embodies sophistication. The silhouette features a plunging V-neckline and a high slit, balancing classic elegance with modern allure. Finished with hand-stitched detailing and a flowing train perfect for evening galas.
+                        </div>
+</details>
+<details class="group py-4 cursor-pointer">
+<summary class="flex justify-between items-center font-medium list-none">
+<span>Material &amp; Care</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="text-text-subtle text-sm mt-3 leading-relaxed">
+                            100% Silk Velvet lining. Dry clean only. Do not bleach. Iron on low heat on reverse side.
+                        </div>
+</details>
+<details class="group py-4 cursor-pointer">
+<summary class="flex justify-between items-center font-medium list-none">
+<span>Measurements</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="text-text-subtle text-sm mt-3 leading-relaxed">
+                            Model is 5'10" and wearing size S. Length from shoulder to hem: 155cm.
+                        </div>
+</details>
+</div>
+</div>
+</div>
+<!-- Complete the Look Section -->
+<section class="mt-20 lg:mt-32">
+<h2 class="text-2xl font-serif mb-8 border-l-4 border-primary pl-4">Complete the Look</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Related Item 1 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg aspect-[3/4] mb-3 bg-surface-dark">
+<img alt="Diamond drop earrings on dark background" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Diamond drop earrings on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlbUTIXA9rK0R9POfOS61cflMg_-M009UMb0pOWRRFdXEvBmp3d6HCbY73KRznLrNyDUFd_g2tZ49CPtkia9dShqM0AokENvz55nFag1yrqSk9tahpexDVsbI0T8siQHFjg2qKKpiLWrhfVHoP1cxgnZbnaiWefh9sud0YoukwruzhD-N1w5F1IhYdt5SuW5j80n0cPIZ0fZsvL5u6xh9jUB-0NO7_BDXZLpCZOzeWq4Y8REM_h30cEafqU52SYR2AEkV4ak8YOadH"/>
+<button class="absolute bottom-3 right-3 bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+<span class="material-symbols-outlined text-sm block">add</span>
+</button>
+</div>
+<h3 class="font-medium text-white group-hover:text-primary transition-colors">Crystal Drop Earrings</h3>
+<p class="text-text-subtle text-sm">$250.00</p>
+</div>
+<!-- Related Item 2 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg aspect-[3/4] mb-3 bg-surface-dark">
+<img alt="Black luxury leather clutch bag" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Black luxury leather clutch bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYud7eD0QEClW3ohTdAXBzW9UVEKFa37huL4On_bvAtRxHscF6_QgSFVCye0LInC2OpMDExc8opFqCGKjIhRA4Wj_f4ZNvhEQXg4uGxS3xaMdsHkzxuRu2xxwrpgPhWs_t5cOzpe1K0eSnhdHljd0ydzpEzd1m_dfGuvQO19stlsZ5oKecMz92RjJI-5xqhyW25thX-khmYgGUngGtoG43GdMB_hnueh5xmOLV3BATfmMsQaw4Do_n8HyQP4YkOVZgz4_tUrdPYndQ"/>
+<button class="absolute bottom-3 right-3 bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+<span class="material-symbols-outlined text-sm block">add</span>
+</button>
+</div>
+<h3 class="font-medium text-white group-hover:text-primary transition-colors">Noir Leather Clutch</h3>
+<p class="text-text-subtle text-sm">$590.00</p>
+</div>
+<!-- Related Item 3 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg aspect-[3/4] mb-3 bg-surface-dark">
+<img alt="High heel black stilettos" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="High heel black stilettos" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmvYVjN5NpACKO3_u0ya81LEEdyP-blT66oNkufN03Ho83ToGbwHjznKavfIXC6H7EGpBdpxedHCtDE7B0hOFnCms_8L1Xra9eDxNO24VKOcqfyMwXfucMObddEwnfjSKRuyBpp0JyAXX9d1wMm5RsaRIta_cXcljL28_vIffCCJUEh9mSeeRvQxnTy-jQyvh-oJe0ZFME3c8wvDhOaIt-KTJla5TmVflIno7oGnZYSgdkFWay73PlMeybBk2dHlI-Tie_6Vk4-xaE"/>
+<button class="absolute bottom-3 right-3 bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+<span class="material-symbols-outlined text-sm block">add</span>
+</button>
+</div>
+<h3 class="font-medium text-white group-hover:text-primary transition-colors">Midnight Stilettos</h3>
+<p class="text-text-subtle text-sm">$420.00</p>
+</div>
+<!-- Related Item 4 -->
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-lg aspect-[3/4] mb-3 bg-surface-dark">
+<img alt="Gold necklace on mannequin" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Gold necklace on mannequin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJPHNpDFB-iL0QpSTLfVUUlJrQj9Rp9Xt5ru0hg4rNtIe-fFjVzg8DwT1VWQbCfUdsI7G_-hJVQXIlgKG_UAHtw6U-6YL28YpXuct_6iPvVZkZsmD9q5PJUZM3HrHc-93RomCAYe67_uUXBwluDDr6QDteyaiAsv3_l7EQa-pT-YNw1AqgwiOWLC_tcpwmXMbk5NWZy3LulvuEn-EChjcKN-34l4wjxKRNhTri65iHZ7I4ZnJKdIg3Bl83VfPGjW_6Tfl1Mg36bfjQ"/>
+<button class="absolute bottom-3 right-3 bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+<span class="material-symbols-outlined text-sm block">add</span>
+</button>
+</div>
+<h3 class="font-medium text-white group-hover:text-primary transition-colors">Gold Chain Choker</h3>
+<p class="text-text-subtle text-sm">$310.00</p>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="mt-20 mb-20">
+<h2 class="text-2xl font-serif mb-8 border-l-4 border-primary pl-4">Customer Reviews</h2>
+<div class="flex flex-col lg:flex-row gap-10">
+<!-- Summary -->
+<div class="lg:w-1/3 bg-[#221010] p-8 rounded-xl border border-[#392828] h-fit">
+<div class="flex items-end gap-3 mb-4">
+<span class="text-5xl font-serif font-bold">4.8</span>
+<div class="flex flex-col mb-1">
+<div class="flex text-accent-gold">
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star_half</span>
+</div>
+<span class="text-sm text-text-subtle">Based on 124 reviews</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 text-sm">
+<span class="w-3">5</span>
+<div class="flex-1 h-2 bg-[#392828] rounded-full overflow-hidden">
+<div class="h-full bg-white w-[78%]"></div>
+</div>
+<span class="w-8 text-right text-text-subtle">78%</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="w-3">4</span>
+<div class="flex-1 h-2 bg-[#392828] rounded-full overflow-hidden">
+<div class="h-full bg-white w-[15%]"></div>
+</div>
+<span class="w-8 text-right text-text-subtle">15%</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="w-3">3</span>
+<div class="flex-1 h-2 bg-[#392828] rounded-full overflow-hidden">
+<div class="h-full bg-white w-[4%]"></div>
+</div>
+<span class="w-8 text-right text-text-subtle">4%</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="w-3">2</span>
+<div class="flex-1 h-2 bg-[#392828] rounded-full overflow-hidden">
+<div class="h-full bg-white w-[1%]"></div>
+</div>
+<span class="w-8 text-right text-text-subtle">1%</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="w-3">1</span>
+<div class="flex-1 h-2 bg-[#392828] rounded-full overflow-hidden">
+<div class="h-full bg-white w-[2%]"></div>
+</div>
+<span class="w-8 text-right text-text-subtle">2%</span>
+</div>
+</div>
+<button class="mt-6 w-full py-2 border border-[#392828] rounded-lg text-sm hover:bg-[#392828] transition-colors">Write a Review</button>
+</div>
+<!-- Review Cards -->
+<div class="lg:w-2/3 flex flex-col gap-6">
+<!-- Review 1 -->
+<div class="border-b border-[#392828] pb-6 last:border-0">
+<div class="flex justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-bold">Sarah Jenkins</span>
+<span class="text-green-400 text-xs flex items-center gap-0.5">
+<span class="material-symbols-outlined text-sm">verified</span> Verified Buyer
+                                </span>
+</div>
+<span class="text-text-subtle text-sm">2 days ago</span>
+</div>
+<div class="flex text-accent-gold text-sm mb-3">
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+</div>
+<h4 class="font-bold mb-1">Stunning Quality</h4>
+<p class="text-text-subtle text-sm leading-relaxed">The velvet is incredibly soft and the fit is true to size. I wore this to a gala and received compliments all night. The color is exactly as shown in the pictures, a deep rich blood red.</p>
+<div class="mt-3 flex gap-2">
+<img alt="Customer photo wearing dress" class="size-16 object-cover rounded-md" data-alt="Customer photo wearing dress" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDofUu4kzPr82XOAlnbgMzfZ_ieXW6SrC5JEXaadvWVC3lu22lnO7IZOM3SK-DHtnhdHFo9aWNnvJnMj1hwNpxqYppn2QSdvdGvkO_hVJeOz_7Fwkrf1mLfeIV1JxgH0iitydPNYLwddbG8u1bpORVaGE0aYSwoeDJd3nmS05F-8z71nCMDYg2RQyd5xzkAMD03TbhN1IhVwlYWKxnLdpwyqxbj3ujiKY5BJwoSmTFWCQ-reEeIx5D7nAhqc-08H39tEEXlI8tt3CGy"/>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="border-b border-[#392828] pb-6 last:border-0">
+<div class="flex justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-bold">Emily Chen</span>
+<span class="text-green-400 text-xs flex items-center gap-0.5">
+<span class="material-symbols-outlined text-sm">verified</span> Verified Buyer
+                                </span>
+</div>
+<span class="text-text-subtle text-sm">1 week ago</span>
+</div>
+<div class="flex text-accent-gold text-sm mb-3">
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+<span class="material-symbols-outlined fill-current text-sm">star</span>
+</div>
+<h4 class="font-bold mb-1">Worth every penny</h4>
+<p class="text-text-subtle text-sm leading-relaxed">Fast shipping and beautiful packaging. The dress fits like a glove. I was worried about the length but it's perfect with heels.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Simple -->
+<footer class="border-t border-[#392828] bg-[#120c0c] py-10">
+<div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">diamond</span>
+<span class="font-bold tracking-widest text-lg">OAX FASHION</span>
+</div>
+<p class="text-text-subtle text-sm">© 2024 OAX FASHION. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="text-text-subtle hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="text-text-subtle hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>
