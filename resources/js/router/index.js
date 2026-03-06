@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import axios from 'axios';
 
 // Customer Pages
 import Home from '../pages/Home.vue';
@@ -148,6 +149,12 @@ const routes = [
     
     // Admin Routes
     {
+        path: '/admin/login',
+        name: 'admin-login',
+        component: Login,
+        meta: { requiresAuth: false, isAdmin: true }
+    },
+    {
         path: '/admin',
         name: 'admin-dashboard',
         component: AdminDashboard,
@@ -224,6 +231,31 @@ const router = createRouter({
             return { top: 0 };
         }
     },
+});
+
+// Navigation Guards for Admin Authentication
+router.beforeEach((to, from, next) => {
+    // Check if the route is an admin route
+    const isAdminRoute = to.path.startsWith('/admin');
+    
+    if (isAdminRoute) {
+        // Skip auth check for admin login page
+        if (to.path === '/admin/login') {
+            return next();
+        }
+        
+        // Check for admin token
+        const adminToken = localStorage.getItem('admin_token');
+        if (!adminToken) {
+            // Redirect to admin login
+            return next({ name: 'admin-login' });
+        }
+        
+        // Set Authorization header for admin API calls
+        axios.defaults.headers.common['Authorization'] = `Bearer ${adminToken}`;
+    }
+    
+    next();
 });
 
 export default router;

@@ -271,10 +271,14 @@
 
 <script setup>
 import { ref, reactive, onMounted, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import axios from 'axios'
 
 const router = useRouter()
+const route = useRoute()
+
+// Detect if this is admin login
+const isAdminLogin = computed(() => route.path === '/admin/login' || route.meta?.isAdmin)
 
 // State
 const loading = ref(false)
@@ -316,7 +320,12 @@ const login = async () => {
   error.value = ''
 
   try {
-    const response = await axios.post('/api/v1/auth/login', form)
+    // Use admin API endpoint if admin login
+    const apiEndpoint = isAdminLogin.value 
+      ? '/api/v1/admin/auth/login' 
+      : '/api/v1/auth/login'
+    
+    const response = await axios.post(apiEndpoint, form)
     
     if (response.data.requires_2fa) {
       show2FA.value = true
@@ -325,10 +334,16 @@ const login = async () => {
       requirePasswordChange.value = true
       localStorage.setItem('temp_token', response.data.token)
     } else if (response.data.success) {
-      localStorage.setItem('token', response.data.token)
+      // Store admin token separately for admin login
+      if (isAdminLogin.value) {
+        localStorage.setItem('admin_token', response.data.token)
+      } else {
+        localStorage.setItem('token', response.data.token)
+      }
       localStorage.setItem('user', JSON.stringify(response.data.user))
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
-      router.push('/account')
+      // Redirect to admin dashboard if admin login
+      router.push(isAdminLogin.value ? '/admin' : '/account')
     }
   } catch (err) {
     error.value = err.response?.data?.message || 'Login failed. Please try again.'
@@ -346,16 +361,27 @@ const verify2FA = async () => {
   error.value = ''
 
   try {
-    const response = await axios.post('/api/v1/auth/verify-2fa', {
+    // Use admin API endpoint if admin login
+    const apiEndpoint = isAdminLogin.value 
+      ? '/api/v1/admin/auth/verify-2fa' 
+      : '/api/v1/auth/verify-2fa'
+    
+    const response = await axios.post(apiEndpoint, {
       temp_token: tempToken.value,
       code: form2FA.code
     })
 
     if (response.data.success) {
-      localStorage.setItem('token', response.data.token)
+      // Store admin token separately for admin login
+      if (isAdminLogin.value) {
+        localStorage.setItem('admin_token', response.data.token)
+      } else {
+        localStorage.setItem('token', response.data.token)
+      }
       localStorage.setItem('user', JSON.stringify(response.data.user))
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
-      router.push('/account')
+      // Redirect to admin dashboard if admin login
+      router.push(isAdminLogin.value ? '/admin' : '/account')
     }
   } catch (err) {
     error.value = err.response?.data?.message || 'Invalid code. Please try again.'
@@ -375,9 +401,15 @@ const changeForcedPassword = async () => {
     const response = await axios.post('/api/v1/auth/change-password', passwordForm)
     
     if (response.data.success) {
-      localStorage.setItem('token', response.data.token)
+      // Store admin token separately for admin login
+      if (isAdminLogin.value) {
+        localStorage.setItem('admin_token', response.data.token)
+      } else {
+        localStorage.setItem('token', response.data.token)
+      }
       localStorage.setItem('user', JSON.stringify(response.data.user))
-      router.push('/account')
+      // Redirect to admin dashboard if admin login
+      router.push(isAdminLogin.value ? '/admin' : '/account')
     }
   } catch (err) {
     error.value = err.response?.data?.message || 'Password change failed.'

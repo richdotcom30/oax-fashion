@@ -266,7 +266,7 @@ const inventoryAlerts = [
 
 const logout = async () => {
     try {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('admin_token')
         if (token) {
             await axios.post('/api/v1/admin/auth/logout', {}, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -276,9 +276,9 @@ const logout = async () => {
         console.error('Logout error:', error)
     }
     
-    localStorage.removeItem('token')
+    localStorage.removeItem('admin_token')
     localStorage.removeItem('user')
     delete axios.defaults.headers.common['Authorization']
-    router.push('/login')
+    router.push('/admin/login')
 }
 </script>
