@@ -98,16 +98,31 @@
                     <!-- Color Selection -->
                     <div>
                         <div class="flex items-center justify-between mb-3">
-                            <span class="text-sm font-bold text-white">Color: Midnight Black</span>
+                            <span class="text-sm font-bold text-white">Color: {{ selectedColor }}</span>
                             <button class="text-xs text-primary hover:underline flex items-center gap-1">
                                 <span class="material-symbols-outlined text-[14px]">visibility</span>
                                 View in Room
                             </button>
                         </div>
                         <div class="flex gap-3">
-                            <button class="size-10 rounded-full bg-black border-2 border-white ring-2 ring-offset-2 ring-offset-oax-dark ring-white"></button>
-                            <button class="size-10 rounded-full bg-[#1a1a2e] border border-oax-border hover:border-white transition-colors"></button>
-                            <button class="size-10 rounded-full bg-[#8B0000] border border-oax-border hover:border-white transition-colors"></button>
+                            <button 
+                                class="size-10 rounded-full bg-black border-2 border-white ring-2 ring-offset-2 ring-offset-oax-dark ring-white cursor-pointer"
+                                :class="selectedColor === 'Midnight Black' ? 'ring-white' : 'ring-transparent'"
+                                @click="selectedColor = 'Midnight Black'"
+                                title="Midnight Black"
+                            ></button>
+                            <button 
+                                class="size-10 rounded-full bg-[#1a1a2e] border border-oax-border hover:border-white transition-colors cursor-pointer"
+                                :class="selectedColor === 'Royal Navy' ? 'ring-2 ring-offset-2 ring-offset-oax-dark ring-white border-white' : ''"
+                                @click="selectedColor = 'Royal Navy'"
+                                title="Royal Navy"
+                            ></button>
+                            <button 
+                                class="size-10 rounded-full bg-[#8B0000] border border-oax-border hover:border-white transition-colors cursor-pointer"
+                                :class="selectedColor === 'Oaxacan Red' ? 'ring-2 ring-offset-2 ring-offset-oax-dark ring-white border-white' : ''"
+                                @click="selectedColor = 'Oaxacan Red'"
+                                title="Oaxacan Red"
+                            ></button>
                         </div>
                     </div>
 
@@ -284,6 +299,7 @@ const images = [
 ]
 
 const activeImage = ref(images[0])
+const selectedColor = ref('Midnight Black')
 const selectedSize = ref('M')
 const quantity = ref(1)
 const showSizeGuide = ref(false)
@@ -299,13 +315,17 @@ const handleZoom = (e) => {
 }
 
 const addToCart = () => {
-    cartStore.addItem({
-        id: 1,
-        name: 'Velvet Midnight Blazer',
-        price: 1250,
-        size: selectedSize.value,
-        quantity: quantity.value,
-        image: activeImage.value
-    })
+    cartStore.addItem(
+        {
+            id: 1,
+            name: 'Velvet Midnight Blazer',
+            price: 1250,
+            sku: 'OAX-VMB-001',
+            image: activeImage.value
+        },
+        quantity.value,
+        selectedSize.value,
+        selectedColor.value
+    )
 }
 </script>
