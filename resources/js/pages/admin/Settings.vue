@@ -86,30 +86,30 @@
                     <!-- Settings Navigation -->
                     <div class="w-64 shrink-0">
                         <nav class="space-y-1">
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-oax-panel text-white">
+                            <button @click="activeTab = 'general'" :class="['flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left', activeTab === 'general' ? 'bg-oax-panel text-white' : 'text-text-muted hover:bg-oax-panel hover:text-white']">
                                 <span class="material-symbols-outlined">settings</span>
                                 <span class="text-sm font-medium">General</span>
-                            </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted hover:bg-oax-panel hover:text-white">
+                            </button>
+                            <button @click="activeTab = 'payments'" :class="['flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left', activeTab === 'payments' ? 'bg-oax-panel text-white' : 'text-text-muted hover:bg-oax-panel hover:text-white']">
                                 <span class="material-symbols-outlined">credit_card</span>
                                 <span class="text-sm font-medium">Payments</span>
-                            </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted hover:bg-oax-panel hover:text-white">
+                            </button>
+                            <button @click="activeTab = 'shipping'" :class="['flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left', activeTab === 'shipping' ? 'bg-oax-panel text-white' : 'text-text-muted hover:bg-oax-panel hover:text-white']">
                                 <span class="material-symbols-outlined">local_shipping</span>
                                 <span class="text-sm font-medium">Shipping</span>
-                            </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted hover:bg-oax-panel hover:text-white">
+                            </button>
+                            <button @click="activeTab = 'taxes'" :class="['flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left', activeTab === 'taxes' ? 'bg-oax-panel text-white' : 'text-text-muted hover:bg-oax-panel hover:text-white']">
                                 <span class="material-symbols-outlined">receipt_long</span>
                                 <span class="text-sm font-medium">Taxes</span>
-                            </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted hover:bg-oax-panel hover:text-white">
+                            </button>
+                            <button @click="activeTab = 'notifications'" :class="['flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left', activeTab === 'notifications' ? 'bg-oax-panel text-white' : 'text-text-muted hover:bg-oax-panel hover:text-white']">
                                 <span class="material-symbols-outlined">notifications</span>
                                 <span class="text-sm font-medium">Notifications</span>
-                            </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-text-muted hover:bg-oax-panel hover:text-white">
+                            </button>
+                            <button @click="activeTab = 'team'" :class="['flex items-center gap-3 px-4 py-3 rounded-lg transition-colors w-full text-left', activeTab === 'team' ? 'bg-oax-panel text-white' : 'text-text-muted hover:bg-oax-panel hover:text-white']">
                                 <span class="material-symbols-outlined">group</span>
                                 <span class="text-sm font-medium">Team</span>
-                            </a>
+                            </button>
                         </nav>
                     </div>
 
@@ -173,3 +173,9 @@
         </main>
     </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const activeTab = ref('general')
+</script>

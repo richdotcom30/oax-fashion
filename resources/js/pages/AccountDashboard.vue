@@ -35,6 +35,10 @@
                                 <span class="material-symbols-outlined">settings</span>
                                 Settings
                             </router-link>
+                            <button @click="logout" class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-text-muted hover:bg-oax-dark hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">logout</span>
+                                Logout
+                            </button>
                         </nav>
                     </div>
                 </aside>
@@ -189,4 +193,19 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
+import axios from 'axios'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+const logout = async () => {
+    try {
+        await authStore.logout()
+    } catch (error) {
+        console.error('Logout error:', error)
+    }
+    router.push('/login')
+}
 </script>

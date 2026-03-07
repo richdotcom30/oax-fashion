@@ -124,13 +124,13 @@
                     <div class="mt-12 pt-8 border-t border-oax-border">
                         <p class="text-gray-400 text-sm mb-4">Follow us</p>
                         <div class="flex gap-4">
-                            <a href="#" class="w-10 h-10 rounded-full bg-oax-dark flex items-center justify-center hover:bg-primary transition-colors">
+                            <a href="https://instagram.com/oaxfashion" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-oax-dark flex items-center justify-center hover:bg-primary transition-colors">
                                 <span class="material-symbols-outlined">camera</span>
                             </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-oax-dark flex items-center justify-center hover:bg-primary transition-colors">
+                            <a href="https://facebook.com/oaxfashion" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-oax-dark flex items-center justify-center hover:bg-primary transition-colors">
                                 <span class="material-symbols-outlined">tag</span>
                             </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-oax-dark flex items-center justify-center hover:bg-primary transition-colors">
+                            <a href="https://youtube.com/oaxfashion" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-oax-dark flex items-center justify-center hover:bg-primary transition-colors">
                                 <span class="material-symbols-outlined">play_circle</span>
                             </a>
                         </div>

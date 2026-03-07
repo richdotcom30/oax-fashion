@@ -23,6 +23,9 @@ import StyleProfile from '../pages/StyleProfile.vue';
 import OutfitBuilder from '../pages/OutfitBuilder.vue';
 import Login from '../pages/Login.vue';
 import Register from '../pages/Register.vue';
+import Terms from '../pages/Terms.vue';
+import Privacy from '../pages/Privacy.vue';
+import SizeGuide from '../pages/SizeGuide.vue';
 
 // Admin Pages
 import AdminDashboard from '../pages/admin/Dashboard.vue';
@@ -55,6 +58,21 @@ const routes = [
         path: '/register',
         name: 'register',
         component: Register,
+    },
+    {
+        path: '/terms',
+        name: 'terms',
+        component: Terms,
+    },
+    {
+        path: '/privacy',
+        name: 'privacy',
+        component: Privacy,
+    },
+    {
+        path: '/size-guide',
+        name: 'size-guide',
+        component: SizeGuide,
     },
     {
         path: '/shop',

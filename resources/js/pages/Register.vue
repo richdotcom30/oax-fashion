@@ -76,7 +76,7 @@
                 required
               />
               <span class="ml-2 text-gray-400 text-sm font-inter">
-                I agree to the <a href="#" class="text-oax-blood hover:text-gold">Terms</a> and <a href="#" class="text-oax-blood hover:text-gold">Privacy Policy</a>
+                I agree to the <router-link to="/terms" class="text-oax-blood hover:text-gold">Terms</router-link> and <router-link to="/privacy" class="text-oax-blood hover:text-gold">Privacy Policy</router-link>
               </span>
             </label>
           </div>
@@ -146,9 +146,10 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import axios from 'axios'
+import { useAuthStore } from '@/stores/auth'
 
 const router = useRouter()
+const authStore = useAuthStore()
 
 const loading = ref(false)
 const error = ref('')
@@ -173,18 +174,15 @@ const register = async () => {
   success.value = ''
 
   try {
-    const response = await axios.post('/api/v1/auth/register', {
+    const result = await authStore.register({
       name: form.name,
       email: form.email,
       password: form.password,
       password_confirmation: form.password_confirmation
     })
 
-    if (response.data.success) {
-      localStorage.setItem('token', response.data.token)
-      localStorage.setItem('user', JSON.stringify(response.data.user))
-      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
-      success.value = response.data.message
+    if (result.success) {
+      success.value = result.message
       router.push('/account')
     }
   } catch (err) {

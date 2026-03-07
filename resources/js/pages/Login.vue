@@ -272,10 +272,12 @@
 <script setup>
 import { ref, reactive, onMounted, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 import axios from 'axios'
 
 const router = useRouter()
 const route = useRoute()
+const authStore = useAuthStore()
 
 // Detect if this is admin login
 const isAdminLogin = computed(() => route.path === '/admin/login' || route.meta?.isAdmin)
@@ -325,6 +327,22 @@ const login = async () => {
       ? '/api/v1/admin/auth/login' 
       : '/api/v1/auth/login'
     
+    // For customer login, use the auth store
+    if (!isAdminLogin.value) {
+      const result = await authStore.login(form)
+      
+      if (result.requires_2fa) {
+        show2FA.value = true
+        tempToken.value = result.temp_token
+      } else if (result.requires_password_change) {
+        requirePasswordChange.value = true
+      } else if (result.success) {
+        router.push('/account')
+      }
+      return
+    }
+    
+    // For admin login, use axios directly (keeping existing behavior)
     const response = await axios.post(apiEndpoint, form)
     
     if (response.data.requires_2fa) {
@@ -335,15 +353,10 @@ const login = async () => {
       localStorage.setItem('temp_token', response.data.token)
     } else if (response.data.success) {
       // Store admin token separately for admin login
-      if (isAdminLogin.value) {
-        localStorage.setItem('admin_token', response.data.token)
-      } else {
-        localStorage.setItem('token', response.data.token)
-      }
+      localStorage.setItem('admin_token', response.data.token)
       localStorage.setItem('user', JSON.stringify(response.data.user))
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
-      // Redirect to admin dashboard if admin login
-      router.push(isAdminLogin.value ? '/admin' : '/account')
+      router.push('/admin')
     }
   } catch (err) {
     error.value = err.response?.data?.message || 'Login failed. Please try again.'
@@ -361,6 +374,16 @@ const verify2FA = async () => {
   error.value = ''
 
   try {
+    // For customer login, use the auth store
+    if (!isAdminLogin.value) {
+      const result = await authStore.verify2FA(form2FA.code)
+      
+      if (result.success) {
+        router.push('/account')
+      }
+      return
+    }
+    
     // Use admin API endpoint if admin login
     const apiEndpoint = isAdminLogin.value 
       ? '/api/v1/admin/auth/verify-2fa' 
@@ -395,6 +418,19 @@ const changeForcedPassword = async () => {
   error.value = ''
 
   try {
+    // For customer login, use the auth store
+    if (!isAdminLogin.value) {
+      const result = await authStore.changeForcedPassword(
+        passwordForm.password, 
+        passwordForm.password_confirmation
+      )
+      
+      if (result.success) {
+        router.push('/account')
+      }
+      return
+    }
+    
     const token = localStorage.getItem('temp_token')
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     

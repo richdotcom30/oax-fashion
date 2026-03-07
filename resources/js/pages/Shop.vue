@@ -45,7 +45,7 @@
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <h3 class="text-sm font-bold uppercase tracking-wider text-text-muted">Size</h3>
-                            <a href="#" class="text-xs text-text-muted underline hover:text-white">Size Guide</a>
+                            <router-link to="/size-guide" class="text-xs text-text-muted underline hover:text-white">Size Guide</router-link>
                         </div>
                         <div class="grid grid-cols-4 gap-2">
                             <button class="h-10 border border-oax-border rounded flex items-center justify-center text-xs hover:border-white hover:bg-oax-panel transition-all">XS</button>
